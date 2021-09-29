@@ -7,7 +7,6 @@ define('ABC_NOTICE',        4);
 define('ABC_INFO',          5);
 define('ABC_DEBUG',         6);
 define('ABC_TRACE',         7);
-define('ABC_VAR_DUMP',      8);
 define('ABC_NO_LOG',      -1);
 $php_version = explode( "\.", phpversion() );
 if( $php_version[0] == 4 && $php_version[1] <= 1 ) {
@@ -144,7 +143,7 @@ var  $_logger_name;
       }      $signature = serialize(array($name, $level));
       if (!isset($instances[$signature])) {
             $instances[$signature] = DebugOut::Factory($name, $logger_name, $level);
-      }      
+      }
       return $instances[$signature];
  } function attach(&$logObserver) {
     if (!is_object($logObserver)) {
@@ -312,9 +311,10 @@ class ExcelFont {
         } else {
             $ret = $ret."font-style:normal; ";
         }    }    return $ret;
- }}define ( DP_EMPTY, 0 );
-define ( DP_STRING_SOURCE, 1 );
-define ( DP_FILE_SOURCE, 2 );
+ }}
+define ( 'DP_EMPTY', 0 );
+define ( 'DP_STRING_SOURCE', 1 );
+define ( 'DP_FILE_SOURCE', 2 );
 //------------------------------------------------------------------------
 class ExcelParserUtil
 {
@@ -855,14 +855,14 @@ $root_entry_index = $this->find_stream( $dir, 'Root Entry');
 if( $root_entry_index < 0 ) {
 /*DBG*/    $this->dbglog->debug("parse_workbook() function dont found Root Entry returns 6");
     return 6;
- } 
+ }
  $sdc_start_block = $dir->getLong( $root_entry_index * 0x80 + 0x74 );
  $small_data_chain = $this->get_blocks_chain($sdc_start_block);
  $this->max_sblocks = count($small_data_chain) * 8;
- 
- $schain = $this->get_blocks_chain($small_block); 
+
+ $schain = $this->get_blocks_chain($small_block);
  for( $i = 0; $i < count( $schain ); $i++ ) {
- 
+
 $sfatbuf = $dp->get( $schain[$i] * 0x200, 0x200 );
 $sfat = new DataProvider( $sfatbuf, DP_STRING_SOURCE );
 //$this->dbglog->dump( strlen($sfatbuf), "strlen(\$sftabuf)");
@@ -870,10 +870,10 @@ $sfat = new DataProvider( $sfatbuf, DP_STRING_SOURCE );
   if( $sfat->getSize() < 0x200 ) {
 /*DBG*/     $this->dbglog->debug("parse_workbook() function found (strlen($sfat) < 0x200)  returns 6");
      return 6;
-       }       
+       }
   for( $j=0; $j<0x80; $j++ )
    $this->sfat[] = $sfat->getLong( $j * 4 );
-   
+
    $sfat->close();
    unset( $sfatbuf, $sfat );
  } unset( $schain );
@@ -1231,13 +1231,13 @@ switch ($res) {
 
 for( $ws_num=0; $ws_num<count($exc->worksheet['name']); $ws_num++ )
 {
-	$Sheetname=$exc->worksheet['name'][$ws_num];	
-	$ws = $exc->worksheet['data'][$ws_num];	
-	for( $j=0; $j<=$ws['max_row']; $j++ ) {	
+	$Sheetname=$exc->worksheet['name'][$ws_num];
+	$ws = $exc->worksheet['data'][$ws_num];
+	for( $j=0; $j<=$ws['max_row']; $j++ ) {
 		for( $i=0; $i<=$ws['max_col']; $i++ ) {
-			
-		   $data = $ws['cell'][$j][$i];	
-			
+
+		   $data = $ws['cell'][$j][$i];
+
 		   switch ($data['type']) {
 			// string
 			case 0:
@@ -1267,9 +1267,9 @@ for( $ws_num=0; $ws_num<count($exc->worksheet['name']); $ws_num++ )
 				break;
 			default:
 				break;
-		   }											
+		   }
 			$result[$Sheetname][$j][$i]=$V;
-		}		
+		}
 	}
 }
 if ($err=='') {return 0;} else {return $err;}
@@ -1277,37 +1277,37 @@ if ($err=='') {return 0;} else {return $err;}
 
 //------------------------Excelļ
 function Create_Excel_File($ExcelFile,$Data) {
-	
-header ('Content-type: application/x-msexcel'); 
-header ("Content-Disposition: attachment; filename=$ExcelFile" );  
 
-function xlsBOF() { 
-    echo pack("ssssss", 0x809, 0x8, 0x0, 0x10, 0x0, 0x0);  
-    return; 
+header ('Content-type: application/x-msexcel');
+header ("Content-Disposition: attachment; filename=$ExcelFile" );
+
+function xlsBOF() {
+    echo pack("ssssss", 0x809, 0x8, 0x0, 0x10, 0x0, 0x0);
+    return;
 }
-function xlsEOF() { 
-    echo pack("ss", 0x0A, 0x00); 
-    return; 
-} 
-function xlsWriteNumber($Row, $Col, $Value) { 
-    echo pack("sssss", 0x203, 14, $Row, $Col, 0x0); 
-    echo pack("d", $Value); 
-    return; 
-} 
-function xlsWriteLabel($Row, $Col, $Value ) { 
-    $L = strlen($Value); 
-    echo pack("ssssss", 0x204, 8 + $L, $Row, $Col, 0x0, $L); 
-    echo $Value; 
-return; 
-} 
+function xlsEOF() {
+    echo pack("ss", 0x0A, 0x00);
+    return;
+}
+function xlsWriteNumber($Row, $Col, $Value) {
+    echo pack("sssss", 0x203, 14, $Row, $Col, 0x0);
+    echo pack("d", $Value);
+    return;
+}
+function xlsWriteLabel($Row, $Col, $Value ) {
+    $L = strlen($Value);
+    echo pack("ssssss", 0x204, 8 + $L, $Row, $Col, 0x0, $L);
+    echo $Value;
+return;
+}
 
 xlsBOF();
 for ($i=0;$i<count($Data[0]);$i++)
 {
 	for ($j=0;$j<count($Data);$j++)
 	{
-		$v=$Data[$j][$i];		
-		
+		$v=$Data[$j][$i];
+
 		xlsWriteLabel($j,$i,$v);
 	}
 }

@@ -1,7 +1,7 @@
-<?php 
-$dbhost='localhost';	//database server 
-$dbuser='scheduler';		//database username 
-$dbpw='scheduler';		//database password 
+<?php
+$dbhost='localhost';	//database server
+$dbuser='scheduler';		//database username
+$dbpw='scheduler';		//database password
 $dbname='scheduler';		//database name
 $goipcronport='44444';  //xchange port
 $msvrport='56030';
@@ -50,5 +50,3 @@ define("SMS_CLIENT_ID", 82);
 
 define("IMEI_IMSI_INFO", 75);
 define("AUTO_DIAL", 131);
-
-?>

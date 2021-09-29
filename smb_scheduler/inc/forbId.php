@@ -4,4 +4,3 @@ $url='http://'.$_SERVER['HTTP_HOST'].substr($PHP_SELF,0,strrpos($PHP_SELF, '/')+
 if(!defined('OK')) {
 	header("Location: $url");
 }
-?>
