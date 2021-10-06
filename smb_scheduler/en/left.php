@@ -46,8 +46,8 @@ eval("submenu" + ClassId + ".style.display=\"none\";");
 </table>
 <table cellpadding=0 cellspacing=0 wIdth=155 align=center>
   <tr>
-        <td height=25 class=menu_title onmouseover=this.className='menu_title2'; onmouseout=this.className='menu_title';  Id=menuTitle0> 
-          <span><a href="main.php" target=main><b>Main</b></a> | <a href=logout.php target=_top><b>Logout</b></a></span> 
+        <td height=25 class=menu_title onmouseover=this.className='menu_title2'; onmouseout=this.className='menu_title';  Id=menuTitle0>
+          <span><a href="main.php" target=main><b>Main</b></a> | <a href=logout.php target=_top><b>Logout</b></a></span>
         </td>
   </tr>
   <tr>
@@ -65,7 +65,7 @@ eval("submenu" + ClassId + ".style.display=\"none\";");
 </table>
       <table cellpadding=0 cellspacing=0 wIdth=155 align=center>
   <tr>
-        <td height=25 class=menu_title onmouseover=this.className='menu_title2'; onmouseout=this.className='menu_title';  Id=menuTitle44 style="cursor:hand;"> 
+        <td height=25 class=menu_title onmouseover=this.className='menu_title2'; onmouseout=this.className='menu_title';  Id=menuTitle44 style="cursor:hand;">
           <span>Configuration</span> </td>
   </tr>
   <tr>
@@ -117,10 +117,10 @@ le45 onClick="showsubmenu(45)" style="cursor:hand;">
 <tr>
 <td height=20><a href="all_device_line.php" target=main>&nbspGoIP Channel</a></td>
 </tr>
-<tr>        
+<tr>
 <td height=20><a href="logs.php" target=main>&nbspLogs</a></td>
 </tr>
-<tr>        
+<tr>
 <td height=20><a href="call_record.php" target=main>&nbspCall Record</a></td>
 </tr>
 <tr>
@@ -134,7 +134,7 @@ le45 onClick="showsubmenu(45)" style="cursor:hand;">
 
 <table cellpadding=0 cellspacing=0 wIdth=155 align=center>
   <tr>
-        <td height=25 class=menu_title onmouseover=this.className='menu_title2'; onmouseout=this.className='menu_title';  Id=menuTitle4 onClick="showsubmenu(4);" style="cursor:hand;"> 
+        <td height=25 class=menu_title onmouseover=this.className='menu_title2'; onmouseout=this.className='menu_title';  Id=menuTitle4 onClick="showsubmenu(4);" style="cursor:hand;">
           <span>Data Manage</span> </td>
   </tr>
   <tr>
@@ -160,8 +160,8 @@ le45 onClick="showsubmenu(45)" style="cursor:hand;">
   </tr>
 </table>
 
-<?php 
-//} 
+<?php
+//}
 ?>
 <table cellpadding=0 cellspacing=0 wIdth=155 align=center>
   <tr>
@@ -178,7 +178,7 @@ le45 onClick="showsubmenu(45)" style="cursor:hand;">
 <tr><td height=20><a href="user.php?job=modify" target=main>&nbspManage Other Users</a></td>
 </tr>
 <?php } ?>
-		  
+
         </table>
       </div>
       <div  style="wIdth:155">
@@ -199,5 +199,3 @@ le45 onClick="showsubmenu(45)" style="cursor:hand;">
 </table>
 </body>
 </html>
-
-

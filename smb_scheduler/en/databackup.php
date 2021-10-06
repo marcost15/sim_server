@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(!isset($_SESSION['usertype'])){
         require_once ('login.php');
@@ -19,10 +19,10 @@ ini_set("memory_limit", "200M");
 </head>
 <body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
 <table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>Data Manage</strong></td>
   </tr>
-  <tr class="tdbg"> 
+  <tr class="tdbg">
     <td wIdth="70" height="30"><strong>Navigation:</strong></td>
     <td height="30"><a href="databackup.php"  target=main> Data Backup </a> | <a href="datarestore.php" target=main>Data Import</a></td>
   </tr>
@@ -34,7 +34,7 @@ require_once('../inc/conn.inc.php');
 //	$dbuser='goip';		//database username
 //	$dbpw='goip';		//database password
 //	$dbname='goip';		//database name
-	
+
 global $mysqlhost, $mysqluser, $mysqlpwd, $mysqldb;
 $mysqlhost=$dbhost; //host name
 $mysqluser=$dbuser;              //login name
@@ -48,7 +48,7 @@ if(!$_POST['act']){
 /*----------------------*/
 ?>
 
-<br> 
+<br>
 <table wIdth="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
   <tr class="title">
     <td height="22"><strong> Notice: </strong></td>
@@ -63,31 +63,31 @@ if(!$_POST['act']){
 <br>
 <form name="form1" method="post" action="databackup.php">
 <table wIdth="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
-  <tr class="title"> 
+  <tr class="title">
     <td height="22" colspan="2" align="center"><strong>Data Backup </strong></td>
   </tr>
-  <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'"> 
+  <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'">
     <td colspan="2">Backup mode</td>
   </tr>
-  <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'"> 
+  <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'">
     <td><input name="bfzl" type="radio" value="quanbubiao" checked>
 Backup all data</td>
   <td>Backup all data to a backup data sheet paper</td>
   </tr>
 
-   <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'"> 
+   <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'">
     <td colspan="2">Choice of target locations</td>
   </tr>
-   <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'"> 
+   <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'">
     <td><input type="radio" name="weizhi" value="server" checked>
       Backup to server</td>
   <td><input type="radio" name="weizhi" value="localpc">
 Backup to local</td>
   </tr>
-   <tr align="center" class="tdbg" onmouseover="this.style.backgroundColor='#BFDFFF'" onmouseout="this.style.backgroundColor=''"> 
+   <tr align="center" class="tdbg" onmouseover="this.style.backgroundColor='#BFDFFF'" onmouseout="this.style.backgroundColor=''">
     <td colspan="2"><input type="submit" name="act" value="Backup"></td>
   </tr>
-</table> 
+</table>
 </form>
 
 <?php /*-------------界面結束-------------*/}/*---------------------------------*/
@@ -153,7 +153,7 @@ while($d->nextrecord($tables))
 	}
 }
 $sql.="SET FOREIGN_KEY_CHECKS = 1\n";
-if($sql!=""){$filename.=("_v".$p.".sql");		
+if($sql!=""){$filename.=("_v".$p.".sql");
 if(write_file($sql,$filename))
 $msgs[]="All data sheets - Vol-".$p."-Complete data backup, backup document generation'../backup/$filename'";}
 show_msg($msgs);
@@ -182,12 +182,12 @@ $msgs[]="table-".$_POST['tablename']."-Complete data backup, backup document gen
 /*----------------分卷*/else{/*--------------------------------------*/
 if(!$_POST['filesize'])
 	{$msgs[]="Please fill volumes size document backup "; show_msg($msgs);pageend();}
-$sql=make_header($_POST['tablename']); $p=1; 
+$sql=make_header($_POST['tablename']); $p=1;
 	$filename=date("Ymdhis",time())."_".$_POST['tablename'];
 	$d->query("select * from ".$_POST['tablename']);
 	$num_fields=$d->nf();
-	while ($d->nextrecord()) 
-	{	
+	while ($d->nextrecord())
+	{
 		$sql.=make_record($_POST['tablename'],$num_fields);
 	   if(strlen($sql)>=$_POST['filesize']*1000){
 			$filename.=("_v".$p.".sql");
@@ -198,7 +198,7 @@ $sql=make_header($_POST['tablename']); $p=1;
 			$filename=date("Ymdhis",time())."_".$_POST['tablename'];
 			$sql="";}
 	}
-if($sql!=""){$filename.=("_v".$p.".sql");		
+if($sql!=""){$filename.=("_v".$p.".sql");
 if(write_file($sql,$filename))
 $msgs[]="table-".$_POST['tablename']."-Vol-".$p."-Complete data backup, backup document generation'../backup/$filename'";}
 show_msg($msgs);
@@ -247,12 +247,12 @@ function down_file($sql,$filename)
 	ob_end_clean();
 	header("Content-Encoding: none");
 	header("Content-Type: ".(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') ? 'application/octetstream' : 'application/octet-stream'));
-			
+
 	header("Content-Disposition: ".(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') ? 'inline; ' : 'attachment; ')."filename=".$filename);
-			
+
 	header("Content-Length: ".strlen($sql));
 	header("Pragma: no-cache");
-			
+
 	header("Expires: 0");
 	echo $sql;
 	$e=ob_get_contents();
@@ -262,26 +262,26 @@ function down_file($sql,$filename)
 
 function writeable($dir)
 {
-	
+
 	if(!is_dir($dir)) {
 	@mkdir($dir, 0777);
 	}
-	
-	if(is_dir($dir)) 
+
+	if(is_dir($dir))
 	{
-	
+
 	if($fp = @fopen("$dir/test.test", 'w'))
 		{
 @fclose($fp);
 	@unlink("$dir/test.test");
 	$writeable = 1;
-} 
+}
 	else {
 $writeable = 0;
 	}
-	
+
 }
-	
+
 	return $writeable;
 
 }
@@ -300,7 +300,7 @@ function make_record($table,$num_fields)
 {global $d;
 $comma="";
 $sql .= "INSERT INTO ".$table." VALUES(";
-for($i = 0; $i < $num_fields; $i++) 
+for($i = 0; $i < $num_fields; $i++)
 {$sql .= ($comma."'".mysql_escape_string($d->record[$i])."'"); $comma = ",";}
 $sql .= ")\n";
 return $sql;
@@ -310,11 +310,13 @@ function show_msg($msgs)
 {
 	$strErr="<html><head><title>Error Information</title><meta http-equiv='Content-Type' content='text/html; charset=ISO-8859-1'>" ;
 	$strErr=$strErr."<link href='style.css' rel='stylesheet' type='text/css'></head><body>" ;
-	$strErr=$strErr."<br><br><table cellpadding=2 cellspacing=1 border=0 wIdth=400 class='border' align=center>"; 
+	$strErr=$strErr."<br><br><table cellpadding=2 cellspacing=1 border=0 wIdth=400 class='border' align=center>";
 	$strErr=$strErr."  <tr align='center'><td height='22' class='title'><strong>Info</strong></td></tr>" ;
 	$strErr=$strErr."  <tr><td height='100' class='tdbg' valign='top'><b>Notice:</b><br><ul>";
-	while (list($k,$v)=each($msgs))
-	$strErr=$strErr."<li>".$v."</li>";
+	//while (list($k,$v)=each($msgs))
+		foreach ($msgs as $k => $) {
+			$strErr=$strErr."<li>".$v."</li>";
+		}
 	$strErr=$strErr."</ul></td></tr>" ;
 	$strErr=$strErr."  <tr align='center'><td class='tdbg'><a href=javascript:history.back();>&lt;&lt; Return</a></td></tr>" ;
 	$strErr=$strErr."</table>" ;
@@ -331,5 +333,5 @@ exit();
 ?>
 
 <br><br>
-</body> 
-</html> 
+</body>
+</html>

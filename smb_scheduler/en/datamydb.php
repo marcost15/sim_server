@@ -5,7 +5,7 @@ var $linkid;
 var $sqlid;
 var $record;
 
-function datadb($host="",$username="",$password="",$database="")
+function __constructor($host="",$username="",$password="",$database="")
 	{
 	if(!$this->linkid)  @$this->linkid = mysql_connect($host, $username, $password) or die("Connect server failure .");
 	@mysql_select_db($database,$this->linkid) or die("Unable to open the database");

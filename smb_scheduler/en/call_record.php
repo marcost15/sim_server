@@ -14,12 +14,12 @@ if($action=="del"){
 	if(empty($Id)){
 		$num=$_POST['boxs'];
 		for($i=0;$i<$num;$i++)
-		{	
-			if(!empty($_POST["Id$i"])){
+		{
+			if(!empty($_POST['Id$i'])){
 				if($Id=="")
-					$Id=$_POST["Id$i"];
+					$Id=$_POST['Id$i'];
 				else
-					$Id=$_POST["Id$i"].",$Id";
+					$Id=$_POST['Id$i'].",$Id";
 			}
 		}
 	}
@@ -36,12 +36,12 @@ if($action=="del"){
 	}
 }
 else if($action=="delall"){
-	if($ErrMsg!="")                                                                                           
-		WriteErrMsg($ErrMsg);                                                                             
-	else{ 
+	if($ErrMsg!="")
+		WriteErrMsg($ErrMsg);
+	else{
 		if($_REQUEST[line_name])  $where="where line_name='$_REQUEST[line_name]'";
 		else if($_REQUEST[sim_name])  $where="where sim_name='$_REQUEST[sim_name]'";
-		$db->query("DELETE FROM call_record $where"); 
+		$db->query("DELETE FROM call_record $where");
 
 		WriteSuccessMsg("<br><li>Delete call records success</li>","call_record.php?line_name=$_REQUEST[line_name]&sim_name=$_REQUEST[sim_name]");
 
@@ -79,7 +79,7 @@ if(!empty($_REQUEST['column'])&& !empty($_REQUEST['type']) && !empty($_REQUEST['
 		$where.=" >= '$s_key'";
 	}
 }
-else {  
+else {
 	$t_selected['contain']="selected";
 	$c_selected['number']="selected";
 }
@@ -96,7 +96,7 @@ $line_name=$_REQUEST['line_name'];
 if(!$name) {
         $sim_ch="selected";
         $sim_name_ch="All";
-	
+
 }
 
 $select2="Sim:<select name=\"sim_name\"  style=\"width:90px\" >\n\t<option value=\"0\" $ch>All</option>\n";
@@ -106,13 +106,13 @@ while($row=$db->fetch_array($query)) {
 		$row['ch'] = "selected";
 		$sim_name_ch = $row['name'];
 		$channel[]=$row;
-		$sim_db[$row[name]]=$row;
+		$sim_db[$row['name']]=$row;
 	}
 	else if(!$sim_name){
 		$channel[]=$row;
-		$sim_db[$row[name]]=$row;
+		$sim_db[$row['name']]=$row;
 	}
-	$select2.="\t<option value=\"$row[name]\" $row[ch]>$row[name]</option>\n";
+	$select2.="\t<option value=\"{$row['name']}\" $row[ch]>{$row['name']}</option>\n";
 }
 $select2.="</select>";
 
@@ -123,13 +123,13 @@ while($row=$db->fetch_array($query)) {
 		$row['ch'] = "selected";
 		$line_name_ch = $row['name'];
 		$channel[]=$row;
-		$line_db[$row[name]]=$row;
+		$line_db[$row['name']]=$row;
 	}
 	else if(!$line_name){
 		$channel[]=$row;
-		$line_db[$row[name]]=$row;
-	}       
-	$select2.="\t<option value=\"$row[name]\" $row[ch]>$row[name]</option>\n";
+		$line_db[$row['name']]=$row;
+	}
+	$select2.="\t<option value=\"{$row['name']}\" $row[ch]>{$row['name']}</option>\n";
 }
 $select2.="</select>";
 
@@ -141,7 +141,7 @@ $select.="\t<option value='imei' $c_selected[imei]>IMEI</option>\n";
 $select.="\t<option value='imsi' $c_selected[imsi]>IMSI</option>\n";
 $select.="\t<option value='iccid' $c_selected[iccid]>ICCID</option>\n";
 $select.="\t<option value='disconnect_cause' $c_selected[disconnect_cause]>Disconnect Cause</option>\n";
-$select.="</select>\n"; 
+$select.="</select>\n";
 $select.="Search Type<select name=\"type\"  style=\"width:95px\" >";
 $select.="\t<option value='equal' $t_selected[equal]>equal</option>\n";
 $select.="\t<option value='less' $t_selected[less]>less than</option>\n";
@@ -160,7 +160,7 @@ $select.="<input type=\"submit\" name=\"submit_value\" value=\"Search\">\n";
 		$pages.="&sim_name=$sim_name";
 		$t_info.=" SIM Name:$sim_name";
 	}
-	if(!$t_info) $t_info="All"; 
+	if(!$t_info) $t_info="All";
 	//echo ("SELECT count(*) AS count FROM call_record $where ");
 
 if($_REQUEST['submit_value']=='Export'){
@@ -258,7 +258,7 @@ function unselectall()
 	{
 	    if(document.myform.chkAll.checked){
 		document.myform.chkAll.checked = document.myform.chkAll.checked&0;
-	    } 	
+	    }
 	}
 
 function CheckAll(form)
@@ -270,7 +270,7 @@ function CheckAll(form)
 		    e = form.elements[i];
 		    if (e.type == 'checkbox' && e.id != "chkAll" && e.disabled==false){
 				e.checked = form.chkAll.checked;
-		 		do {e=e.parentNode} while (e.tagName!="TR") 
+		 		do {e=e.parentNode} while (e.tagName!="TR")
 		 		if(form.chkAll.checked)
 		 			e.className = 'even marked';
 		 		else
@@ -283,7 +283,7 @@ function CheckAll(form)
 function mouseover(obj) {
                 obj.className += ' hover';
 				//alert(obj.className);
-            	
+
 			}
 
 function mouseout(obj) {
@@ -294,7 +294,7 @@ function mouseout(obj) {
 function trclick(obj) {
 		//alert("ddddd");
         var checkbox = obj.getElementsByTagName( 'input' )[0];
-        //if ( checkbox && checkbox.type == 'checkbox' ) 
+        //if ( checkbox && checkbox.type == 'checkbox' )
         checkbox.checked ^= 1;
 		if(checkbox.checked)
 			obj.className = 'even marked';
@@ -302,8 +302,8 @@ function trclick(obj) {
 //		var ckpage=document.modifyform.elements['chkAll'+num];
 	    if(document.myform.chkAll.checked){
 		document.myform.chkAll.checked = document.myform.chkAll.checked&0;
-	    } 	
-		
+	    }
+
 
 		}
 
@@ -312,17 +312,17 @@ function trclick(obj) {
 </head>
 <body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
 <table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>(<?php echo $t_info ?>)Call Records</strong></td>
   </tr>
-  <tr class="tdbg"> 
+  <tr class="tdbg">
 <td wIdth="70" height="30"><strong>Navigation:</strong></td>
     <td height="30"><a href="<?php echo "?line_name=$line_name&sim_name=$sim_name&start_time=$start_time&end_time=$end_time&column=$column&type=$type&s_key=$_REQUEST[s_key]" ?>" target=main>Refresh</a>&nbsp;|&nbsp;<a href="call_record.php" target=main>All Record</a></td>
   </tr>
 </table>
 <table width="100%" height="25"  border="0" cellpadding="0" cellspacing="0">
 <form action="?action=search" method="post">
-<tr><td> 
+<tr><td>
 <?php echo $select2 ?>
 Start:
 <input type="text" name="start_time"  readOnly onClick="SelectDate(this,'yyyy-MM-dd hh:mm')" value="<?php echo $start_time ?>">
@@ -351,7 +351,7 @@ End:
 		<td wIdth="80" align=center><b>Operations</b></td>
 	</tr>
 <!--
-<?php 
+<?php
 $j=0;
 foreach($rsdb as $rs) {
 print <<<EOT
@@ -368,7 +368,7 @@ print <<<EOT
 		<td align="center">{$rs['dir1']}</td>
 		<td align="center">{$rs['number']}</td>
 		<td align="center">{$rs['disconnect_cause']}</td>
-				
+
 		<td align=center wIdth="80"><a href="call_record.php?id={$rs['id']}&action=del&line_name={$_REQUEST['line_name']}&sim_name={$_REQUEST['sim_name']}" onClick="return confirm('Sure to delete?')">Delete</a></td>
     </tr>
 
@@ -384,7 +384,7 @@ print <<<EOT
 
 
 					<tr>
-						<td height="30" ><input name="chkAll" type="checkbox" Id="chkAll" onclick=CheckAll(this.form) value="checkbox"> 
+						<td height="30" ><input name="chkAll" type="checkbox" Id="chkAll" onclick=CheckAll(this.form) value="checkbox">
 					  Choice current page<input name="submit" type='submit' value='Delete selected'>
 <input name="button" type='button' value='Delete All' onClick="if(confirm('Suer to delete all call records?')) window.location='?action=delall&line_name=$_REQUEST[line_name]&sim_name=$_REQUEST[sim_name]'"></td>
 					</tr>
@@ -398,9 +398,9 @@ EOT;
 -->
 </form>
 
-					  </td> 
+					  </td>
 					</tr>
 </table>
-				
+
 </body>
 </html>

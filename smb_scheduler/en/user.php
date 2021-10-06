@@ -12,26 +12,26 @@ if(isset($_GET['action'])) {
 	if($_GET['action'] != "modifyself" && $_GET['action'] != "savemodifyself" && $_GET['action'] != "modifymsg" && $_GET['action'] != "savemodifymsg" && $_SESSION['permissions'] != 1  )
 		WriteErrMsg("<br><li>Permission denied!</li>");
 	$action=$_GET['action'];
-	
+
 	if($action=="del")
 	{
 					$ErrMsg="";
 					$Id=$_GET['id'];
 					if(($Id=$_GET['id']) == "1")
 						$ErrMsg="<br><li>The super user cannot be delete</li>";
-					
+
 					if(empty($Id)){
 						$num=$_POST['boxs'];
 						for($i=0;$i<$num;$i++)
-						{	
+						{
 							if(!empty($_POST["Id$i"])){
-							
+
 							  if($_POST["Id$i"] == "1"){
 							  		$ErrMsg="<br><li>The super user cannot be delete</li>";
 									WriteErrMsg($ErrMsg);
 									break;
 							  }
-							  
+
 								if($Id=="")
 									$Id=$_POST["Id$i"];
 								else
@@ -40,7 +40,7 @@ if(isset($_GET['action'])) {
 						}
 					}
 					//WriteErrMsg($num."$Id");
-					
+
 					if(empty($Id))
 						$ErrMsg ='<br><li>Please choose one</li>';
 					if($ErrMsg!="")
@@ -49,14 +49,14 @@ if(isset($_GET['action'])) {
 						$query=$db->query("DELETE FROM user WHERE id IN ($Id)");
 
 						WriteSuccessMsg("<br><li>Successfully deleted</li>","user.php");
-						
+
 					}
 		//$id=$_GET['id'];
 		//$query=$db->query("Delete  from ".$tablepre."admin WHERE Id=$id");
 	}
 	elseif($action=="add")
 	{
-		
+
 	}
 	elseif($action=="modify")
 	{
@@ -74,13 +74,13 @@ if(isset($_GET['action'])) {
 	{
 		$UserName=$_SESSION['username'];
 		$password=myaddslashes($_POST['Password']);
-		$_POST[info]=myaddslashes($_POST[info]);
+		$_POST['info']=myaddslashes($_POST['info']);
 		if($password){
 			$password=md5(md5($password.'dbl').'yzm');
 			$pas=",password='$password'";
 		}
 		//else WriteErrMsg("密碼不能爲空");
-		$query=$db->query("UPDATE user SET info='$_POST[info]'".$pas."  WHERE name='$UserName'");
+		$query=$db->query("UPDATE user SET info='{$_POST['info']}'".$pas."  WHERE name='$UserName'");
 		//$query=$db->query("UPDATE user SET password='$password' WHERE name='$UserName'");
 		WriteSuccessMsg("<br><li>Change password</li>","user.php");
 
@@ -96,7 +96,7 @@ if(isset($_GET['action'])) {
 			 //addslashes($_POST["msg$i"]);
 			if(!get_magic_quotes_gpc())
 				$msg=addslashes($_POST["msg$i"]);
-			else 
+			else
 				$msg=$_POST["msg$i"];
 			$sql.=" msg$i='$msg',";
 		}
@@ -111,7 +111,7 @@ if(isset($_GET['action'])) {
 					$password=myaddslashes($_POST['Password']);
 					$provider=$_POST['provider'];
 					$permissions=$_POST['permissions'];
-					
+
 					$info=$_POST['info'];
 					$ErrMsg="";
 					if(empty($username))
@@ -121,7 +121,7 @@ if(isset($_GET['action'])) {
 					if($ErrMsg!="")
 						WriteErrMsg($ErrMsg);
 					else{
-					
+
 						$query=$db->query("SELECT id FROM user WHERE name='$username' ");
 						$rs=$db->fetch_array($query);
 						if(empty($rs[0])){
@@ -133,7 +133,7 @@ if(isset($_GET['action'])) {
 							$ErrMsg=$ErrMsg."<br><li>Administrator [$username] have existed</li>";
 							WriteErrMsg($ErrMsg);
 						}
-								
+
 					}
 	}
 	elseif($action=="savemodify")
@@ -154,18 +154,20 @@ if(isset($_GET['action'])) {
 							$password=md5(md5($password.'dbl').'yzm');
 							$pas=",password='$password'";
 						}
-						$_POST[info]=myaddslashes($_POST[info]);
-						$query=$db->query("UPDATE user SET permissions='$_POST[permissions]',info='$_POST[info]'".$pas."  WHERE id='$Id'");
+						$_POST['info']=myaddslashes($_POST['info']);
+						$query=$db->query(
+							"UPDATE user
+								SET permissions = '{$_POST['permissions']}',info='{$_POST['info']}'".$pas."  WHERE id='$Id'");
 
 						WriteSuccessMsg("<br><li>Modify administrator success:</li>","user.php");
 					}
 	}
 	else $action="main";
-	
+
 }
 else $action="main";
 
-if($_SESSION['permissions'] < 2)	
+if($_SESSION['permissions'] < 2)
 {
 	$query=$db->query("SELECT count(*) AS count FROM user");
 	$row=$db->fetch_array($query);
@@ -193,5 +195,3 @@ if($_SESSION['permissions'] < 2)
 	}
 }
 	require_once ('user.htm');
-
-?>

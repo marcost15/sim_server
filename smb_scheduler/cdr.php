@@ -25,7 +25,7 @@ function my_cmp($a, $b)
 {
 	global $order_type;
 	global $order_key;
-	
+
 	//echo "$a[name] $b[name] $a[$order_key] $b[$order_key]<br>";
 	//if (empty($a[$order_key]) && empty($b[$order_key])) return 0;
 	//if(empty($b[$order_key])) return -1;
@@ -52,7 +52,7 @@ else if($_REQUEST['submit_value'] == '半小时'){
 	$start_time=date("Y-m-d H:i", time()-1800);
 	$end_time=date("Y-m-d H:i");
 }
-else { 
+else {
 	$start_time=$_REQUEST['start_time'];
 	if(!$start_time) $start_time=date("Y-m-d")." 00:00";
 	$end_time=$_REQUEST['end_time'];
@@ -72,7 +72,7 @@ if($name) $wh="and ".$type."_name=$name";
 $select="<select name=\"name\"  style=\"width:80px\" >\n\t<option value=\"0\" $ch>All</option>\n";
 if($type=="line")
 	$query=$db->query("select id, ".$type."_name as name from device_line where 1  order by line_name");
-else 
+else
 	$query=$db->query("select id, ".$type."_name as name from sim where 1 order by sim_name");
 while($row=$db->fetch_array($query)) {
 	if($name==$row['name']) {
@@ -97,7 +97,7 @@ while($row=$db->fetch_array($query)){
 	$calltime+=$row[1];
 	$callcount+=$row[2];
 	$row['acd']=round($row[1]/$row[2]);
-	$row['acd_s']=second_to_time($row['acd']);;	
+	$row['acd_s']=second_to_time($row['acd']);;
 	$row['calltime_s']=second_to_time($row[1]);
 	$rsdb[$row[name]]=$row;
 }
@@ -111,7 +111,7 @@ while($row=$db->fetch_array($query)){
 	$calltime+=$row[1];
 	$callcount+=$row[2];
 	$row['acd']=round($row[1]/$row[2]);
-	$row['acd_s']=second_to_time($row['acd']);;	
+	$row['acd_s']=second_to_time($row['acd']);;
 	$row['calltime_s']=second_to_time($row[1]);
 	$rsdb[$row[name]]=$row;
 }
@@ -136,7 +136,7 @@ if($_REQUEST['submit_value']=='导出'){
 
 	if($name==0) $filename="CDR_".$type."_ALL($start_time~$end_time).xls";
 	else $filename="CDR_".$type.$name."($start_time~$end_time).xls";
-	
+
 	$return[0][0]=$type;
 	$return[0][1]="ASR";
 	$return[0][2]="ACD";

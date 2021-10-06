@@ -5,10 +5,7 @@ include_once 'config.inc.php';
 include_once 'forbId.php';
 
 function myaddslashes($var){
-	if(!get_magic_quotes_gpc())
 		return addslashes($var);
-	else
-		return $var;
 }
 
 function getmicrotime(){

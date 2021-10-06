@@ -7,7 +7,6 @@ if(!isset($_SESSION['userid'])){
 }
 
 ?>
-
 <html>
 <meta name="Author" content="Gaby_chen">
 <head>

@@ -20,7 +20,7 @@ $order_type=$_REQUEST['order'];
 $order_key=$_REQUEST['order_key'];
 
 function get_id()
-{       
+{
         if($_REQUEST['chkAll0']) return "all SIM Slots";
         $num=$_REQUEST['boxs'];
         for($i=0;$i<$num;$i++)
@@ -279,7 +279,7 @@ if(isset($_GET['action'])) {
 }
 else $action="main";
 
-//if($_COOKIE['adminname']=="admin")	
+//if($_COOKIE['adminname']=="admin")
 if($action=="main")
 {
 	$where="where 1 ";
@@ -289,9 +289,9 @@ if($action=="main")
 	if($_GET[line_name])
 		$where.="and device_line.line_name='$_GET[line_name]'";
 */
-	if($_GET[group_id] && $_GET[group_id]!=-1)
-		$where.="and device_line.goip_team_id='$_GET[group_id]'";
-	else if($_GET[group_id]==-1){
+	if($_GET['group_id'] && $_GET['group_id']!=-1)
+		$where.="and device_line.goip_team_id='{$_GET['group_id']}'";
+	else if($_GET['group_id']==-1){
 		$where.="and device_line.goip_team_id='0'";
 	}
 
@@ -314,7 +314,7 @@ if($action=="main")
 		$start_limit=0;
 		$page=1;
 	}
-	$fenye=showpage2("?goip_name=$_GET[goip_name]&group_id=$_GET[group_id]&order_key=$order_key&order=$order&",$page,$count,$perpage,true,true,"row(s)","myform","boxs");
+	$fenye=showpage2("?goip_name=$_GET[goip_name]&group_id={$_GET['group_id']}&order_key=$order_key&order=$order&",$page,$count,$perpage,true,true,"row(s)","myform","boxs");
 	if($order_key) $orderby=" ORDER BY `$order_key` $order_type,device_line.line_name ";
 	else $orderby=" ORDER BY device_line.line_name ";
 	$query=$db->query("SELECT device_line.*,sim_team.*,sim.sim_name,zone,zone_tag,tag FROM device_line left join rm_device on device_line.goip_name = rm_device.name left join sim_team on device_line.goip_team_id=sim_team.sim_team_id left join sim on device_line.line_name=sim.line_name $where $orderby  LIMIT $start_limit,$perpage");
@@ -365,26 +365,26 @@ if($action=="main")
 	$goip_select="<select name=\"name\"  style=\"width:80px\" onchange=\"javascript:window.location='?goip_name='+this.options[this.selectedIndex].value+'&sim_name=$_REQUEST[sim_name]&group_id=$_REQUEST[group_id]'\">\n\t<option value=\"0\" $bank_ch>All</option>\n";
 	$query=$db->query("SELECT name from rm_device ORDER BY name");
 	while($row=$db->fetch_array($query)) {
-		$goip_db[name]=$row[name];
-		if($_REQUEST['goip_name']==$row['name']) 
-			$goip_select.="\t<option value=\"$row[name]\" selected>$row[name]</option>\n";
-		else 
-			$goip_select.="\t<option value=\"$row[name]\">$row[name]</option>\n";
+		$goip_db['name']=$row['name'];
+		if($_REQUEST['goip_name']==$row['name'])
+			$goip_select.="\t<option value=\"{$row['name']}\" selected>{$row['name']}</option>\n";
+		else
+			$goip_select.="\t<option value=\"{$row['name']}\">{$row['name']}</option>\n";
 	}
 	$goip_select.="</select>";
 
 	$group_select="<select name=\"group_id\"  style=\"width:80px\" onchange=\"javascript:window.location='?goip_name=$_REQUEST[goip_name]&sim_name=$_REQUEST[sim_name]&group_id='+this.options[this.selectedIndex].value\">\n\t<option value=\"\" $group_ch>All</option>\n";
 	$query=$db->query("SELECT * from sim_team ORDER BY sim_team_id");
 	while($row=$db->fetch_array($query)) {
-		$group_db[id]=$row[sim_team_name];
+		$group_db['id']=$row['sim_team_name'];
 		if($_GET['group_id']==$row['sim_team_id'])
-			$group_select.="\t<option value=\"$row[sim_team_id]\" selected>$row[sim_team_name]</option>\n";
+			$group_select.="\t<option value=\"{$row['sim_team_id']}\" selected>{$row['sim_team_name']}</option>\n";
 		else
-			$group_select.="\t<option value=\"$row[sim_team_id]\">$row[sim_team_name]</option>\n";
+			$group_select.="\t<option value=\"{$row['sim_team_id']}\">{$row['sim_team_name']}</option>\n";
 	}
 	if($_GET['group_id']==-1)
 		$group_select.="\t<option value=\"-1\" selected>None</option>\n";
-	else 
+	else
 		$group_select.="\t<option value=\"-1\">None</option>\n";
 	$group_select.="</select>";
 
@@ -399,7 +399,7 @@ if($action=="main")
 
 		$num=$_POST['boxs'];
 		for($i=0;$i<$num;$i++)
-		{   
+		{
 			if(!empty($_POST["Id$i"])){
 				$strs0[]=$_POST["Id$i"];
 			}
@@ -422,5 +422,3 @@ if($action=="main")
 
 }
 require_once ('all_device_line.htm');
-
-?>

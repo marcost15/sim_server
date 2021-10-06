@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -41,9 +41,9 @@ function CheckForm()
         <td><input name="password" type="password" id="yd631_pws"></td>
       </tr>
       <tr align="center" bgcolor="#CCCCFF">
-        <td colspan="2"><input type="submit" name="Submit" value="Sign in"> 
-          <input type="reset" name="submit" value="Cancel"> 
-		  
+        <td colspan="2"><input type="submit" name="Submit" value="Sign in">
+          <input type="reset" name="submit" value="Cancel">
+
         </td>
       </tr>
     </table>

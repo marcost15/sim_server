@@ -6,17 +6,17 @@ if(!isset($_SESSION['usertype'])){
         require_once ('login.php');
         exit;
 }
-require_once("global.php");
+require_once('global.php');
 $action=$_GET['action'];
-if($action=="del"){
-        $ErrMsg="";
+if($action=='del'){
+        $ErrMsg='';
         $Id=$_GET['id'];
         if(empty($Id)){
                 $num=$_POST['boxs'];
                 for($i=0;$i<$num;$i++)
                 {
                         if(!empty($_POST["Id$i"])){
-                                if($Id=="")
+                                if($Id=='')
                                         $Id=$_POST["Id$i"];
                                 else
                                         $Id=$_POST["Id$i"].",$Id";
@@ -31,16 +31,16 @@ if($action=="del"){
         else{
                 $query=$db->query("DELETE FROM logs WHERE id IN ($Id)");
 
-                WriteSuccessMsg("<br><li>Delete logs success</li>","logs.php?line_name=$_GET[line_name]&sim_name=$_GET[sim_name]");
+                WriteSuccessMsg("<br><li>Delete logs success</li>","logs.php?line_name={$_GET['line_name']}&sim_name={$_GET['sim_name']}");
 
         }
 }
 else if($action=="delall"){
-	if($_GET[line_name])  $where="where line_name='$_GET[line_name]'";
-	else if($_GET[sim_name])  $where="where sim_name='$_GET[sim_name]'";
-	$db->query("DELETE FROM logs $where"); 
+	if($_GET['line_name'])  $where="where line_name='{$_GET['line_name']}'";
+	else if($_GET['sim_name'])  $where="where sim_name='{$_GET['sim_name']}'";
+	$db->query("DELETE FROM logs $where");
 
-	WriteSuccessMsg("<br><li>Delete logs success</li>","logs.php?line_name=$_GET[line_name]&sim_name=$_GET[sim_name]");
+	WriteSuccessMsg("<br><li>Delete logs success</li>","logs.php?line_name={$_GET['line_name']}&sim_name={$_GET['sim_name']}");
 
 }
 
@@ -49,19 +49,19 @@ else
 	{
 		$action='main';
 		$t_info="All";
-		if($_GET[team_id]){
-			$where="where team_id='$_GET[team_id]'";
-			$pages="team_id=$_GET[team_id]";
+		if($_GET['team_id']){
+			$where="where team_id='{$_GET['team_id']}'";
+			$pages="team_id={$_GET['team_id']}";
 		}
-		else if($_GET[line_name])  {
-			$where="where line_name='$_GET[line_name]'";
-			$pages="line_name=$_GET[line_name]";
-			$t_info="Line name:$_GET[line_name]";
+		else if($_GET['line_name'])  {
+			$where="where line_name='{$_GET['line_name']}'";
+			$pages="line_name={$_GET['line_name']}";
+			$t_info="Line name:{$_GET['line_name']}";
 		}
-		else if($_GET[sim_name])  {
-			$where="where sim_name='$_GET[sim_name]'";
-			$pages="sim_name=$_GET[sim_name]";
-			$t_info="SIM Name:$_GET[sim_name]";
+		else if($_GET['sim_name'])  {
+			$where="where sim_name='{$_GET['sim_name']}'";
+			$pages="sim_name={$_GET['sim_name']}";
+			$t_info="SIM Name:{$_GET['sim_name']}";
 		}
 		$query=$db->query("SELECT count(*) AS count FROM logs $where" );
 		$row=$db->fetch_array($query);
@@ -85,7 +85,7 @@ else
 		$fenye=showpage("?$pages&",$page,$count,$perpage,true,true,"row(s)");
 		$query=$db->query("SELECT * from logs left join sim_team on logs.team_id=sim_team.sim_team_id $where ORDER BY id desc LIMIT $start_limit,$perpage");
 		while($row=$db->fetch_array($query)) {
-			if($_GET[team_id]){
+			if($_GET['team_id']){
 				$t_info="group name:$row[sim_team_name]";
 			}
 			$rsdb[]=$row;
