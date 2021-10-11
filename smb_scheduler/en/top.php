@@ -8,11 +8,12 @@ define("OK", true);
 require_once("../global.php");
 $date=date("Y-m-d H:i:s D");
 ?>
+<!DOCTYPE html>
 <html>
-<meta name="Author" content="Gaby_chen">
 <head>
+<meta charset="utf-8">
+<meta name="Author" content="Gaby_chen">
 <title></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 a:link { color:#000000;text-decoration:none}
 a:hover {color:#666666;}
@@ -62,7 +63,7 @@ function switchBar(obj)
 
 	<td wIdth=40>&nbsp;
 	</td>
-	<td wIdth=100>&nbsp;</td>	
+	<td wIdth=100>&nbsp;</td>
 	<td align="right"><a href="" onClick="parent.location.href='../index.php'">切换到简体版</a>&nbsp;&nbsp;&nbsp; <?php echo $version." ".$bdate ?></td>
 </tr>
 </table>

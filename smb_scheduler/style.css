@@ -1,55 +1,55 @@
-BODY
+body
 {
-	FONT-SIZE: 12pt;
+	font-size: 12pt;
 	text-decoration: none;
 	line-height: 150%;
-	background-color: #FBFDFF;
+	background-color: #fbfdff;
 }
-TD
+td
 {
-	FONT-SIZE: 12pt;
+	font-size: 12pt;
 }
-Input
+input
 {
-	FONT-SIZE: 12pt;
-	HEIGHT: 24px;
+	font-size: 12pt;
+	height: 24px;
 }
-Button
+button
 {
-	FONT-SIZE: 12pt;
-	HEIGHT: 24px; 
+	font-size: 12pt;
+	height: 24px;
 }
-Select
+select
 {
-	FONT-SIZE: 12pt;
-	HEIGHT: 24px;
+	font-size: 12pt;
+	height: 24px;
 }
-A
+a
 {
-	FONT-SIZE: 12pt;
-	TEXT-DECORATION: none;
+	font-size: 12pt;
+	text-decoration: none;
 	color: #000000;
 
 }
-A:hover
+a:hover
 {
-	FONT-SIZE: 12pt;
-	COLOR: #428EFF;
+	font-size: 12pt;
+	color: #428eff;
 	text-decoration: underline;
 
 }
 .title
 {
-	background: #C7C7E2;
+	background: #c7c7e2;
 	/*background:url(images/topbar_bg.gif);
 	*/
 }
 .border
 {
-	border: 1px solId #215DC6;
+	border: 1px solid #215dc6;
 }
 .tdbg{
-	background:#E6E6F2;
+	background:#e6e6f2;
 	line-height: 120%;
 }
 
@@ -57,12 +57,12 @@ A:hover
 {
 	/*background:url(../images/admin/topbg.gif);
 	*/
-	background-color: #8080C0;
-	color: #FFFFFF;
+	background-color: #8080c0;
+	color: #ffffff;
 
 }
 .bgcolor {
-	background-color: #215DC6;
+	background-color: #215dc6;
 }
 .banner	     { background-color: #003366 }
 .sidebar     { background-color: #cccccc }title
@@ -101,24 +101,24 @@ a:hover      { text-decoration: underline; color:#003366; font-size: 12pt }
 a:active     { text-decoration: none; color: #003366; font-size: 12pt }
 
 .tables{
-	  OVERFLOW:   auto;HEIGHT:   400px; width:98% 
+	  overflow:   auto;height:   400px; width:98%
 }
 .spanpage	 { cursor:hand;text-decoration:underline;color:blue;}
 
 .tdbg2 a.link{
-	background:#D6D000;
+	background:#d6d000;
 	line-height: 120%;
 }
 
 .even {
-	BACKGROUND: #E6E6F2;
+	background: #e6e6f2;
 	line-height: 120%;
 }
 .marked {
-	BACKGROUND: #ffcc99; 
+	background: #ffcc99;
 }
 .even2 {
-	BACKGROUND: #CCFF99;
+	background: #ccff99;
 	line-height: 120%;
 }
 
@@ -127,19 +127,19 @@ a:active     { text-decoration: none; color: #003366; font-size: 12pt }
 	line-height: 120%;
 }
 /*
-TABLE TD.marked {
-	BACKGROUND: #ffcc99; 
+table td.marked {
+	background: #ffcc99;
 }
 
 
 /*
 .hover {
-	BACKGROUND: #bbffff; COLOR: #000000
+	background: #bbffff; color: #000000
 }
 */
 .inputtext {
-	border:none; 
-	background:#000000; 
+	border:none;
+	background:#000000;
 	color: #883333;
 	width:38px;
 }
