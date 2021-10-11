@@ -5,8 +5,8 @@ if(!isset($_SESSION['username'])){
 	exit;
 }
 
-//if($_COOKIE['permissions'] > 1)	
-//	die("需要admin权限！");	
+//if($_COOKIE['permissions'] > 1)
+//	die("需要admin权限！");
 define("OK", true);
 require_once("global.php");
 require_once('../inc/conn.inc.php');
@@ -67,7 +67,7 @@ else {
 		$send[]=pack('La*', $checksum, "reboot");
 		//sendto_xchanged2($send);
 	}
-	WriteSuccessMsg("<br><li>Save success!</li>","sys.php");	
+	WriteSuccessMsg("<br><li>Save success!</li>","sys.php");
 }
 ?>
 <html>
@@ -83,7 +83,7 @@ function show_tr(value,id){
 }
 </script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
 <table width="100%" height="25"  border="0" cellpadding="0" cellspacing="0">
   <tr class="topbg">
     <td width="8%">&nbsp;</td>
@@ -92,93 +92,93 @@ function show_tr(value,id){
 </table>
 <form method="post" action="sys.php?action=save" name="myform" onSubmit="javascript:return check();">
   <br>
-  <table wIdth="600" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
-    <tr class="title"> 
+  <table width="600" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+    <tr class="title">
       <td height="22" colspan="2"> <div align="center"><strong>System Settings</strong></div></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Status of Scheduler:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Status of Scheduler:</strong></td>
       <td class="tdbg"><?php if($alive == 1) echo 'On';else echo 'Off';?></td>
     </tr>
-    <tr> 
-      <td wIdth="300" align="right" class="tdbg"><strong>System Name:</strong></td>
+    <tr>
+      <td width="300" align="right" class="tdbg"><strong>System Name:</strong></td>
       <td class="tdbg"><input type="input" name="sysname" value="<?php echo $sysname ?>"></td>
     </tr>
-    <tr> 
-      <td wIdth="300" align="right" class="tdbg"><strong>Default Language:</strong></td>
+    <tr>
+      <td width="300" align="right" class="tdbg"><strong>Default Language:</strong></td>
       <td class="tdbg"><select name="lan">
 	  <option value="1" <?php if($lan==1) echo 'selected' ?>>Simplified Chinese</option>
 	  <option value="3" <?php if($lan==3) echo 'selected' ?>>English</option>
         </select>
       </td>
     </tr>
-    <tr> 
-      <td wIdth="300" align="right" class="tdbg"><strong>Server Mode:(need to run ./run_scheduler after change)</strong></td>
+    <tr>
+      <td width="300" align="right" class="tdbg"><strong>Server Mode:(need to run ./run_scheduler after change)</strong></td>
       <td class="tdbg"><select name="type">
-          <option value="0" <?php if($type!=1) echo 'selected' ?>>Whole Server</option> 
+          <option value="0" <?php if($type!=1) echo 'selected' ?>>Whole Server</option>
           <option value="1" <?php if($type==1) echo 'selected' ?>>SIM Bank Data Relay</option>
       </select></td>
     </tr>
 
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Warning limit of remain call time:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Warning limit of remain call time:</strong></td>
       <td class="tdbg"><input type="input" name="warning_remain_time" value="<?php echo $rs['warning_remain_time'] ?>"></td>
     </tr>
 
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Warning limit of remain call count:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Warning limit of remain call count:</strong></td>
       <td class="tdbg"><input type="input" name="warning_remain_count" value="<?php echo $rs['warning_remain_count'] ?>"></td>
     </tr>
 
 <?php
 print <<<EOT
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Disable SIM when specific disconected cause:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Disable SIM when specific disconected cause:</strong></td>
       <td class="tdbg"><input type="checkbox" name="auto_disable_s_call" id="auto_disable_s_call" onclick="show_tr(this.checked, 'auto_disable_s_call_div')" $auto_disable_s_call_checked></td>
     </tr>
     <tr style="display:{$auto_disable_s_call_display}" Id='auto_disable_s_call_div'>
-      <td wIdth="300" align="right" class="tdbg"><strong>Specific disconected cause:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Specific disconected cause:</strong></td>
       <td class="tdbg"><input type="input" name="auto_disable_s_call_msg" value="$rs[auto_disable_s_call_msg]"> </td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Reboot Moudle when specific disconected cause:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Reboot Moudle when specific disconected cause:</strong></td>
       <td class="tdbg"><input type="checkbox" name="auto_reboot_s_call" id="auto_reboot_s_call" onclick="show_tr(this.checked, 'auto_reboot_s_call_div')" $auto_reboot_s_call_checked></td>
     </tr>
     <tr style="display:{$auto_reboot_s_call_display}" Id='auto_reboot_s_call_div'>
-      <td wIdth="300" align="right" class="tdbg"><strong>Specific disconected cause:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Specific disconected cause:</strong></td>
       <td class="tdbg"><input type="input" name="auto_reboot_s_call_msg" value="$rs[auto_reboot_s_call_msg]"> </td>
     </tr>
 
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Disable SIM when low ASR:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Disable SIM when low ASR:</strong></td>
       <td class="tdbg"><input type="checkbox" name="auto_disable_low_asr" id="auto_disable_low_asr" onclick="show_tr(this.checked, 'auto_disable_low_asr_div')" $auto_disable_low_asr_checked></td>
     </tr>
     <tr style="display:{$auto_disable_low_asr_display}" Id='auto_disable_low_asr_div'>
-      <td wIdth="300" align="right" class="tdbg"><strong>Low ASR threshold:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Low ASR threshold:</strong></td>
       <td class="tdbg">lower than <input type="input" name="auto_disable_asr_threshold" value="$rs[auto_disable_asr_threshold]" size="1" onblur="onfocus_check_integer(this, 1, 100)">% in last<input type="input" name="auto_disable_asr_number" value="$rs[auto_disable_asr_number]" size="1" onblur="onfocus_check_integer(this, 1, 10000)">calls</td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Disable SIM when low ACD:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Disable SIM when low ACD:</strong></td>
       <td class="tdbg"><input type="checkbox" name="auto_disable_low_acd" id="auto_disable_low_acd" onclick="show_tr(this.checked, 'auto_disable_low_acd_div')" $auto_disable_low_acd_checked></td>
     </tr>
     <tr style="display:{$auto_disable_low_acd_display}" Id='auto_disable_low_acd_div'>
-      <td wIdth="300" align="right" class="tdbg"><strong>Low ACD threshold:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Low ACD threshold:</strong></td>
       <td class="tdbg">Less than<input type="input" name="auto_disable_acd_threshold" value="$rs[auto_disable_acd_threshold]" size="1" onblur="onfocus_check_integer(this, 1, 10000)">Seconds in last<input type="input" name="auto_disable_acd_number" value="$rs[auto_disable_acd_number]" size="1" onblur="onfocus_check_integer(this, 1, 10000)">connected calls </td>
     </tr>
 EOT;
 ?>
-    <tr> 
-      <td height="40" colspan="2" align="center" class="tdbg"><input name="Action" type="hIdden" Id="Action" value="Modify"> 
-        <input  type="submit" name="Submit" value="Modify" style="cursor:hand;"> 
- 
+    <tr>
+      <td height="40" colspan="2" align="center" class="tdbg"><input name="Action" type="hIdden" Id="Action" value="Modify">
+        <input  type="submit" name="Submit" value="Modify" style="cursor:hand;">
+
         &nbsp;<input name="Cancel" type="button" Id="Cancel" value="Cancel" onClick="window.location.href='sys.php'" style="cursor:hand;"></td>
     </tr>
   </table>
   </form>
-					  </td> 
+					  </td>
 					</tr>
 </table>
-				
+
 </body>
 </html>
 

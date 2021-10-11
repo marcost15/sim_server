@@ -23,16 +23,16 @@ print <<<EOT
 
 <body>
 <br>
-<table cellpadding="2" cellspacing="1" border="0" wIdth="100%" class="border" align=center>
+<table cellpadding="2" cellspacing="1" border="0" width="100%" class="border" align=center>
   <tr align="center">
     <td height=25 colspan=2 class="topbg"><strong>服务器信息</strong>
   <tr>
-    <td wIdth="50%"  class="tdbg" height=23>PHP 版本:$sysversion</td>
-    <td wIdth="50%" class="tdbg">最大上传限制:$max_upload</td>
+    <td width="50%"  class="tdbg" height=23>PHP 版本:$sysversion</td>
+    <td width="50%" class="tdbg">最大上传限制:$max_upload</td>
   </tr>
   <tr>
-    <td wIdth="50%" class="tdbg" height=23>服务器端信息:$sysos</td>
-    <td wIdth="50%" class="tdbg">Cookie 测试:$ifcookie</td>
+    <td width="50%" class="tdbg" height=23>服务器端信息:$sysos</td>
+    <td width="50%" class="tdbg">Cookie 测试:$ifcookie</td>
   </tr>
   <tr>
     <td class="tdbg" height=23>&nbsp;</td>

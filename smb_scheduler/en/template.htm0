@@ -44,7 +44,7 @@ str += "</select> <input id=\"queding\" name=\"queding\" type=\"button\" onclick
 document.writeln(str);
 var _fieldname;
 function _SetSelect(name,s_min,s_sec,e_min,e_sec){
-	
+
 }
 
 function _SetTime(tt) {
@@ -88,13 +88,13 @@ function a()
 
 </script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>Scheduler Template</strong></td>
   </tr>
-  <tr class="tdbg"> 
-    <td wIdth="100" height="30"><strong>Navigation:</strong></td>
+  <tr class="tdbg">
+    <td width="100" height="30"><strong>Navigation:</strong></td>
     <td height="30"><a href="template.php" target=main>List</a>&nbsp;|&nbsp;<a href="template.php?action=add" target=main>Add</a></td>
   </tr>
 </table>
@@ -110,7 +110,7 @@ print <<<EOT
   </tr>
 </table>
 <form action="?action=del" method=post name=myform onSubmit="return confirm('sure to delete?')">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
         <tr class=title>
                 <td align="center"><b>Template Name</b></td>
                 <td align="center"><b>Type</b></td>
@@ -124,7 +124,7 @@ EOT;
 $j=0;
 foreach($rsdb as $rs) {
 print <<<EOT
--->     
+-->
         <tr class="even" >
                 <td align="center">{$rs['name']}</td>
                 <td align="center">{$rs['type']}</td>
@@ -141,7 +141,7 @@ print <<<EOT
 -->
 </table>
 <input type="hIdden" name="boxs" value="{$j}">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 
                                         <tr>
                                                 <td  align=center>{$fenye}</td>
@@ -171,7 +171,7 @@ print <<<EOT
 </table>
 
 <form action="{$post}" method=post name=myform">
-  <table wIdth=100% border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+  <table width=100% border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
         <tr align="center">
                 <td align="right" class="tdbg"><strong>Name:</strong></td>
                 <td align="left" class="tdbg">
@@ -209,7 +209,7 @@ $day=1;
 for(;$day<=7;$day++) {
 	$dayi=$day-1;
 	if($day==1) $display='';
-	else $display="none"; 
+	else $display="none";
 print <<<EOT
 -->
                                 <tr>
@@ -257,12 +257,12 @@ print <<<EOT
 <tr>
 <td colspan="4" class="tdbg">
 <div style="display:{$display_cycle}" id="type_cycle_div">
-<table wIdth=100% border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+<table width=100% border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
         <tr align="center">
                 <td align="right" class="tdbg"><strong>Re-allocation Interval(m):</strong></td>
                 <td align="left" class="tdbg">
                         <input type="input" name="r_interval" value="$row[r_interval]" onblur="onfocus_check_integer(this, 0, 42949672)">
-                </td> 
+                </td>
                 <td align="right" class="tdbg"><strong>Sleep Interval(s):</strong></td>
                 <td align="left" class="tdbg">
                         <input type="input" name="s_interval" value="$row[s_interval]" onblur="onfocus_check_integer(this, 0, 42949672)">
@@ -309,10 +309,10 @@ print <<<EOT
 -->
 </form>
 
-					  </td> 
+					  </td>
 					</tr>
 </table>
-				
+
 </body>
 </html>
 <!--

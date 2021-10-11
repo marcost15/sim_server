@@ -5,13 +5,13 @@
 	}
 	define("OK", true);
 	require_once('inc/conn.inc.php');
-	//require_once("global.php");	
+	//require_once("global.php");
 	if($_POST[btnSave] =='Save'){
 		function WriteErrMsg($ErrMsg1)
 		{
 			$strErr="<html><head><title>Error Information</title><meta http-equiv='Content-Type' content='text/html; charset=ISO-8859-1'>" ;
 			$strErr=$strErr."<link href='style.css' rel='stylesheet' type='text/css'></head><body>" ;
-			$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 wIdth=400 class='border' align=center>"; 
+			$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 width=400 class='border' align=center>";
 			$strErr=$strErr."  <tr align='center'><td height='22' class='title'><strong>Wrong message</strong></td></tr>" ;
 			$strErr=$strErr."  <tr><td height='100' class='tdbg' valign='top'><b> Reasons:</b><br> $ErrMsg1</td></tr>" ;
 			$strErr=$strErr."  <tr align='center'><td class='tdbg'><a href=javascript:history.back();>&lt;&lt; Return</a></td></tr>" ;
@@ -20,7 +20,7 @@
 			echo $strErr;
 			exit;
 		}
-		
+
 		//'**************************************************
 		////'éŽç¨‹å:WriteSuccessMsg
 		//'ä½œ  ç”¨:é¡¯ç¤ºæˆåŠŸæç¤ºè³‡è¨Š
@@ -30,7 +30,7 @@
 		{
 			$strErr="<html><head><title>Success Information</title><meta http-equiv='Content-Type' content='text/html; charset=ISO-8859-1'>" ;
 			$strErr=$strErr."<link href='style.css' rel='stylesheet' type='text/css'></head><body>" ;
-			$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 wIdth=400 class='border' align=center>"; 
+			$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 width=400 class='border' align=center>";
 			$strErr=$strErr."  <tr align='center'><td height='22' class='title'><strong>Congratulation</strong></td></tr>" ;
 			$strErr=$strErr."  <tr><td height='100' class='tdbg' valign='top'>$SuccessMsg</td></tr>" ;
 			$strErr=$strErr."  <tr align='center'><td class='tdbg'><a href=$URL>Apply</a></td></tr>" ;
@@ -45,19 +45,19 @@
 		//$mobile=$_POST['tel'];
 
 		$permissions=$_POST['permissions'];
-		
+
 		$info=$_POST['info'];
 
-		
+
 
 		if($password){
 			$password=md5($password);
 			$sqll.=",password='$password'";
-		}	
+		}
 
 		$query=$db->query("update user set permissions='$permissions',info='$info',tel='$mobile',email='$_POST[email]' ".$sqll. " where id=$_COOKIE[userid]");
 		WriteSuccessMsg("<br><li>Modify administrator success</li>","index.php");
-					
+
 
 	}else {
 		$query=$db->query("SELECT * FROM user WHERE id=$_COOKIE[userid] ");
@@ -136,19 +136,19 @@ function check_pw()
 	  document.frmSystemUser.Password.focus();
       return false;
     }
-    
+
   if((document.frmSystemUser.Password.value)!=(document.frmSystemUser.PwdConfirm.value))
     {
       alert("Password and Confirm Password are different!");
 	  document.frmSystemUser.PwdConfirm.select();
-	  document.frmSystemUser.PwdConfirm.focus();	  
+	  document.frmSystemUser.PwdConfirm.focus();
       return false;
     }
 }
 </script>
 <div id="div_top_logo">
 	<div style="position:absolute;left: 8px;top:5px;height:30px;width:50%">
-	
+
 		<span class="Title8">SMS Management System</span>
 	</div>
 	<div style="width:200px;float:right;height:30px;top:0px" align="right"><?php echo $_COOKIE['username'] ?><a href="myself.php">[Account]</a> | <a href="logout.php">[Logout]</a>

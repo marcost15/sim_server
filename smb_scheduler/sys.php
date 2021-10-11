@@ -5,8 +5,8 @@ if(!isset($_SESSION['username'])){
 	exit;
 }
 
-//if($_COOKIE['permissions'] > 1)	
-//	die("需要admin权限！");	
+//if($_COOKIE['permissions'] > 1)
+//	die("需要admin权限！");
 define("OK", true);
 require_once("global.php");
 require_once('inc/conn.inc.php');
@@ -35,7 +35,7 @@ function sendto_xchanged2($send)
                                         echo("recvform error".socket_strerror($ret)."<br>");
                                         continue;
                                 }
-                                else{   
+                                else{
                                         if($buf=="try to reboot"){
                                                 //echo "get !";
                                                 $flag=1;
@@ -117,7 +117,7 @@ else {
 		$send[]=pack('La*', $checksum, "reboot");
 		//sendto_xchanged2($send);
 	}
-	WriteSuccessMsg("<br><li>保存成功</li>","sys.php");	
+	WriteSuccessMsg("<br><li>保存成功</li>","sys.php");
 }
 ?>
 <html>
@@ -143,7 +143,7 @@ function show_tr(value,id){
 }
 </script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
 <table width="100%" height="25"  border="0" cellpadding="0" cellspacing="0">
   <tr class="topbg">
     <td width="8%">&nbsp;</td>
@@ -153,28 +153,28 @@ function show_tr(value,id){
 <form method="post" action="sys.php?action=save" name="myform" onSubmit="javascript:return check();">
   <br>
   <br>
-  <table wIdth="600" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
-    <tr class="title"> 
+  <table width="600" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+    <tr class="title">
       <td height="22" colspan="2"> <div align="center"><strong>系统参数参数设定</strong></div></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>底层状态:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>底层状态:</strong></td>
       <td class="tdbg"><?php if($alive == 1) echo '已连接';else echo '未连接';?></td>
     </tr>
-    <tr> 
-      <td wIdth="300" align="right" class="tdbg"><strong>系统名称:</strong></td>
+    <tr>
+      <td width="300" align="right" class="tdbg"><strong>系统名称:</strong></td>
       <td class="tdbg"><input type="input" name="sysname" value="<?php echo $sysname ?>"></td>
     </tr>
-    <tr> 
-      <td wIdth="300" align="right" class="tdbg"><strong>默认语言:</strong></td>
+    <tr>
+      <td width="300" align="right" class="tdbg"><strong>默认语言:</strong></td>
       <td class="tdbg"><select name="lan">
 	  <option value="1" <?php if($lan==1) echo 'selected' ?>>简体中文</option>
 	  <option value="3" <?php if($lan==3) echo 'selected' ?>>英语</option>
 	</select>
       </td>
     </tr>
-    <tr> 
-      <td wIdth="300" align="right" class="tdbg"><strong>服务器模式(修改后需手动重启后台):</strong></td>
+    <tr>
+      <td width="300" align="right" class="tdbg"><strong>服务器模式(修改后需手动重启后台):</strong></td>
       <td class="tdbg"><select name="type">
           <option value="0" <?php if($type!=1) echo 'selected' ?>>完整的服务器</option>
           <option value="1" <?php if($type==1) echo 'selected' ?>>SIM Bank做数据中转</option>
@@ -182,59 +182,59 @@ function show_tr(value,id){
     </tr>
 
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>剩余通话时间的警告界限(分):</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>剩余通话时间的警告界限(分):</strong></td>
       <td class="tdbg"><input type="input" name="warning_remain_time" value="<?php echo $rs['warning_remain_time'] ?>"></td>
-    </tr>    
+    </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>剩余呼叫次数的警告界限(次):</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>剩余呼叫次数的警告界限(次):</strong></td>
       <td class="tdbg"><input type="input" name="warning_remain_count" value="<?php echo $rs['warning_remain_count'] ?>"></td>
     </tr>
 <?php
 print <<<EOT
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>当收到特定挂机信息时禁用卡:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>当收到特定挂机信息时禁用卡:</strong></td>
       <td class="tdbg"><input type="checkbox" name="auto_disable_s_call" id="auto_disable_s_call" onclick="show_tr(this.checked, 'auto_disable_s_call_div')" $auto_disable_s_call_checked></td>
     </tr>
     <tr style="display:{$auto_disable_s_call_display}" Id='auto_disable_s_call_div'>
-      <td wIdth="300" align="right" class="tdbg"><strong>特定的挂机信息:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>特定的挂机信息:</strong></td>
       <td class="tdbg"><input type="input" name="auto_disable_s_call_msg" value="$rs[auto_disable_s_call_msg]"> </td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>当ASR低时禁用卡:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>当ASR低时禁用卡:</strong></td>
       <td class="tdbg"><input type="checkbox" name="auto_disable_low_asr" id="auto_disable_low_asr" onclick="show_tr(this.checked, 'auto_disable_low_asr_div')" $auto_disable_low_asr_checked></td>
     </tr>
     <tr style="display:{$auto_disable_low_asr_display}" Id='auto_disable_low_asr_div'>
-      <td wIdth="300" align="right" class="tdbg"><strong>ASR低的判定:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>ASR低的判定:</strong></td>
       <td class="tdbg">ASR低于<input type="input" name="auto_disable_asr_threshold" value="$rs[auto_disable_asr_threshold]" size="1" onblur="onfocus_check_integer(this, 1, 100)">%于近<input type="input" name="auto_disable_asr_number" value="$rs[auto_disable_asr_number]" size="1" onblur="onfocus_check_integer(this, 1, 10000)">次呼叫中</td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>当ACD低时禁用卡:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>当ACD低时禁用卡:</strong></td>
       <td class="tdbg"><input type="checkbox" name="auto_disable_low_acd" id="auto_disable_low_acd" onclick="show_tr(this.checked, 'auto_disable_low_acd_div')" $auto_disable_low_acd_checked></td>
     </tr>
     <tr style="display:{$auto_disable_low_acd_display}" Id='auto_disable_low_acd_div'>
-      <td wIdth="300" align="right" class="tdbg"><strong>ACD低的判定:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>ACD低的判定:</strong></td>
       <td class="tdbg">ACD低于<input type="input" name="auto_disable_acd_threshold" value="$rs[auto_disable_acd_threshold]" size="1" onblur="onfocus_check_integer(this, 1, 10000)">秒于近<input type="input" name="auto_disable_acd_number" value="$rs[auto_disable_acd_number]" size="1" onblur="onfocus_check_integer(this, 1, 10000)">次通话中 </td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>启用GSM掉线自动禁用卡:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>启用GSM掉线自动禁用卡:</strong></td>
       <td class="tdbg"><input type="checkbox" name="gsm_logout_enable" id="gsm_logout_enable" onclick="show_tr(this.checked, 'gsm_logout_enable_div')" {$gsm_logout_checked}></td>
     </tr>
     <tr style="display:{$gsm_logout_display}" Id='gsm_logout_enable_div'>
-      <td wIdth="200" align="right" class="tdbg"><strong>GSM掉线的时限（分钟）:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>GSM掉线的时限（分钟）:</strong></td>
       <td class="tdbg"><input type="input" name="gsm_logout_time_limit" value="$rs[auto_disable_logout_min]"> </td>
-    </tr> 
-    <tr> 
-      <td height="40" colspan="2" align="center" class="tdbg"><input name="Action" type="hIdden" Id="Action" value="Modify"> 
-        <input  type="submit" name="Submit" value="保 存" style="cursor:hand;"> 
- 
+    </tr>
+    <tr>
+      <td height="40" colspan="2" align="center" class="tdbg"><input name="Action" type="hIdden" Id="Action" value="Modify">
+        <input  type="submit" name="Submit" value="保 存" style="cursor:hand;">
+
         &nbsp;<input name="Cancel" type="button" Id="Cancel" value="取 消" onClick="window.location.href='sys.php'" style="cursor:hand;"></td>
     </tr>
   </table>
   </form>
-					  </td> 
+					  </td>
 					</tr>
 </table>
-				
+
 </body>
 </html>
 <!--

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 ?>
 
@@ -45,9 +45,9 @@ function CheckForm()
         <td><input name="password" type="password" id="yd631_pws"></td>
       </tr>
       <tr align="center" bgcolor="#CCCCFF">
-        <td colspan="2"><input type="submit" name="Submit" value="提交"> 
-          <input type="reset" name="submit" value="重置"> 
-		  
+        <td colspan="2"><input type="submit" name="Submit" value="提交">
+          <input type="reset" name="submit" value="重置">
+
         </td>
       </tr>
     </table>

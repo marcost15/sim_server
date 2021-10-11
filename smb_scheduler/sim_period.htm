@@ -111,7 +111,7 @@ function _CheckPeriod(tt){
 		else index++;
 		base_name='period_start';
 	}
-	
+
 	next_col=document.getElementById(base_name+day+index);
 	//alert(base_name+day+index);
 
@@ -156,7 +156,7 @@ function _SetTime(tt) {
 		low_min=document.getElementById(last_col).value.substr(3,2);
 		//alert(last_col);
 	}
-	
+
 	//alert(low_hour+low_min);
 	//alert(tt.id);
 	_fieldname = tt;
@@ -173,9 +173,9 @@ function _SetTime(tt) {
 	};
 
 	//_fieldname = tt;
-	var ttop = tt.offsetTop;    
-	var thei = tt.clientHeight;   
-	var tleft = tt.offsetLeft;  
+	var ttop = tt.offsetTop;
+	var thei = tt.clientHeight;
+	var tleft = tt.offsetLeft;
 	while (tt = tt.offsetParent) {
 		ttop += tt.offsetTop;
 		tleft += tt.offsetLeft;
@@ -186,13 +186,13 @@ function _SetTime(tt) {
 }
 </script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>SIM Slot时段限制</strong></td>
   </tr>
-  <tr class="tdbg"> 
-    <td wIdth="100" height="30"><strong>管理导航:</strong></td>
+  <tr class="tdbg">
+    <td width="100" height="30"><strong>管理导航:</strong></td>
     <td height="30"><a href="?sim_name={$_GET['sim_name']}" target=main>Slot时段限制</a>&nbsp;|&nbsp;<a href="sim_bank.php" target=main>SIM Bank列表</a>&nbsp;|&nbsp;<a href="sim_bank.php?action=add" target=main>添加SIM Bank</a></td>
   </tr>
 </table>
@@ -227,7 +227,7 @@ $day=0;
 for(;$day<=6;$day++) {
 	$dayi=$day;
 	if($day==0) $display='';
-	else $display="none"; 
+	else $display="none";
 print <<<EOT
 -->
                                 <tr class="tdbg">
@@ -247,7 +247,7 @@ print <<<EOT
 -->
                                     <tr align="center" >
                                      <td  class="text" >时段{$ii}
-                                      <input type="text" name="period_start{$ii}" id="period_start{$ii}" value="{$start_h[$day][$i]}:{$start_m[$day][$i]}" class="edit" style="font-size:20px"  onclick="_SetTime(this)" readonly> - 
+                                      <input type="text" name="period_start{$ii}" id="period_start{$ii}" value="{$start_h[$day][$i]}:{$start_m[$day][$i]}" class="edit" style="font-size:20px"  onclick="_SetTime(this)" readonly> -
 <input type="text" name="period_end{$ii}" id="period_end{$ii}" value="{$stop_h[$day][$i]}:{$stop_m[$day][$i]}" class="edit" style="font-size:20px" onclick="_SetTime(this)" readonly>
 
                                      </td>
@@ -311,10 +311,10 @@ print <<<EOT
 -->
 </form>
 
-					  </td> 
+					  </td>
 					</tr>
 </table>
-				
+
 </body>
 </html>
 <!--

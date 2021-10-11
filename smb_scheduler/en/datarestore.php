@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if($_SESSION['usertype'] != 1){
         die('Permission denied!');
@@ -16,13 +16,13 @@ ini_set("memory_limit", "200M");
 <meta name="Author" content="Gaby_chen">
 <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>Data Manage</strong></td>
   </tr>
-  <tr class="tdbg"> 
-    <td wIdth="70" height="30"><strong>Navigation Manage:</strong></td>
+  <tr class="tdbg">
+    <td width="70" height="30"><strong>Navigation Manage:</strong></td>
     <td height="30"><a href="databackup.php"  target=main>Data Backup</a> | <a href="datarestore.php" target=main>Data Import</a></td>
   </tr>
 </table>
@@ -45,14 +45,14 @@ if(!$_POST['act']&&!$_SESSION['data_file']){
 /**********************/
 ?>
 
-<br> 
-<table wIdth="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
+<br>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
   <tr class="title">
     <td height="22"><strong> Notice</strong></td>
   </tr>
   <tr class="tdbg">
     <td valign="middle"><ul>
-        <li>This feature is in the restoration of backup data at the same time covering all the original data. Make sure that the need for recovery, in order to avoid data loss. 
+        <li>This feature is in the restoration of backup data at the same time covering all the original data. Make sure that the need for recovery, in order to avoid data loss.
 	<li>Data recovery file from local should be smaller than the maxinum upload(now it is <?php echo ini_get('file_uploads') ? ini_get('upload_max_filesize') : 'Disabled';?>). Otherwise, you should use data file from server backup.
 	</ul>
 	</td>
@@ -60,14 +60,14 @@ if(!$_POST['act']&&!$_SESSION['data_file']){
 </table>
 <br>
 <form action="" method="post" enctype="multipart/form-data" name="datarestore.php">
-<table wIdth="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
-  <tr class="title"> 
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
+  <tr class="title">
     <td height="22" colspan="2" align="center"><strong>Data Recovery</strong></td>
   </tr>
-  <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'"> 
+  <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'">
     <td colspan="2">Backup mode</td>
   </tr>
-  <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'"> 
+  <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'">
     <td><input type="radio" name="restorefrom" value="server" checked>
 Resumption of documents from the server </td>
   <td><select name="serverfile">
@@ -76,20 +76,20 @@ Resumption of documents from the server </td>
 $handle=opendir('../backup');
 while ($file = readdir($handle)) {
     if(eregi("^[0-9]{8,8}([0-9a-z_]+)(\.sql)$",$file)) echo "<option value='$file'>$file</option>";}
-closedir($handle); 
+closedir($handle);
 ?>
   </select></td>
   </tr>
-   <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'"> 
+   <tr class="tdbg" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#BFDFFF'">
      <td><input type="radio" name="restorefrom" value="localpc">
 Resume from the local paper</td>
      <td><input type="hidden" name="MAX_FILE_SIZE" value="150000000">
       <input type="file" name="myfile"></td>
   </tr>
-   <tr align="center" class="tdbg" onmouseover="this.style.backgroundColor='#BFDFFF'" onmouseout="this.style.backgroundColor=''"> 
+   <tr align="center" class="tdbg" onmouseover="this.style.backgroundColor='#BFDFFF'" onmouseout="this.style.backgroundColor=''">
     <td colspan="2"><input type="submit" name="act" value="Recovery"></td>
   </tr>
-</table> 
+</table>
 </form>
 
 <?php /**************************界面结束*/}/*************************************/
@@ -102,7 +102,7 @@ if(!eregi("_v[0-9]+",$_POST['serverfile']))
 	{$filename="../backup/".$_POST['serverfile'];
 	if(import($filename)) $msgs[]="Backup File".$_POST['serverfile']."Import Database Successfully";
 	else $msgs[]="Backup File".$_POST['serverfile']."	Import failure";
-	show_msg($msgs); pageend();		
+	show_msg($msgs); pageend();
 	}
 else
 	{
@@ -120,9 +120,9 @@ else
 		$_SESSION['data_file']=$tmpfile;
 		show_msg($msgs);
 		sleep(3);
-		echo "<script language='javascript'>"; 
-		echo "location='datarestore.php';"; 
-		echo "</script>"; 
+		echo "<script language='javascript'>";
+		echo "location='datarestore.php';";
+		echo "</script>";
 		}
 	else
 		{
@@ -167,7 +167,7 @@ $attach_name=$_FILES["myfile"]['name'];
 	if ($attach_size>$db_uploadmaxsize){
 		showerror("upload_size_error");
 	}
-	
+
 	$available_type = explode(' ',trim($db_uploadfiletype));
 	$attach_ext = substr(strrchr($attach_name,'.'),1);
 	$attach_ext=strtolower($attach_ext);
@@ -181,7 +181,7 @@ $attach_name=$_FILES["myfile"]['name'];
 			@mkdir($attachdir);
 			@chmod($attachdir,0777);
 		}
-		
+
 	$source=$attachdir.'/'.$fname;
 	if(function_exists("move_uploaded_file") && @move_uploaded_file($attachment, $source)){
 		chmod($source,0777);
@@ -195,12 +195,12 @@ $attach_name=$_FILES["myfile"]['name'];
 		chmod($source,0777);
 	}
 
-	
+
 //echo "./backup/".$fname;
    // copy($_FILES['myfile']['tmp_name'], "./backup/".$fname);
    }
 
-if (file_exists("../backup/".$fname)) 
+if (file_exists("../backup/".$fname))
 	{
 	$msgs[]="Backup File Upload local success ";
 	if(import("../backup/".$fname)) {$msgs[]="Backup documents into the database of local success"; unlink("../backup/".$fname);}
@@ -227,9 +227,9 @@ if(!$_POST['act']&&$_SESSION['data_file'])
 		$_SESSION['data_file']=$tmpfile;
 		show_msg($msgs);
 		sleep(3);
-		echo "<script language='javascript'>"; 
-		echo "location='datarestore.php';"; 
-		echo "</script>"; 
+		echo "<script language='javascript'>";
+		echo "location='datarestore.php';";
+		echo "</script>";
 		}
 	else
 		{
@@ -254,7 +254,7 @@ function show_msg($msgs)
 {
 	$strErr="<html><head><title>Error Information</title><meta http-equiv='Content-Type' content='text/html; charset=ISO-8859-1'>" ;
 	$strErr=$strErr."<link href='style.css' rel='stylesheet' type='text/css'></head><body>" ;
-	$strErr=$strErr."<br><br><table cellpadding=2 cellspacing=1 border=0 wIdth=400 class='border' align=center>"; 
+	$strErr=$strErr."<br><br><table cellpadding=2 cellspacing=1 border=0 width=400 class='border' align=center>";
 	$strErr=$strErr."  <tr align='center'><td height='22' class='title'><strong>Information </strong></td></tr>" ;
 	$strErr=$strErr."  <tr><td height='100' class='tdbg' valign='top'><b>Suggest:</b><br><ul>";
 	while (list($k,$v)=each($msgs))
@@ -298,5 +298,5 @@ function num_rand($lenth){
 ?>
 
 <br><br>
-</body> 
-</html> 
+</body>
+</html>

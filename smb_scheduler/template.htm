@@ -195,8 +195,8 @@ function _SetTime(tt) {
 
 	//_fieldname = tt;
 	var ttop = tt.offsetTop;
-	var thei = tt.clientHeight;    
-	var tleft = tt.offsetLeft;    
+	var thei = tt.clientHeight;
+	var tleft = tt.offsetLeft;
 	while (tt = tt.offsetParent) {
 		ttop += tt.offsetTop;
 		tleft += tt.offsetLeft;
@@ -208,13 +208,13 @@ function _SetTime(tt) {
 
 </script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>组调度模板</strong></td>
   </tr>
-  <tr class="tdbg"> 
-    <td wIdth="100" height="30"><strong>管理导航</strong></td>
+  <tr class="tdbg">
+    <td width="100" height="30"><strong>管理导航</strong></td>
     <td height="30"><a href="template.php" target=main>列表</a>&nbsp;|&nbsp;<a href="template.php?action=add" target=main>添加</a></td>
   </tr>
 </table>
@@ -230,7 +230,7 @@ print <<<EOT
   </tr>
 </table>
 <form action="?action=del" method=post name=myform onSubmit="return confirm('确认删除?')">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
         <tr class=title>
                 <td align="center"><b>模板名称</b></td>
                 <td align="center"><b>调度类型</b></td>
@@ -244,7 +244,7 @@ EOT;
 $j=0;
 foreach($rsdb as $rs) {
 print <<<EOT
--->     
+-->
         <tr class="even" >
                 <td align="center">{$rs['name']}</td>
                 <td align="center">{$rs['type']}</td>
@@ -261,7 +261,7 @@ print <<<EOT
 -->
 </table>
 <input type="hIdden" name="boxs" value="{$j}">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 
                                         <tr>
                                                 <td  align=center>{$fenye}</td>
@@ -291,7 +291,7 @@ print <<<EOT
 </table>
 
 <form action="{$post}" method=post name=myform">
-  <table wIdth=100% border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+  <table width=100% border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
         <tr align="center">
                 <td align="right" class="tdbg"><strong>模板名称:</strong></td>
                 <td align="left" class="tdbg">
@@ -327,7 +327,7 @@ $day=0;
 for(;$day<=6;$day++) {
 	$dayi=$day;
 	if($day==0) $display='';
-	else $display="none"; 
+	else $display="none";
 print <<<EOT
 -->
                                 <tr>
@@ -346,7 +346,7 @@ print <<<EOT
 -->
                                     <tr>
                                      <td class="text" width="100%" align="center">时间段{$ii}
-                                      <input type="text" name="period_start{$ii}" id="period_start{$ii}" value="{$start_h[$day][$i]}:{$start_m[$day][$i]}" class="edit"  style="font-size:20px" onclick="_SetTime(this)" readonly> -  
+                                      <input type="text" name="period_start{$ii}" id="period_start{$ii}" value="{$start_h[$day][$i]}:{$start_m[$day][$i]}" class="edit"  style="font-size:20px" onclick="_SetTime(this)" readonly> -
                                       <input type="text" name="period_end{$ii}" id="period_end{$ii}" value="{$stop_h[$day][$i]}:{$stop_m[$day][$i]}" class="edit" style="font-size:20px"  onclick="_SetTime(this)" readonly>
                                      </td>
 
@@ -373,12 +373,12 @@ print <<<EOT
 <tr>
 <td colspan="4" class="tdbg">
 <div style="display:{$display_cycle}" id="type_cycle_div">
-<table wIdth=100% border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+<table width=100% border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
         <tr align="center">
                 <td align="right" class="tdbg"><strong>工作时长（分）:</strong></td>
                 <td align="left" class="tdbg">
                         <input type="input" name="r_interval" value="$row[r_interval]" onblur="onfocus_check_integer(this, 0, 42949672)">
-                </td> 
+                </td>
                 <td align="right" class="tdbg"><strong>休眠时长（秒）:</strong></td>
                 <td align="left" class="tdbg">
                         <input type="input" name="s_interval" value="$row[s_interval]" onblur="onfocus_check_integer(this, 0, 42949672)">
@@ -425,10 +425,10 @@ print <<<EOT
 -->
 </form>
 
-					  </td> 
+					  </td>
 					</tr>
 </table>
-				
+
 </body>
 </html>
 <!--

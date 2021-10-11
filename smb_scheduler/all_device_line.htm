@@ -18,7 +18,7 @@ function unselectall()
 	{
 	    if(document.myform.chkAll.checked){
 		document.myform.chkAll.checked = document.myform.chkAll.checked&0;
-	    } 	
+	    }
 	}
 
 
@@ -38,7 +38,7 @@ function CheckAll(form, obj)
                                         nrcount--;
                         }
                         e.checked = obj.checked;
-                        do {e=e.parentNode} while (e.tagName!="TR") 
+                        do {e=e.parentNode} while (e.tagName!="TR")
                                 if(obj.checked)
                                         e.className = 'even marked';
                                 else
@@ -59,7 +59,7 @@ function CheckAll(form, obj)
 function mouseover(obj) {
                 obj.className += ' hover';
 				//alert(obj.className);
-            	
+
 			}
 
 function mouseout(obj) {
@@ -69,13 +69,13 @@ function mouseout(obj) {
 
 function trclick(obj) {
         var checkbox = obj.getElementsByTagName( 'input' )[0];
-        //if ( checkbox && checkbox.type == 'checkbox' ) 
+        //if ( checkbox && checkbox.type == 'checkbox' )
         checkbox.checked ^= 1;
 
 	if(checkbox.checked){
 		obj.className = 'even marked';
 
-		if(nrcount>=0) {nrcount++;document.getElementById('td01').innerHTML="Now selected "+nrcount+" GoIP channel(s)"; document.getElementById('td02').innerHTML="Now selected "+nrcount+" GoIP channel(s)";} 
+		if(nrcount>=0) {nrcount++;document.getElementById('td01').innerHTML="Now selected "+nrcount+" GoIP channel(s)"; document.getElementById('td02').innerHTML="Now selected "+nrcount+" GoIP channel(s)";}
 
 	}
 	else {
@@ -162,13 +162,13 @@ function select_location(value, name){
 
 </script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>GoIP线路管理</strong></td>
   </tr>
-  <tr class="tdbg"> 
-    <td wIdth="100" height="30"><strong>管理导航:</strong></td>
+  <tr class="tdbg">
+    <td width="100" height="30"><strong>管理导航:</strong></td>
     <td height="30"><a href="?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key" target=main>刷新</a>&nbsp;|&nbsp;</td>
   </tr>
 </table>
@@ -191,9 +191,9 @@ GoIP:
   </tr>
 </table>
 <form action="goip.php?action=del" method=post name=myform onSubmit="return confirm('确认删除?')">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 	<tr class=title>
-                <td wIdth="15" align=center height="25"><b>CH</b></td>
+                <td width="15" align=center height="25"><b>CH</b></td>
 		<td align="center"><a href="?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type2&order_key=line_name"><b>线路ID</b></a></td>
 		<td align="center"><a href="?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type2&order_key=line_status"><b>状态</b></a></td>
 		<td align="center"><a href="?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type2&order_key=gsm_status"><b>GSM状态</b></a></td>
@@ -240,7 +240,7 @@ else {
 print <<<EOT
 -->
 	<tr class="$class"  onMouseOver="mouseover(this)" onMouseOut="mouseout(this)" onMouseDown="trclick(this)">
-                <td align=center wIdth="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['line_name']}" $cck></td>
+                <td align=center width="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['line_name']}" $cck></td>
 		<td align="center">{$rs['line_name']}</td>
 		<td align="center">{$rs['alive']}</td>
 		<td align="center">{$rs['gsm']}</td>
@@ -254,7 +254,7 @@ print <<<EOT
 		<td align="center">{$rs['zone']}</td>
 		<td align="center">{$rs['zone_tag']}</td>
 		<td align="center">{$rs['disable']}</td>
-		{$op}	
+		{$op}
     </tr>
 
 <!--
@@ -266,7 +266,7 @@ print <<<EOT
 </table>
 <input type="hIdden" name="boxs" value="{$j}">
 <input type="hIdden" name="rstr" value="{$str}">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 <tr>
 <td height="30" ><input name="chkAll" type="checkbox" Id="chkAll" onclick="CheckAll(this.form, this)" value="checkbox">选择当前页 <input name="chkAll0" type="checkbox" Id="chkAll0" onclick="CheckAll(this.form, this)" value="checkbox">选择所有线路</td>
 </tr>
@@ -277,7 +277,7 @@ print <<<EOT
 <tr>
 <td>批量操作 <select name="type" id="type" style="width:80px"  onchange="check_action(this)" >
 <option value="none" selected>选择</option>
-<option value="moremodify">修改</option> 
+<option value="moremodify">修改</option>
 <option value="reboot">重启模块</option>
 </select>
 </td>
@@ -302,16 +302,16 @@ print <<<EOT
 </table>
 <form method="post" action="?action=savemodify&line_name=$rs[line_name]&goip_name={$_REQUEST['goip_name']}&order=$order_type&order_key=$order_key&group_id=$_REQUEST[group_id]" name="form1">
   <br>
-  <table wIdth="400" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
-    <tr class="title"> 
+  <table width="400" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+    <tr class="title">
       <td height="22" colspan="2"> <div align="center"><strong>修改GoIP线路参数</strong></div></td>
     </tr>
-    <tr> 
-      <td wIdth="150" align="right" class="tdbg"><strong>GoIP线路ID:</strong></td>
+    <tr>
+      <td width="150" align="right" class="tdbg"><strong>GoIP线路ID:</strong></td>
       <td class="tdbg">$rs[line_name]</td>
     </tr>
     <tr>
-      <td wIdth="150" align="right" class="tdbg"><strong>所在组:</strong></td>
+      <td width="150" align="right" class="tdbg"><strong>所在组:</strong></td>
       <td class="tdbg">
           <select name="team_id" style="width:135" onchange="showbind(this.value)">
 	<option value="0" $select >无(启用固定绑定模式)</option>
@@ -321,7 +321,7 @@ foreach($prsdb as $prs){
 
 if($rs[goip_team_id]==$prs[sim_team_id])
         $select=' selected';
-else                                                                                                              
+else
         $select='';
 print <<<EOT
 -->
@@ -330,15 +330,15 @@ print <<<EOT
 <!--
 EOT;
 }
-if($rs[goip_team_id]!=0) $display='none'; 
+if($rs[goip_team_id]!=0) $display='none';
 else $display='';
 print <<<EOT
 -->
       </select></td>
     </tr>
     <tr style="display:{$display}" Id='showbind1'>
-      <td wIdth="150" align="right" class="tdbg"><strong>固定绑定SIM Slot:</strong></td>
-      <td class="tdbg"><select name="sim_name" style="width:135">                                                 
+      <td width="150" align="right" class="tdbg"><strong>固定绑定SIM Slot:</strong></td>
+      <td class="tdbg"><select name="sim_name" style="width:135">
 	<option value="0">无</option>
 <!--
 EOT;
@@ -349,7 +349,7 @@ if($rs[line_name]==$prs[plan_line_name]){
 	$old_plan_sim_name=$prs[sim_name];
         $select=' selected';
 }
-else                                                                                                              
+else
         $select='';
 print <<<EOT
 -->
@@ -361,11 +361,11 @@ EOT;
 print <<<EOT
 -->
 
-      </select></td>                                                                                              
+      </select></td>
     </tr>
 
     <tr>
-      <td wIdth="150" align="right" class="tdbg"><strong>启用线路:</strong></td>
+      <td width="150" align="right" class="tdbg"><strong>启用线路:</strong></td>
       <td class="tdbg">
         <select name="dev_disable">
           <option value="0" $ck1>启用</option>
@@ -373,8 +373,8 @@ print <<<EOT
         </select>
       </td>
     </tr>
-	<tr> <td height="20" colspan="2" align="center"  class="tdbg"></td></tr>	
-    <tr> 
+	<tr> <td height="20" colspan="2" align="center"  class="tdbg"></td></tr>
+    <tr>
       <td height="40" colspan="2" align="center" class="tdbg">
 	<input name="line_name" type="hIdden" Id="line_name" value="{$rs['line_name']}">
         <input name="old_zone" type="hIdden" Id="old_zone" value="{$rs['goip_zone']}">
@@ -382,7 +382,7 @@ print <<<EOT
         <input name="oldname" type="hIdden" Id="oldname" value="{$rs['goip_name']}">
         <input name="old_team_id" type="hIdden" Id="old_team_id" value="{$rs['goip_team_id']}">
         <input name="old_disable" type="hIdden" Id="old_disable" value="{$rs['dev_disable']}">
-        <input  type="submit" name="Submit" value="保存" style="cursor:hand;"> 
+        <input  type="submit" name="Submit" value="保存" style="cursor:hand;">
         &nbsp; <input name="Cancel" type="button" Id="Cancel" value="取消" onClick="window.location.href='?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key'" style="cursor:hand;"></td>
     </tr>
   </table>
@@ -402,16 +402,16 @@ print <<<EOT
 </table>
 <form method="post" action="?action=savemoremodify&goip_name=$_REQUEST[goip_name]&id=$rs[goipid]&order=$order_type&order_key=$order_key&group_id=$_REQUEST[group_id]" name="form1">
   <br>
-  <table wIdth="600" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
-    <tr class="title"> 
+  <table width="600" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+    <tr class="title">
       <td height="22" colspan="2"> <div align="center"><strong>修改GoIP线路参数</strong></div></td>
     </tr>
-    <tr> 
-      <td wIdth="200" align="right" class="tdbg"><strong>GoIP线路ID:</strong></td>
+    <tr>
+      <td width="200" align="right" class="tdbg"><strong>GoIP线路ID:</strong></td>
       <td class="tdbg">$line_name</td>
     </tr>
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>所在组:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>所在组:</strong></td>
       <td class="tdbg">
           <select name="team_id" style="width:135" onchange="showbind(this.value)">
 	<option value="0" $select >无(启用固定绑定模式)</option>
@@ -421,7 +421,7 @@ foreach($prsdb as $prs){
 
 if($rs[goip_team_id]==$prs[sim_team_id])
         $select=' selected';
-else                                                                                                              
+else
         $select='';
 print <<<EOT
 -->
@@ -430,7 +430,7 @@ print <<<EOT
 <!--
 EOT;
 }
-if($rs[goip_team_id]!=0) $display='none'; 
+if($rs[goip_team_id]!=0) $display='none';
 else $display='';
 print <<<EOT
 -->
@@ -438,7 +438,7 @@ print <<<EOT
     </tr>
 
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>启用线路:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>启用线路:</strong></td>
       <td class="tdbg">
         <select name="dev_disable">
           <option value="0" $ck1>启用</option>
@@ -447,8 +447,8 @@ print <<<EOT
         &nbsp; &nbsp; |&nbsp; 修改<input name="dev_disable_modify" type='checkbox' value="1">
       </td>
     </tr>
-	<tr> <td height="20" colspan="2" align="center"  class="tdbg"></td></tr>	
-    <tr> 
+	<tr> <td height="20" colspan="2" align="center"  class="tdbg"></td></tr>
+    <tr>
       <td height="40" colspan="2" align="center" class="tdbg">
 	<input name="line_name" type="hIdden" Id="line_name" value="{$line_name}">
         <input name="old_zone" type="hIdden" Id="old_zone" value="{$rs['goip_zone']}">
@@ -457,7 +457,7 @@ print <<<EOT
         <input name="old_team_id" type="hIdden" Id="old_team_id" value="{$rs['goip_team_id']}">
         <input name="old_disable" type="hIdden" Id="old_disable" value="{$rs['dev_disable']}">
 	<input name="chkAll0" type="hIdden" Id="chkAll0" value="$_REQUEST[chkAll0]">
-        <input  type="submit" name="Submit" value="确认" style="cursor:hand;"> 
+        <input  type="submit" name="Submit" value="确认" style="cursor:hand;">
         &nbsp; <input name="Cancel" type="button" Id="Cancel" value="取消" onClick="window.location.href='?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key'" style="cursor:hand;"></td>
     </tr>
   </table>
@@ -470,10 +470,10 @@ print <<<EOT
 -->
 </form>
 
-					  </td> 
+					  </td>
 					</tr>
 </table>
-				
+
 </body>
 </html>
 <!--

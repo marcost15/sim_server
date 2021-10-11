@@ -52,7 +52,7 @@ function sendto_xchanged($send)
         }
         //if($flag)
                 echo "Mydify Success";
-        //else 
+        //else
                 //echo "Mydify Success,but cannot get response from process named 'xchange' or 'scheduler'. please check process.";
 }
 
@@ -98,7 +98,7 @@ function showpage($sfilename,$CurrentPage,$totalnumber,$maxperpage,$ShowTotal,$S
     	$n= $totalnumber / $maxperpage;
   	else
     	$n= (int)($totalnumber / $maxperpage)+1;
-  	
+
   	$strTemp= "<table align='center'><tr><td>";
 	if($ShowTotal==true)
 		$strTemp=$strTemp . "Total <b>" . $totalnumber . "</b> " . $strUnit . " &nbsp;&nbsp;";
@@ -115,10 +115,10 @@ function showpage($sfilename,$CurrentPage,$totalnumber,$maxperpage,$ShowTotal,$S
     		$strTemp=$strTemp . "<a href='" . $sfilename . "page=" . ($CurrentPage+1) . "'>forward</a>&nbsp;";
     		$strTemp=$strTemp . "<a href='" . $sfilename . "page=" . $n . "'>end</a>";
   	}
-	
+
    	$strTemp=$strTemp . " &nbsp;pages:<strong><font color=red>" . $CurrentPage . "</font>/" . $n . "</strong>page ";
     $strTemp=$strTemp . " &nbsp;<b>" . $maxperpage . "</b>" . $strUnit . "/page";
-	
+
 	if( $ShowAllPages=true){
 		$strTemp=$strTemp . " &nbsp;goto:<select name='page' size='1' onchange=javascript:window.location='" . $sfilename . "page=" . "'+this.options[this.selectedIndex].value;>" ;
 		$c_page=500;
@@ -142,7 +142,7 @@ function showpage2($sfilename,$CurrentPage,$totalnumber,$maxperpage,$ShowTotal,$
     	$n= $totalnumber / $maxperpage;
   	else
     	$n= (int)($totalnumber / $maxperpage)+1;
-  	
+
   	$strTemp= "<table align='center'><tr><td>";
 	if($ShowTotal==true)
 		$strTemp=$strTemp . "Total <b>" . $totalnumber . "</b> " . $strUnit . " &nbsp;&nbsp;";
@@ -159,10 +159,10 @@ function showpage2($sfilename,$CurrentPage,$totalnumber,$maxperpage,$ShowTotal,$
     		$strTemp=$strTemp . "<span class='spanpage' onclick='return changepage(\"".$sfilename."page=".($CurrentPage+1)."\", ".$form.")'>forward</span>&nbsp;";
     		$strTemp=$strTemp . "<span class='spanpage' onclick='return changepage(\"".$sfilename."page=".$n."\", ".$form.")'>end</span>&nbsp;";
   	}
-	
+
    	$strTemp=$strTemp . " &nbsp;pages：<strong><font color=red>" . $CurrentPage . "</font>/" . $n . "</strong>page ";
     $strTemp=$strTemp . " &nbsp;<b>" . $maxperpage . "</b>" . $strUnit . "/page";
-	
+
 	if( $ShowAllPages=true){
 		$strTemp=$strTemp . " &nbsp;goto：<select name='page' size='1' onchange='return selectchangepage(\"".$sfilename."\",this.options[this.selectedIndex].value, ".$form.")'>" ;
     	for($i=1;$i<=$n;$i++){
@@ -187,7 +187,7 @@ function WriteErrMsg($ErrMsg1)
 {
 	$strErr="<html><head><title>Error Information</title><meta http-equiv='Content-Type' content='text/html; charset=ISO-8859-1'>" ;
 	$strErr=$strErr."<link href='../style.css' rel='stylesheet' type='text/css'></head><body>" ;
-	$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 wIdth=400 class='border' align=center>"; 
+	$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 width=400 class='border' align=center>";
 	$strErr=$strErr."  <tr align='center'><td height='22' class='title'><strong>Wrong message</strong></td></tr>" ;
 	$strErr=$strErr."  <tr><td height='100' class='tdbg' valign='top'><b> Reasons:</b><br> $ErrMsg1</td></tr>" ;
 	$strErr=$strErr."  <tr align='center'><td class='tdbg'><a href=javascript:history.back();>&lt;&lt; Return</a></td></tr>" ;
@@ -206,7 +206,7 @@ function WriteSuccessMsg($SuccessMsg,$URL)
 {
 	$strErr="<html><head><title>Success Information</title><meta http-equiv='Content-Type' content='text/html; charset=ISO-8859-1'>" ;
 	$strErr=$strErr."<link href='../style.css' rel='stylesheet' type='text/css'></head><body>" ;
-	$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 wIdth=400 class='border' align=center>"; 
+	$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 width=400 class='border' align=center>";
 	$strErr=$strErr."  <tr align='center'><td height='22' class='title'><strong>Congratulation</strong></td></tr>" ;
 	$strErr=$strErr."  <tr><td height='100' class='tdbg' valign='top'>$SuccessMsg</td></tr>" ;
 	$strErr=$strErr."  <tr align='center'><td class='tdbg'><a href='$URL'>Apply</a></td></tr>" ;

@@ -25,7 +25,7 @@ function unselectall()
         {
             if(document.myform.chkAll.checked){
                 document.myform.chkAll.checked = document.myform.chkAll.checked&0;
-            } 
+            }
         }
 function CheckAll(form, obj)
 {
@@ -43,7 +43,7 @@ function CheckAll(form, obj)
 					nrcount--;
 			}
 			e.checked = obj.checked;
-			do {e=e.parentNode} while (e.tagName!="TR") 
+			do {e=e.parentNode} while (e.tagName!="TR")
 				if(obj.checked)
 					e.className = 'even marked';
 				else
@@ -65,7 +65,7 @@ function CheckAll(form, obj)
 function mouseover(obj) {
                 obj.className += ' hover';
                                 //alert(obj.className);
-            
+
                         }
 
 function mouseout(obj) {
@@ -75,14 +75,14 @@ function mouseout(obj) {
 
 function trclick(obj) {
         var checkbox = obj.getElementsByTagName( 'input' )[0];
-        //if ( checkbox && checkbox.type == 'checkbox' ) 
+        //if ( checkbox && checkbox.type == 'checkbox' )
         checkbox.checked ^= 1;
 
                 if(checkbox.checked){
                         obj.className = 'even marked';
 
-                        if(nrcount>=0) {nrcount++;document.getElementById('td01').innerHTML="Now selected "+nrcount+" SIM Slot"; document.getElementById('td02').innerHTML="Now selected "+nrcount+" SIM Slot";} 
-			
+                        if(nrcount>=0) {nrcount++;document.getElementById('td01').innerHTML="Now selected "+nrcount+" SIM Slot"; document.getElementById('td02').innerHTML="Now selected "+nrcount+" SIM Slot";}
+
                 }
                 else {
                         obj.className = 'even';
@@ -210,13 +210,13 @@ function select_show(value, show, count)
 
 </script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>SIM Slot Configuration</strong></td>
   </tr>
-  <tr class="tdbg"> 
-    <td wIdth="100" height="30"><strong>Navigation:</strong></td>
+  <tr class="tdbg">
+    <td width="100" height="30"><strong>Navigation:</strong></td>
     <td height="30"><a href="?bank_name=$_REQUEST[bank_name]&sim_name=$_REQUEST[sim_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key" target=main>Refresh</a>&nbsp;|&nbsp;</td>
   </tr>
 </table>
@@ -247,9 +247,9 @@ SIM Info:
   </tr>
 </table>
 <form action="sim.php?action=del" method=post name=myform onSubmit="return confirm('sure to delete?')">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 	<tr class=title>
-		<td wIdth="15" align=center height="25"><b>CH</b></td>
+		<td width="15" align=center height="25"><b>CH</b></td>
 		<td align="center"><a href="?bank_name=$_REQUEST[bank_name]&group_id=$_REQUEST[group_id]&order=$order_type2&order_key=sim_name"><b>Slot ID</b></a></td>
 		<td align="center"><a href="?bank_name=$_REQUEST[bank_name]&group_id=$_REQUEST[group_id]&order=$order_type2&order_key=sim_login"><b>Line Status</b></a></td>
 		<td align="center"><a href="?bank_name=$_REQUEST[bank_name]&group_id=$_REQUEST[group_id]&order=$order_type2&order_key=gsm_status"><b>GSM Status</b></a></td>
@@ -306,7 +306,7 @@ else {
 print <<<EOT
 -->
 	<tr class="$class" onMouseOver="mouseover(this)" onMouseOut="mouseout(this)" onMouseDown="trclick(this)">
-		<td align=center wIdth="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['sim_name']}" $cck></td>
+		<td align=center width="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['sim_name']}" $cck></td>
                 <td align="center">{$rs['sim_name']}</td>
 		<td align="center">{$rs['alive']}</td>
 		<td align="center">{$rs['gsm']}</td>
@@ -334,7 +334,7 @@ print <<<EOT
 </table>
 <input type="hIdden" name="boxs" value="{$j}">
 <input type="hIdden" name="rstr" value="{$str}">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 <tr>
 <td height="30" ><input name="chkAll" type="checkbox" Id="chkAll" onclick="CheckAll(this.form, this)" value="checkbox">Choice current page <input name="chkAll0" type="checkbox" Id="chkAll0" onclick="CheckAll(this.form, this)" value="checkbox"> Choose all</td>
 </tr>
@@ -344,7 +344,7 @@ print <<<EOT
 <tr>
 <td>Batch Operation <select name="type" id="type" style="width:80px"  onchange="check_action(this)" >
 <option value="none" selected>Choose</option>
-<option value="moremodify">Modify</option> 
+<option value="moremodify">Modify</option>
 <option value="period">Period</option>
 <option value="reset_limit">Reset Limit</option>
 <option value="reset_period">Reset Period</option>
@@ -392,22 +392,22 @@ $(document).ready(function() {
 		var offset_top = 12+offset.top;
 		if ($("#"+div_sim_name).css("display") == "none") {
 			$("#"+div_sim_name).css({left:offset_left, top:offset_top});
-			ddmenuitem = $("#"+div_sim_name).css({display:"block", opacity:0.75});	
+			ddmenuitem = $("#"+div_sim_name).css({display:"block", opacity:0.75});
 		}
 	},function() {
-		ul1_timer();	
+		ul1_timer();
 	});
-	
-	
-	
-	
+
+
+
+
 	/*$(".sim_op").hover(function() {
-		$(this).css({display:"block"});	
+		$(this).css({display:"block"});
 	},function() {
-		$(this).css({display:"none"});	
+		$(this).css({display:"none"});
 	});*/
-	
-	
+
+
 });
 
 $(document).ready(function(){
@@ -445,27 +445,27 @@ print <<<EOT
 </table>
 <form method="post" action="all_sim.php?action=savemodify&bank_name=$_REQUEST[bank_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key" name="form1">
   <br>
-  <table wIdth="900" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
-    <tr class="title"> 
+  <table width="900" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+    <tr class="title">
       <td height="22" colspan="2"> <div align="center"><strong>Modify SIM Slot Settings</strong></div></td>
     </tr>
-    <tr> 
-      <td wIdth="300" align="right" class="tdbg"><strong>SIM Slot ID:</strong></td>
+    <tr>
+      <td width="300" align="right" class="tdbg"><strong>SIM Slot ID:</strong></td>
       <td class="tdbg">$rs[sim_name]</td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Group:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Group:</strong></td>
       <td class="tdbg">
           <select name="team_id" style="width:135" onchange="showbind(this.value, 'showbind1')">
         <option value="0" $select >None(for fixed bind)</option>
-<!--                                                                                                              
+<!--
 EOT;
-foreach($prsdb as $prs){                                                                                          
-                                                                                                                  
-if($rs[sim_team_id]==$prs[sim_team_id])                                                                         
-        $select=' selected';                                                                                      
-else                                                                                                              
-        $select='';                                                                                               
+foreach($prsdb as $prs){
+
+if($rs[sim_team_id]==$prs[sim_team_id])
+        $select=' selected';
+else
+        $select='';
 print <<<EOT
 -->
         <option value="$prs[sim_team_id]" $select >$prs[sim_team_name]</option>
@@ -473,9 +473,9 @@ print <<<EOT
 <!--
 EOT;
 }
-if($rs[sim_team_id]!=0) $display='none'; 
+if($rs[sim_team_id]!=0) $display='none';
 else $display='';
-if($rs[auto_reset_remain]==0) $auto_reset_display='none'; 
+if($rs[auto_reset_remain]==0) $auto_reset_display='none';
 else $auto_reset_display='';
 $select_auto_reset[$rs[auto_reset_remain]]=" selected";
 print <<<EOT
@@ -483,18 +483,18 @@ print <<<EOT
       </select></td>
     </tr>
     <tr style="display:{$display}" Id='showbind1'>
-      <td wIdth="300" align="right" class="tdbg"><strong>Plan to bind GoIP Channel:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Plan to bind GoIP Channel:</strong></td>
       <td class="tdbg">
           <select name="line_name" style="width:135">
         <option value="0">none</option>
-<!--                                                                                                              
+<!--
 EOT;
-foreach($grsdb as $prs){                                                                                          
-                                                                                                                  
-if($rs[plan_line_name]==$prs[line_name])                                                                         
-        $select=' selected';                                                                                      
-else                                                                                                              
-        $select='';                                                                                               
+foreach($grsdb as $prs){
+
+if($rs[plan_line_name]==$prs[line_name])
+        $select=' selected';
+else
+        $select='';
 print <<<EOT
 -->
         <option value="$prs[line_name]" $select >$prs[line_name]</option>
@@ -507,44 +507,44 @@ print <<<EOT
       </select></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>IMEI Mode:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>IMEI Mode:</strong></td>
       <td class="tdbg">
         <select name="imei_mode">
           <option value="0" $imei_ck1>GoIP Default</option>
           <option value="1" $imei_ck2>Random</option>
           <option value="2" $imei_ck3>Set with Slot</option>
-          <option value="3" $imei_ck4>Random with IMSI</option> 
+          <option value="3" $imei_ck4>Random with IMSI</option>
 	  <option value="4" $imei_ck5>Set from database with IMSI</option>
         </select>
       </td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>IMEI:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>IMEI:</strong></td>
       <td class="tdbg"><input type="input" name="imei" value="$rs[imei]" onblur="onfocus_check_integer(this, 0, 999999999999999)"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Limit Time of Out Call(M) of a Month:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Limit Time of Out Call(M) of a Month:</strong></td>
       <td class="tdbg"><input type="input" name="month_limit_time" value="$rs[month_limit_time]" onblur="onfocus_check_integer(this, -1, 42949672)">(Reset Day<input type="input" name="month_reset_day" value="$rs[month_reset_day]"  style="width:30" onblur="onfocus_check_integer(this, 1, 31)">)</td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Limit Time of Out Call(M):</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Limit Time of Out Call(M):</strong></td>
       <td class="tdbg"><input type="input" name="time_limit" value="$rs[time_limit]" onblur="onfocus_check_integer(this, -1, 42949672)"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Time Unit of Call(S):</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Time Unit of Call(S):</strong></td>
       <td class="tdbg"><input type="input" name="time_unit" value="$rs[time_unit]" onblur="onfocus_check_integer(this, 1, 42949672)"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Limit Count of Out Call:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Limit Count of Out Call:</strong></td>
       <td class="tdbg"><input type="input" name="count_limit" value="$rs[count_limit]" onblur="onfocus_check_integer(this, -1, 42949672)">(Include no connected call<input name="count_limit_no_connect" type='checkbox' value="1" $ci_no_connect_ck>)</td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Limit Count of SMS:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Limit Count of SMS:</strong></td>
       <td class="tdbg"><input type="input" name="limit_sms" value="$rs[limit_sms]" onblur="onfocus_check_integer(this, -1, 42949672)"></td>
     </tr>
 
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Auto Reset Remain:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Auto Reset Remain:</strong></td>
       <td class="tdbg">
         <select name="auto_reset_remain" onchange="select_show(this.value, 'auto_reset_reman_display', 1)">
           <option value="0" $select_auto_reset[0]>Disable</option>
@@ -556,34 +556,34 @@ print <<<EOT
       </td>
     </tr>
     <tr style="display:{$auto_reset_display1}" Id='auto_reset_reman_display1'>
-      <td wIdth="300" align="right" class="tdbg"><strong>Sleeping time(S) after exhaust:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Sleeping time(S) after exhaust:</strong></td>
       <td class="tdbg"><input type="input" name="auto_reset_remain_s" value="$rs[auto_reset_remain_s]" onblur="onfocus_check_integer(this, 0, 42949672)"></td>
     </tr>
 
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Limit Count of No Connected Out Call:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Limit Count of No Connected Out Call:</strong></td>
       <td class="tdbg"><input type="input" name="no_connected_limit" value="$rs[no_connected_limit]" onblur="onfocus_check_integer(this, -1, 42949672)"></td>
     </tr>
 
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Warning Consecutive No Ring Call:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Warning Consecutive No Ring Call:</strong></td>
       <td class="tdbg"><input type="input" name="no_ring_limit" value="$rs[no_ring_limit]" onblur="onfocus_check_integer(this, -1, 42949672)">For Disable<input name="no_ring_disable" type='checkbox' value="1" $wa_ck1></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Warning Consecutive No Answer Call:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Warning Consecutive No Answer Call:</strong></td>
       <td class="tdbg"><input type="input" name="no_answer_limit" value="$rs[no_answer_limit]" onblur="onfocus_check_integer(this, -1, 42949672)">For Disable<input name="no_answer_disable" type='checkbox' value="1" $wa_ck2></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Warning Consecutive Short Call:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Warning Consecutive Short Call:</strong></td>
       <td class="tdbg"><input type="input" name="short_call_limit" value="$rs[short_call_limit]" onblur="onfocus_check_integer(this, -1, 42949672)">For Disable<input name="short_call_disable" type='checkbox' value="1" $wa_ck3></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Short Call time(S):</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Short Call time(S):</strong></td>
       <td class="tdbg"><input type="input" name="short_time" value="$rs[short_time]" onblur="onfocus_check_integer(this, 1, 42949672)"></td>
     </tr>
 
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Enable Line</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Enable Line</strong></td>
       <td class="tdbg">
         <select name="dev_disable">
           <option value="0" $ck1>Enable</option>
@@ -594,14 +594,14 @@ print <<<EOT
     <tr> <td height="20" colspan="2" align="center"  class="tdbg">
         Limit=-1 means no limit.
                 </td></tr>
-    <tr> 
+    <tr>
       <td height="40" colspan="2" align="center" class="tdbg">
         <input name="sim_name" type="hIdden" Id="sim_name" value="{$rs['sim_name']}">
         <input name="oldname" type="hIdden" Id="oldname" value="{$rs['bank_name']}">
         <input name="old_team_id" type="hIdden" Id="old_team_id" value="{$rs['sim_team_id']}">
         <input name="old_disable" type="hIdden" Id="old_disable" value="{$rs['dev_disable']}">
 	<input name="chkAll0" type="hIdden" Id="chkAll0" value="{$_REQUEST['chkAll0']}">
-        <input  type="submit" name="Submit" value="Save" style="cursor:hand;"> 
+        <input  type="submit" name="Submit" value="Save" style="cursor:hand;">
         &nbsp; <input name="Cancel" type="button" Id="Cancel" value="Cancel" onClick="window.location.href='?bank_name=$_REQUEST[bank_name]&sim_name=$_REQUEST[sim_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key'" style="cursor:hand;">
         &nbsp; <input name="Reset" type="button" Id="Reset" value="Reset_Limit" onClick="window.location.href='?action=reset_limit&sim_name=$rs[sim_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key'" style="cursor:hand;">
         &nbsp; <input name="Reset_Period" type="button" Id="Reset_Period" value="Reset_Peroid" onClick="window.location.href='?action=reset_period&sim_name=$rs[sim_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key'" style="cursor:hand;"></td>
@@ -623,27 +623,27 @@ print <<<EOT
 </table>
 <form method="post" action="all_sim.php?action=savemoremodify&bank_name=$_REQUEST[bank_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key" name="form1" >
   <br>
-  <table wIdth="900" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
-    <tr class="title"> 
+  <table width="900" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+    <tr class="title">
       <td height="22" colspan="2"> <div align="center"><strong>Modify SIM Slot Settings</strong></div></td>
     </tr>
-    <tr> 
-      <td wIdth="300" align="right" class="tdbg"><strong>SIM Slot ID:</strong></td>
+    <tr>
+      <td width="300" align="right" class="tdbg"><strong>SIM Slot ID:</strong></td>
       <td class="tdbg">$sim_name</td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Group:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Group:</strong></td>
       <td class="tdbg">
           <select name="team_id" style="width:135" onchange="showbind(this.value, 'showbind1')">
         <option value="0" $select >None(for fixed bind)</option>
-<!--                                                                                                              
+<!--
 EOT;
-foreach($prsdb as $prs){                                                                                          
-                                                                                                                  
-if($rs[sim_team_id]==$prs[sim_team_id])                                                                         
-        $select=' selected';                                                                                      
-else                                                                                                              
-        $select='';                                                                                               
+foreach($prsdb as $prs){
+
+if($rs[sim_team_id]==$prs[sim_team_id])
+        $select=' selected';
+else
+        $select='';
 print <<<EOT
 -->
         <option value="$prs[sim_team_id]" $select >$prs[sim_team_name]</option>
@@ -651,14 +651,14 @@ print <<<EOT
 <!--
 EOT;
 }
-if($rs[sim_team_id]!=0) $display='none'; 
+if($rs[sim_team_id]!=0) $display='none';
 else $display='';
 print <<<EOT
 -->
       </select>&nbsp; &nbsp; |&nbsp; Modify<input name="team_id_modify" type='checkbox' value="1"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>IMEI Mode:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>IMEI Mode:</strong></td>
       <td class="tdbg">
         <select name="imei_mode">
           <option value="0" $imei_ck1>GoIP Default</option>
@@ -671,27 +671,27 @@ print <<<EOT
       </td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Limit Time of Out Call(M) of a Month:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Limit Time of Out Call(M) of a Month:</strong></td>
       <td class="tdbg"><input type="input" name="month_limit_time" value="$rs[month_limit_time]" onblur="onfocus_check_integer(this, -1, 42949672)"> &nbsp; &nbsp; |&nbsp; Modify<input name="month_limit_time_modify" type='checkbox' value="1">(Reset Day<input type="input" name="month_reset_day" value="$rs[month_reset_day]" style="width:30" onblur="onfocus_check_integer(this, 0, 31"> | Modify<input name="month_reset_day_modify" type='checkbox' value="1">)</td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Limit Time of Out Call(M):</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Limit Time of Out Call(M):</strong></td>
       <td class="tdbg"><input type="input" name="time_limit" value="$rs[time_limit]" onblur="onfocus_check_integer(this, -1, 42949672)"> &nbsp; &nbsp; |&nbsp; Modify<input name="time_limit_modify" type='checkbox' value="1"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Time Unit of Call(S):</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Time Unit of Call(S):</strong></td>
       <td class="tdbg"><input type="input" name="time_unit" value="$rs[time_unit]" onblur="onfocus_check_integer(this, 1, 42949672)">&nbsp; &nbsp; |&nbsp; Modify<input name="time_unit_modify" type='checkbox' value="1"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Limit Count of Out Call:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Limit Count of Out Call:</strong></td>
       <td class="tdbg"><input type="input" name="count_limit" value="$rs[count_limit]" onblur="onfocus_check_integer(this, -1, 42949672)"> &nbsp; &nbsp; |&nbsp; Modify<input name="count_limit_modify" type='checkbox' value="1">(Include no connected call<input name="count_limit_no_connect" type='checkbox' value="1"> | Modify<input name="count_limit_no_connect_modify" type='checkbox' value="1">)</td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Limit Count of SMS:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Limit Count of SMS:</strong></td>
       <td class="tdbg"><input type="input" name="limit_sms" value="$rs[limit_sms]" onblur="onfocus_check_integer(this, -1, 42949672)">&nbsp; &nbsp; |&nbsp; Modify<input name="limit_sms_modify" type='checkbox' value="1"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Auto Reset Remain:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Auto Reset Remain:</strong></td>
       <td class="tdbg">
         <select name="auto_reset_remain" onchange="select_show(this.value, 'auto_reset_reman_display', 1)">
           <option value="0" selected>Disable</option>
@@ -701,33 +701,33 @@ print <<<EOT
       </td>
     </tr>
     <tr style="display:none" Id='auto_reset_reman_display1'>
-      <td wIdth="300" align="right" class="tdbg"><strong>Sleeping time(S):</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Sleeping time(S):</strong></td>
       <td class="tdbg"><input type="input" name="auto_reset_remain_s" value="60" onblur="onfocus_check_integer(this, 0, 42949672)"> &nbsp; &nbsp; |&nbsp; Modify<input name="auto_reset_remain_s_modify" type='checkbox' value="1"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Limit Count of No Connected Out Call:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Limit Count of No Connected Out Call:</strong></td>
       <td class="tdbg"><input type="input" name="no_connected_limit" value="$rs[no_connected_limit]" onblur="onfocus_check_integer(this, -1, 42949672)"> &nbsp; &nbsp; |&nbsp; Modify<input name="no_connected_limit_modify" type='checkbox' value="1"></td>
     </tr>
 
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Warning Consecutive No Ring Call:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Warning Consecutive No Ring Call:</strong></td>
       <td class="tdbg"><input type="input" name="no_ring_limit" value="$rs[no_ring_limit]" onblur="onfocus_check_integer(this, -1, 42949672)"> For Disable<input name="no_ring_disable" type='checkbox' value="1">&nbsp; &nbsp; |&nbsp; Modify<input name="no_ring_modify" type='checkbox' value="1"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Warning Consecutive No Answer Call:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Warning Consecutive No Answer Call:</strong></td>
       <td class="tdbg"><input type="input" name="no_answer_limit" value="$rs[no_answer_limit]" onblur="onfocus_check_integer(this, -1, 42949672)"> For Disable<input name="no_answer_disable" type='checkbox' value="1">&nbsp; &nbsp; |&nbsp; Modify<input name="no_answer_modify" type='checkbox' value="1"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Warning Consecutive Short Call:</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Warning Consecutive Short Call:</strong></td>
       <td class="tdbg"><input type="input" name="short_call_limit" value="$rs[short_call_limit]" onblur="onfocus_check_integer(this, -1, 42949672)">For Disable<input name="short_call_disable" type='checkbox' value="1">&nbsp; &nbsp; |&nbsp; Modify<input name="short_call_modify" type='checkbox' value="1"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Short Call time(S):</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Short Call time(S):</strong></td>
       <td class="tdbg"><input type="input" name="short_time" value="$rs[short_time]" onblur="onfocus_check_integer(this, 1, 42949672)">&nbsp; &nbsp; |&nbsp; Modify<input name="short_time_modify" type='checkbox' value="1"></td>
     </tr>
 
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>Enable Line</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>Enable Line</strong></td>
       <td class="tdbg">
         <select name="dev_disable">
           <option value="0" $ck1>Enable</option>
@@ -739,12 +739,12 @@ print <<<EOT
 
     <tr> <td height="20" colspan="2" align="center"  class="tdbg">
 	Limit=-1 means no limit.
-	       	</td></tr>	
-    <tr> 
+	       	</td></tr>
+    <tr>
       <td height="40" colspan="2" align="center" class="tdbg">
 	<input name="sim_name" type="hIdden" Id="sim_name" value="$sim_name">
 	<input name="chkAll0" type="hIdden" Id="chkAll0" value="$_REQUEST[chkAll0]">
-        <input  type="submit" name="Submit" value="Save" style="cursor:hand;"> 
+        <input  type="submit" name="Submit" value="Save" style="cursor:hand;">
         &nbsp; <input name="Cancel" type="button" Id="Cancel" value="Cancel" onClick="window.location.href='all_sim.php&bank_name=$_REQUEST[bank_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key'" style="cursor:hand;"></td>
     </tr>
   </table>
@@ -754,10 +754,10 @@ EOT;
 print <<<EOT
 -->
 </form>
-					  </td> 
+					  </td>
 					</tr>
 </table>
-				
+
 </body>
 </html>
 <!--

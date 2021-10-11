@@ -17,13 +17,13 @@ ini_set("memory_limit", "200M");
 <meta name="Author" content="Gaby_chen">
 <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
   <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>Data Manage</strong></td>
   </tr>
   <tr class="tdbg">
-    <td wIdth="70" height="30"><strong>Navigation:</strong></td>
+    <td width="70" height="30"><strong>Navigation:</strong></td>
     <td height="30"><a href="databackup.php"  target=main> Data Backup </a> | <a href="datarestore.php" target=main>Data Import</a></td>
   </tr>
 </table>
@@ -49,7 +49,7 @@ if(!$_POST['act']){
 ?>
 
 <br>
-<table wIdth="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
   <tr class="title">
     <td height="22"><strong> Notice: </strong></td>
   </tr>
@@ -62,7 +62,7 @@ if(!$_POST['act']){
 </table>
 <br>
 <form name="form1" method="post" action="databackup.php">
-<table wIdth="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
   <tr class="title">
     <td height="22" colspan="2" align="center"><strong>Data Backup </strong></td>
   </tr>
@@ -310,7 +310,7 @@ function show_msg($msgs)
 {
 	$strErr="<html><head><title>Error Information</title><meta http-equiv='Content-Type' content='text/html; charset=ISO-8859-1'>" ;
 	$strErr=$strErr."<link href='style.css' rel='stylesheet' type='text/css'></head><body>" ;
-	$strErr=$strErr."<br><br><table cellpadding=2 cellspacing=1 border=0 wIdth=400 class='border' align=center>";
+	$strErr=$strErr."<br><br><table cellpadding=2 cellspacing=1 border=0 width=400 class='border' align=center>";
 	$strErr=$strErr."  <tr align='center'><td height='22' class='title'><strong>Info</strong></td></tr>" ;
 	$strErr=$strErr."  <tr><td height='100' class='tdbg' valign='top'><b>Notice:</b><br><ul>";
 	//while (list($k,$v)=each($msgs))

@@ -5,7 +5,7 @@ print <<<EOT
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="../style.css?0" rel="stylesheet" type="text/css">
+<link href="../style.css" rel="stylesheet" type="text/css">
 <title>GoIP List</title>
 <script src="../check.js"></script>
 <script language="javascript">
@@ -18,7 +18,7 @@ function unselectall()
 	{
 	    if(document.myform.chkAll.checked){
 		document.myform.chkAll.checked = document.myform.chkAll.checked&0;
-	    } 	
+	    }
 	}
 
 
@@ -38,7 +38,7 @@ function CheckAll(form, obj)
                                         nrcount--;
                         }
                         e.checked = obj.checked;
-                        do {e=e.parentNode} while (e.tagName!="TR") 
+                        do {e=e.parentNode} while (e.tagName!="TR")
                                 if(obj.checked)
                                         e.className = 'even marked';
                                 else
@@ -59,7 +59,7 @@ function CheckAll(form, obj)
 function mouseover(obj) {
                 obj.className += ' hover';
 				//alert(obj.className);
-            	
+
 			}
 
 function mouseout(obj) {
@@ -69,13 +69,13 @@ function mouseout(obj) {
 
 function trclick(obj) {
         var checkbox = obj.getElementsByTagName( 'input' )[0];
-        //if ( checkbox && checkbox.type == 'checkbox' ) 
+        //if ( checkbox && checkbox.type == 'checkbox' )
         checkbox.checked ^= 1;
 
 	if(checkbox.checked){
 		obj.className = 'even marked';
 
-		if(nrcount>=0) {nrcount++;document.getElementById('td01').innerHTML="Now selected "+nrcount+" GoIP channel(s)"; document.getElementById('td02').innerHTML="Now selected "+nrcount+" GoIP channel(s)";} 
+		if(nrcount>=0) {nrcount++;document.getElementById('td01').innerHTML="Now selected "+nrcount+" GoIP channel(s)"; document.getElementById('td02').innerHTML="Now selected "+nrcount+" GoIP channel(s)";}
 
 	}
 	else {
@@ -162,13 +162,13 @@ function select_location(value, name){
 
 </script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>GoIP Channel Configuration</strong></td>
   </tr>
-  <tr class="tdbg"> 
-    <td wIdth="100" height="30"><strong>Navigation:</strong></td>
+  <tr class="tdbg">
+    <td width="100" height="30"><strong>Navigation:</strong></td>
     <td height="30"><a href="?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key" target=main>Refresh</a>&nbsp;|&nbsp;</td>
   </tr>
 </table>
@@ -191,9 +191,9 @@ Group:
   </tr>
 </table>
 <form action="goip.php?action=del" method=post name=myform onSubmit="return confirm('Sure to delete?')">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 	<tr class=title>
-                <td wIdth="15" align=center height="25"><b>CH</b></td>
+                <td width="15" align=center height="25"><b>CH</b></td>
 		<td align="center"><a href="?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type2&order_key=line_name"><b>Line ID</b></a></td>
 		<td align="center"><a href="?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type2&order_key=line_status"><b>Login</b></a></td>
 		<td align="center"><a href="?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type2&order_key=gsm_status"><b>GSM Status</b></a></td>
@@ -241,7 +241,7 @@ else {
 print <<<EOT
 -->
 	<tr class="$class"  onMouseOver="mouseover(this)" onMouseOut="mouseout(this)" onMouseDown="trclick(this)">
-                <td align=center wIdth="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['line_name']}" $cck></td>
+                <td align=center width="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['line_name']}" $cck></td>
 		<td align="center">{$rs['line_name']}</td>
 		<td align="center">{$rs['alive']}</td>
 		<td align="center">{$rs['gsm']}</td>
@@ -255,7 +255,7 @@ print <<<EOT
 		<td align="center">{$rs['zone']}</td>
 		<td align="center">{$rs['zone_tag']}</td>
 		<td align="center">{$rs['disable']}</td>
-		{$op}	
+		{$op}
     </tr>
 
 <!--
@@ -267,7 +267,7 @@ print <<<EOT
 </table>
 <input type="hIdden" name="boxs" value="{$j}">
 <input type="hIdden" name="rstr" value="{$str}">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 <tr>
 <td height="30" ><input name="chkAll" type="checkbox" Id="chkAll" onclick="CheckAll(this.form, this)" value="checkbox">Choice current page <input name="chkAll0" type="checkbox" Id="chkAll0" onclick="CheckAll(this.form, this)" value="checkbox"> Choose all</td>
 </tr>
@@ -278,7 +278,7 @@ print <<<EOT
 <tr>
 <td>Batch Operation <select name="type" id="type" style="width:80px"  onchange="check_action(this)" >
 <option value="none" selected>Choose</option>
-<option value="moremodify">Modify</option> 
+<option value="moremodify">Modify</option>
 <option value="reboot">Reboot</option>
 </select>
 </td>
@@ -303,16 +303,16 @@ print <<<EOT
 </table>
 <form method="post" action="?action=savemodify&line_name=$rs[line_name]&goip_name={$_REQUEST['goip_name']}&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key" name="form1">
   <br>
-  <table wIdth="400" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
-    <tr class="title"> 
+  <table width="400" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+    <tr class="title">
       <td height="22" colspan="2"> <div align="center"><strong>Modify Goip Line Settings</strong></div></td>
     </tr>
-    <tr> 
-      <td wIdth="150" align="right" class="tdbg"><strong>GoIP Line ID:</strong></td>
+    <tr>
+      <td width="150" align="right" class="tdbg"><strong>GoIP Line ID:</strong></td>
       <td class="tdbg">$rs[line_name]</td>
     </tr>
     <tr>
-      <td wIdth="150" align="right" class="tdbg"><strong>Group:</strong></td>
+      <td width="150" align="right" class="tdbg"><strong>Group:</strong></td>
       <td class="tdbg">
           <select name="team_id" style="width:135" onchange="showbind(this.value)">
 	<option value="0" $select >None(for fixed bind mode)</option>
@@ -322,7 +322,7 @@ foreach($prsdb as $prs){
 
 if($rs[goip_team_id]==$prs[sim_team_id])
         $select=' selected';
-else                                                                                                              
+else
         $select='';
 print <<<EOT
 -->
@@ -331,15 +331,15 @@ print <<<EOT
 <!--
 EOT;
 }
-if($rs[goip_team_id]!=0) $display='none'; 
+if($rs[goip_team_id]!=0) $display='none';
 else $display='';
 print <<<EOT
 -->
       </select></td>
     </tr>
     <tr style="display:{$display}" Id='showbind1'>
-      <td wIdth="150" align="right" class="tdbg"><strong>Plan to bind Sim:</strong></td>
-      <td class="tdbg"><select name="sim_name" style="width:135">                                                 
+      <td width="150" align="right" class="tdbg"><strong>Plan to bind Sim:</strong></td>
+      <td class="tdbg"><select name="sim_name" style="width:135">
 	<option value="0">none</option>
 <!--
 EOT;
@@ -350,7 +350,7 @@ if($rs[line_name]==$prs[plan_line_name]){
 	$old_plan_sim_name=$prs[sim_name];
         $select=' selected';
 }
-else                                                                                                              
+else
         $select='';
 print <<<EOT
 -->
@@ -362,11 +362,11 @@ EOT;
 print <<<EOT
 -->
 
-      </select></td>                                                                                              
+      </select></td>
     </tr>
 
     <tr>
-      <td wIdth="150" align="right" class="tdbg"><strong>Enable line</strong></td>
+      <td width="150" align="right" class="tdbg"><strong>Enable line</strong></td>
       <td class="tdbg">
         <select name="dev_disable">
           <option value="0" $ck1>Enable</option>
@@ -374,8 +374,8 @@ print <<<EOT
         </select>
       </td>
     </tr>
-	<tr> <td height="20" colspan="2" align="center"  class="tdbg"></td></tr>	
-    <tr> 
+	<tr> <td height="20" colspan="2" align="center"  class="tdbg"></td></tr>
+    <tr>
       <td height="40" colspan="2" align="center" class="tdbg">
 	<input name="line_name" type="hIdden" Id="line_name" value="{$rs['line_name']}">
         <input name="old_zone" type="hIdden" Id="old_zone" value="{$rs['goip_zone']}">
@@ -383,7 +383,7 @@ print <<<EOT
         <input name="oldname" type="hIdden" Id="oldname" value="{$rs['goip_name']}">
         <input name="old_team_id" type="hIdden" Id="old_team_id" value="{$rs['goip_team_id']}">
         <input name="old_disable" type="hIdden" Id="old_disable" value="{$rs['dev_disable']}">
-        <input  type="submit" name="Submit" value="Save" style="cursor:hand;"> 
+        <input  type="submit" name="Submit" value="Save" style="cursor:hand;">
         &nbsp; <input name="Cancel" type="button" Id="Cancel" value="Cancel" onClick="window.location.href='?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key'" style="cursor:hand;"></td>
     </tr>
   </table>
@@ -403,16 +403,16 @@ print <<<EOT
 </table>
 <form method="post" action="all_device_line.php?action=savemoremodify&goip_name={$_REQUEST['goip_name']}&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key" name="form1">
   <br>
-  <table wIdth="600" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
-    <tr class="title"> 
+  <table width="600" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+    <tr class="title">
       <td height="22" colspan="2"> <div align="center"><strong>Modify Goip Line Settings</strong></div></td>
     </tr>
-    <tr> 
-      <td wIdth="200" align="right" class="tdbg"><strong>GoIP Line ID:</strong></td>
+    <tr>
+      <td width="200" align="right" class="tdbg"><strong>GoIP Line ID:</strong></td>
       <td class="tdbg">$line_name</td>
     </tr>
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>Group:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>Group:</strong></td>
       <td class="tdbg">
           <select name="team_id" style="width:135" onchange="showbind(this.value)">
 	<option value="0" $select >None(for fixed bind mode)</option>
@@ -422,7 +422,7 @@ foreach($prsdb as $prs){
 
 if($rs[goip_team_id]==$prs[sim_team_id])
         $select=' selected';
-else                                                                                                              
+else
         $select='';
 print <<<EOT
 -->
@@ -431,7 +431,7 @@ print <<<EOT
 <!--
 EOT;
 }
-if($rs[goip_team_id]!=0) $display='none'; 
+if($rs[goip_team_id]!=0) $display='none';
 else $display='';
 print <<<EOT
 -->
@@ -439,7 +439,7 @@ print <<<EOT
     </tr>
 
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>Enable line</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>Enable line</strong></td>
       <td class="tdbg">
         <select name="dev_disable">
           <option value="0" $ck1>Enable</option>
@@ -448,8 +448,8 @@ print <<<EOT
         &nbsp; &nbsp; |&nbsp; Modify<input name="dev_disable_modify" type='checkbox' value="1">
       </td>
     </tr>
-	<tr> <td height="20" colspan="2" align="center"  class="tdbg"></td></tr>	
-    <tr> 
+	<tr> <td height="20" colspan="2" align="center"  class="tdbg"></td></tr>
+    <tr>
       <td height="40" colspan="2" align="center" class="tdbg">
 	<input name="line_name" type="hIdden" Id="line_name" value="{$line_name}">
         <input name="old_zone" type="hIdden" Id="old_zone" value="{$rs['goip_zone']}">
@@ -458,7 +458,7 @@ print <<<EOT
         <input name="old_team_id" type="hIdden" Id="old_team_id" value="{$rs['goip_team_id']}">
         <input name="old_disable" type="hIdden" Id="old_disable" value="{$rs['dev_disable']}">
 	<input name="chkAll0" type="hIdden" Id="chkAll0" value="$_REQUEST[chkAll0]">
-        <input  type="submit" name="Submit" value="Save" style="cursor:hand;"> 
+        <input  type="submit" name="Submit" value="Save" style="cursor:hand;">
         &nbsp; <input name="Cancel" type="button" Id="Cancel" value="Cancel" onClick="window.location.href='?goip_name=$_REQUEST[goip_name]&group_id=$_REQUEST[group_id]&order=$order_type&order_key=$order_key'" style="cursor:hand;"></td>
     </tr>
   </table>
@@ -471,10 +471,10 @@ print <<<EOT
 -->
 </form>
 
-					  </td> 
+					  </td>
 					</tr>
 </table>
-				
+
 </body>
 </html>
 <!--

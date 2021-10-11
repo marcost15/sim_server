@@ -22,7 +22,7 @@ function unselectall()
         {
             if(document.myform.chkAll.checked){
                 document.myform.chkAll.checked = document.myform.chkAll.checked&0;
-            } 
+            }
         }
 
 function CheckAll(form)
@@ -41,7 +41,7 @@ function CheckAll(form)
                                                 nrcount--;
                                 }
                                 e.checked = form.chkAll.checked;
-                                do {e=e.parentNode} while (e.tagName!="TR") 
+                                do {e=e.parentNode} while (e.tagName!="TR")
                                 if(form.chkAll.checked)
                                         e.className = 'even marked';
                                 else
@@ -55,7 +55,7 @@ function CheckAll(form)
 function mouseover(obj) {
                 obj.className += ' hover';
                                 //alert(obj.className);
-            
+
                         }
 
 function mouseout(obj) {
@@ -65,13 +65,13 @@ function mouseout(obj) {
 
 function trclick(obj) {
         var checkbox = obj.getElementsByTagName( 'input' )[0];
-        //if ( checkbox && checkbox.type == 'checkbox' ) 
+        //if ( checkbox && checkbox.type == 'checkbox' )
         checkbox.checked ^= 1;
 
                 if(checkbox.checked){
                         obj.className = 'even marked';
 
-                        if(nrcount>=0) {nrcount++;document.getElementById('td01').innerHTML="现在选择了"+nrcount+"条线路，保存请点击'保存成员'按钮";} 
+                        if(nrcount>=0) {nrcount++;document.getElementById('td01').innerHTML="现在选择了"+nrcount+"条线路，保存请点击'保存成员'按钮";}
                 }
                 else {
                         obj.className = 'even';
@@ -80,7 +80,7 @@ function trclick(obj) {
 //              var ckpage=document.modifyform.elements['chkAll'+num];
             if(document.myform.chkAll.checked){
                 document.myform.chkAll.checked = document.myform.chkAll.checked;
-            } 
+            }
 
 
                 }
@@ -94,22 +94,22 @@ function f(s){
 	}
 }
 
-function formatDate(now) { 
-var year=now.getYear()+1900; 
-var month=now.getMonth()+1; 
-var date=now.getDate(); 
-var hour=now.getHours(); 
-var minute=now.getMinutes(); 
-var second=now.getSeconds(); 
-return year+"-"+f(month)+"-"+f(date)+" "+f(hour)+":"+f(minute)+":"+f(second); 
-} 
+function formatDate(now) {
+var year=now.getYear()+1900;
+var month=now.getMonth()+1;
+var date=now.getDate();
+var hour=now.getHours();
+var minute=now.getMinutes();
+var second=now.getSeconds();
+return year+"-"+f(month)+"-"+f(date)+" "+f(hour)+":"+f(minute)+":"+f(second);
+}
 
 function check_time()
 {
 	if(Number(document.getElementById('period_min').value) > Number(document.getElementById('period_max').value)) document.getElementById('period_max').value = document.getElementById('period_min').value;
 	if(Number(document.getElementById('talk_time_min').value) > Number(document.getElementById('talk_time_max').value)) document.getElementById('talk_time_max').value = document.getElementById('talk_time_min').value;
 	var now=(new Date()).valueOf();
-	if(!document.getElementById('next_time').value) 
+	if(!document.getElementById('next_time').value)
 	document.getElementById('next_time').value= formatDate(new Date( now+document.getElementById('period_min').value*60000));
 }
 
@@ -117,14 +117,14 @@ function changepage(url,fname)
         {
                 fname.action=url;
                 fname.submit();
-                return false;   
+                return false;
         }
 function selectchangepage(url,page,fname)
         {
 
                 fname.action=url+"page="+page;
                 fname.submit();
-                return false;   
+                return false;
         }
 
 function show_type_div(){
@@ -328,13 +328,13 @@ function _SetTime(tt) {
 }
 </script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>模拟人工行为模板</strong></td>
   </tr>
-  <tr class="tdbg"> 
-    <td wIdth="100" height="30"><strong>导航:</strong></td>
+  <tr class="tdbg">
+    <td width="100" height="30"><strong>导航:</strong></td>
     <td height="30"><a href="human.php" target=main>列表</a>&nbsp;|&nbsp;<a href="human.php?action=add" target=main>添加</a></td>
   </tr>
 </table>
@@ -350,7 +350,7 @@ print <<<EOT
   </tr>
 </table>
 <form action="?action=del" method=post name=myform onSubmit="return confirm('确认删除?')">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
         <tr class=title>
                 <td align="center"><b>模板名称</b></td>
 		<td align="center"><b>是否启用</b></td>
@@ -383,7 +383,7 @@ else {
 $rs['type_name']="cycle";
 }
 print <<<EOT
--->     
+-->
         <tr $c >
                 <td align="center">{$rs['name']}</td>
 		<td align="center">{$rs['enable']}</td>
@@ -404,7 +404,7 @@ print <<<EOT
 -->
 </table>
 <input type="hIdden" name="boxs" value="{$j}">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 
                                         <tr>
                                                 <td  align=center>{$fenye}</td>
@@ -422,7 +422,7 @@ else {
 	$rs[talk_time_max]=10;
 	$rs[period_min]=240;
 	$rs[period_max]=300;
-	
+
 }
 if($rs['disable'])  $ck2="selected";
 if($action=="add") $post="?action=saveadd";
@@ -436,17 +436,17 @@ print <<<EOT
   </tr>
 </table>
 <form action="{$post}" method=post name=myform">
-  <table wIdth=700 border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+  <table width=700 border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>模板名称:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>模板名称:</strong></td>
       <td class="tdbg"><input type="input" name="name" id="name" value="$rs[name]"></td>
     </tr>
      <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>自动拨打号码:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>自动拨打号码:</strong></td>
       <td class="tdbg"><textarea rows="4" wrap="virtual" cols="20" class="textarea" name="dial_num" id="dial_num">$rs[dial_num]</textarea></td>
     </tr>
    <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>通话时长（秒）:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>通话时长（秒）:</strong></td>
       <td class="tdbg">最短:<input size=3 type="input" name="talk_time_min" id="talk_time_min" value="$rs[talk_time_min]" onblur="onfocus_check_integer(this, 1, 600)" onchange="check_time()">
         最长:<input type="input" size=3 name="talk_time_max" id="talk_time_max" value="$rs[talk_time_max]" onblur="onfocus_check_integer(this, 1, 600)" onchange="check_time()"></td>
     </tr>
@@ -461,7 +461,7 @@ print <<<EOT
     </tr>
 </table>
 <div style="display:{$display_daily}" id="type_daily_div">
-  <table wIdth=700 border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+  <table width=700 border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
 <!--
 EOT;
 $i=0;
@@ -472,9 +472,9 @@ for(;$i<9;$i++) {
 print <<<EOT
 -->
                                     <tr>
-                                     <td wIdth="200" align="right" class="tdbg"><strong>时段0{$i2}</strong>
+                                     <td width="200" align="right" class="tdbg"><strong>时段0{$i2}</strong>
                                       <input type="text" name="period_start{$ii}" id="period_start{$ii}" value="{$d_start_h[0][$i]}:{$d_start_m[0][$i]}" class="edit" style="font-size:20px" onclick="_SetTime(this)" readonly></td>
-                                      <td wIdth="200" align="left" class="tdbg">-<input type="text" name="period_end{$ii}" id="period_end{$ii}" value="{$d_stop_h[0][$i]}:{$d_stop_m[0][$i]}" class="edit" style="font-size:20px" onclick="_SetTime(this)" readonly>
+                                      <td width="200" align="left" class="tdbg">-<input type="text" name="period_end{$ii}" id="period_end{$ii}" value="{$d_stop_h[0][$i]}:{$d_stop_m[0][$i]}" class="edit" style="font-size:20px" onclick="_SetTime(this)" readonly>
                                      </td>
 
 
@@ -488,21 +488,21 @@ print <<<EOT
 </table>
 </div>
 <div style="display:{$display_cycle}" id="type_cycle_div">
-  <table wIdth=700 border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+  <table width=700 border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>运行周期（分）:</strong></td>
-      <td class="tdbg">最短:<input type="input" size=3 name="period_min" id="period_min" value="$rs[period_min]" onblur="onfocus_check_integer(this, 10, 9999)" onchange="check_time()"> 
+      <td width="200" align="right" class="tdbg"><strong>运行周期（分）:</strong></td>
+      <td class="tdbg">最短:<input type="input" size=3 name="period_min" id="period_min" value="$rs[period_min]" onblur="onfocus_check_integer(this, 10, 9999)" onchange="check_time()">
 	最长:<input type="input" size=3 name="period_max" id="period_max" value="$rs[period_max]" onblur="onfocus_check_integer(this, 10, 9999)" onchange="check_time()"></td>
     </tr>
 </table>
 </div>
-  <table wIdth=700 border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+  <table width=700 border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>下次执行时间:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>下次执行时间:</strong></td>
       <td class="tdbg"><input type="input" name="next_time" id="next_time" readOnly onClick="SelectDate(this,'yyyy-MM-dd hh:mm:ss')"  value="$rs[next_time]"></td>
     </tr>
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>是否启用:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>是否启用:</strong></td>
       <td class="tdbg">        <select name="disable">
           <option value="0" $ck1>启用</option>
           <option value="1" $ck2>禁用</option>
@@ -541,9 +541,9 @@ print <<<EOT
   </tr>
 </table>
 <form action="?action=greceivers&id={$id}" method=post name=myform onSubmit="return confirm('确定修改?')">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2" nowrap=true>
+<table width="100%"  border="0" cellspacing="2" cellpadding="2" nowrap=true>
         <tr class=title>
-                <td wIdth="35" align=center height="25"><b>选择</b></td>
+                <td width="35" align=center height="25"><b>选择</b></td>
                 <td align="center"><b>GoIP线路ID</b></td>
                 <td align="center"><b>状态</b></td>
                 <td align="center"><b>区域ID</b></td>
@@ -558,7 +558,7 @@ if( in_array($rs['id'],$strs0)){
 print <<<EOT
 -->
         <tr class="marked" onMouseOver="mouseover(this)" onMouseOut="mouseout(this)" onMouseDown="trclick(this)">
-                <td align=center wIdth="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['id']}" checked>
+                <td align=center width="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['id']}" checked>
 </td>
 <!--
 EOT;
@@ -567,7 +567,7 @@ else{
 print <<<EOT
 -->
         <tr class="even" onMouseOver="mouseover(this)" onMouseOut="mouseout(this)" onMouseDown="trclick(this)">
-                <td align=center wIdth="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['id']}"></td>
+                <td align=center width="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['id']}"></td>
 <!--
 EOT;
 }
@@ -577,7 +577,7 @@ print <<<EOT
                 <td align="center">{$rs['alive']}</td>
                 <td align="center">{$rs['goip_zone']}</td>
                 <td align="center">{$rs['sim_team_name']}</td>
-                <td wIdth="145" align=center onMouseDown='event.cancelBubble = true;'><a href="device_line.php?action=modify&name={$rs['line_name']}">Goip修改</a></td>
+                <td width="145" align=center onMouseDown='event.cancelBubble = true;'><a href="device_line.php?action=modify&name={$rs['line_name']}">Goip修改</a></td>
     </tr>
 
 <!--
@@ -589,7 +589,7 @@ print <<<EOT
 </table>
 <input type="hIdden" name="boxs" value="{$j}">
 <input type="hIdden" name="rstr" value="{$str}">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 
 
                                         <tr>
@@ -610,7 +610,7 @@ print <<<EOT
 </table>
 <script language="javascript">
 show_type_div();
-</script>			
+</script>
 </body>
 </html>
 <!--

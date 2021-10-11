@@ -20,7 +20,7 @@ body {
 </style></head>
 
 <SCRIPT language=javascript>
-	
+
 function addgroup(checked)
 {
 	if(checked.checked){
@@ -33,10 +33,10 @@ function addgroup(checked)
 		document.getElementById("selectgroup").style.display="block";
 		document.getElementById("add").style.display="none";
 	}
-		
+
 }
 
-function check() 
+function check()
 {
 	var strFileName=document.uploadform.img1.value;
 	if (strFileName=="")
@@ -69,10 +69,10 @@ function check()
 				return false;
 			}
 		}
-	
+
 }
 </SCRIPT>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
 <?php
 
 function check_prov(&$data, $prov, $prov0, &$msg, $codeflag = 0 )
@@ -86,7 +86,7 @@ function check_prov(&$data, $prov, $prov0, &$msg, $codeflag = 0 )
 	$data=$prov[$data];
 	if(!$data){
 		$msg.='<br><li>Provider : '.$tmpdata.' not exist</li>';
-		return 0;					
+		return 0;
 	}
 	return 1;
 }
@@ -95,8 +95,8 @@ if(!isset($_COOKIE['username'])) {
 	require_once ('login.php');
 	exit;
 }
-if($_COOKIE['permissions'] > 1)	
-	die("Permission denied!");	
+if($_COOKIE['permissions'] > 1)
+	die("Permission denied!");
 define("OK", true);
 require_once("global.php");
 
@@ -104,11 +104,11 @@ require_once("global.php");
 if ( $_POST["action"]=="mingsenupload")
 {
 	//echo "upload";
-	
+
 	$attach_name=$_FILES["img1"]['name'];
 	$attach_size=$_FILES["img1"]['size'];
 	$attachment=$_FILES["img1"]['tmp_name'];
-	
+
 	//$db_uploadmaxsize='5120000';
 	$db_uploadfiletype='txt cfg';
 	$attachdir="../upload";
@@ -124,7 +124,7 @@ if ( $_POST["action"]=="mingsenupload")
 	if ($attach_size>$db_uploadmaxsize){
 		showerror("upload_type_error:too large");
 	}
-*/	
+*/
 	$available_type = explode(' ',trim($db_uploadfiletype));
 	$attach_ext = substr(strrchr($attach_name,'.'),1);
 	$attach_ext=strtolower($attach_ext);
@@ -141,7 +141,7 @@ if ( $_POST["action"]=="mingsenupload")
 			@mkdir($attachdir);
 			@chmod($attachdir,0777);
 		}
-		
+
 	$source=$attachdir.'/'.$uploadname;
 	$returnfile="../upload";
 	$returnfile=$returnfile.'/'.$uploadname;
@@ -156,10 +156,10 @@ if ( $_POST["action"]=="mingsenupload")
 		writeover($source,$attcontent);
 		chmod($source,0777);
 	}
-	
-	if($attach_saved == 1){	
-	/* 檢查列名*/	
-	/* 
+
+	if($attach_saved == 1){
+	/* 檢查列名*/
+	/*
 		$query=$db->query("desc receiver");
 		while($rs=$db->fetch_array($query)){
 			$vname[]=$rs[0];
@@ -177,7 +177,7 @@ if ( $_POST["action"]=="mingsenupload")
 			if($ErrMsg!="")
 				WriteErrMsg($ErrMsg);
 			else{
-			
+
 				$query=$db->query("SELECT id FROM `groups` WHERE name='$username' ");
 				$rs=$db->fetch_array($query);
 				if(empty($rs[0])){
@@ -190,7 +190,7 @@ if ( $_POST["action"]=="mingsenupload")
 					$ErrMsg=$ErrMsg."<br><li>group [$username] have existed</li>";
 					WriteErrMsg($ErrMsg);
 				}
-						
+
 			}
 		}
 		else
@@ -210,15 +210,15 @@ if ( $_POST["action"]=="mingsenupload")
 		}
 		if(!$pflag)
 			die("Database is not provided with a service provider");
-			
+
 		$ext=substr($source, strlen($source) - 4);
 		$name=array('no','name','info','tel','provider','name1','tel1','provider1','name2','tel2','provider2');
 		$num=11;
 		if($ext=='.csv')
 		{
 			$fp   =   fopen($source,"r");
-			/*解析列名*/  
-			if( fgetcsv($fp,'1024',',')){   
+			/*解析列名*/
+			if( fgetcsv($fp,'1024',',')){
 				$namenum = count ($name);
 				//print "<p> $num fields in line $row: <br>\n";
 				//$row++;
@@ -229,14 +229,14 @@ if ( $_POST["action"]=="mingsenupload")
 							$sqlvname[]
 					}
 					print iconv("GB2312//IGNORE","UTF-8",$data[$c]) . "<br>\n";
-				} 
-				*/  
-			}   
+				}
+				*/
+			}
 			$row=0;
 			$srow=0;
-			while($data   =   fgetcsv($fp,'1024',',')){   
+			while($data   =   fgetcsv($fp,'1024',',')){
 				$row++;
-				
+
 				$no_t=$db->fetch_array($db->query("select id from receiver where no='".$data[0]."'"));
 				if($no_t[0]){
 					$Msg.='<br><li>ID '.$data[0].' already existed</li>';
@@ -250,7 +250,7 @@ if ( $_POST["action"]=="mingsenupload")
 				$sqlv=NULL;
 				$sqln=NULL;
 				//print "<p> $num fields in line $row: <br>\n";
-	
+
 				$sqlv='insert into receiver (';
 				for ($c=1; $c < $num; $c++) {
 					$sqlv.=$name[$c].",";
@@ -264,28 +264,28 @@ if ( $_POST["action"]=="mingsenupload")
 				//echo $sqlutf8;
 				//WriteSuccessMsg($_POST[checkadd],"sds.php");
 				$db->query($sqlutf8);
-                                if($groupid){                                                                     
+                                if($groupid){
                                         $recviddb=$db->fetch_array($db->query("SELECT LAST_INSERT_ID()"));
                                         $recvid=$recviddb[0];
                                         $db->query("INSERT INTO recvgroup VALUES(NULL,'$groupid','$recvid')");
                                 }
       	  	}
-			fclose($fp); 
-			$Msg= "<br><li>Import is done, total $row receivers，Success $srow receivers</li>".$Msg; 
+			fclose($fp);
+			$Msg= "<br><li>Import is done, total $row receivers，Success $srow receivers</li>".$Msg;
 			WriteSuccessMsg($Msg,"receiver.php");
-		
+
 		}
-		else if($ext=='.xls') 
+		else if($ext=='.xls')
 		{
 			//echo "excel";
 			require_once "../excel_class.php";
 			Read_Excel_File($source,$return);
 			//$fp   =   fopen($source,"r");
-			/*解析列名*/  
-			//if($return[Sheet1][0]){   
+			/*解析列名*/
+			//if($return[Sheet1][0]){
 				//$namenum = count($return[Sheet1][0]);
 
-			//}    
+			//}
 			$srow=0;
 			for ($row=1;$row<count($return[Sheet1]);$row++)
             {
@@ -297,7 +297,7 @@ if ( $_POST["action"]=="mingsenupload")
 				if(!check_prov($return[Sheet1][$row][4],$prov, $prov0, $Msg)) continue;
 				if(!check_prov($return[Sheet1][$row][7],$prov, $prov0, $Msg)) continue;
 				if(!check_prov($return[Sheet1][$row][10],$prov, $prov0, $Msg)) continue;
-				
+
 				$srow++;
 				$sqlv=NULL;
 				$sqln=NULL;
@@ -315,13 +315,13 @@ if ( $_POST["action"]=="mingsenupload")
 					$recvid=$recviddb[0];
 					$db->query("INSERT INTO recvgroup VALUES(NULL,'$groupid','$recvid')");
 				}
-            }  
-			--$row;  
+            }
+			--$row;
 		}
-		$Msg= "<br><li>Import is done, total $row receivers，Success $srow receivers</li>".$Msg; 
+		$Msg= "<br><li>Import is done, total $row receivers，Success $srow receivers</li>".$Msg;
 		WriteSuccessMsg($Msg,"receiver.php");
 		exit;
-	}  
+	}
 }
 
 /*取出組*/
@@ -339,11 +339,11 @@ if ( $_POST["action"]=="mingsenupload")
 		$crowdcount=count($rsdb);//總群數
 		foreach($rsdb as $id => $crowdrs)
 			$groupcount[]=count($crowdrs);//每個群的組數
-		
+
 echo "<script  language=javascript>\n";
 echo "var select2 = new Array($crowdcount);\n";
 echo "select2[0] = new Array();\nselect2[0][0] = new Option(\"Please choose\", \" \");\n";
-for ($i=1; $i<=$crowdcount; $i++) 
+for ($i=1; $i<=$crowdcount; $i++)
 {
  echo "select2[$i] = new Array();\n";
  $j=0;
@@ -358,7 +358,7 @@ print <<<EOT
 
 function redirec(x)
 {
- var temp = document.uploadform.group; 
+ var temp = document.uploadform.group;
  for (i=0;i<select2[x].length;i++)
  {
   temp.options[i]=new Option(select2[x][i].text,select2[x][i].value);
@@ -366,9 +366,9 @@ function redirec(x)
  temp.options[0].selected=true;
 
 }
-</script>	
+</script>
 EOT;
-	
+
 function showerror($msg){
 	//@extract($GLOBALS, EXTR_SKIP);
 	//require_once GetLang('msg');
@@ -390,19 +390,19 @@ function num_rand($lenth){
 	$randval=substr(md5($randval),mt_rand(0,32-$lenth),$lenth);
 	return $randval;
 }
-?> 
+?>
 
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>Import Receivers</strong></td>
   </tr>
-  <tr class="tdbg"> 
-    <td wIdth="100" height="30"><strong>Navigation:</strong></td>
+  <tr class="tdbg">
+    <td width="100" height="30"><strong>Navigation:</strong></td>
     <td height="30">Import Receivers into a group or none</td>
   </tr>
 </table>
-<br> 
-<table wIdth="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
+<br>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="border">
   <tr class="title">
     <td height="22"><strong>Notice: </strong></td>
   </tr>
@@ -419,7 +419,7 @@ function num_rand($lenth){
 <br>
 <FORM  name=uploadform action="<?=$PHP_SELF?>" method="POST" enctype="multipart/form-data" onSubmit="return check()">
 <center>
-<div id="selectgroup"> 
+<div id="selectgroup">
 <tr><td height="50" >Import into a group or none?
 <select name="crowd" style="width:135" onChange="redirec(document.uploadform.crowd.options.selectedIndex)">
   <option value="0" selected>None</option>
@@ -428,7 +428,7 @@ $i=1;
 foreach($rscrowd as $crowd) {
 print <<<EOT
       <option value={$i} >{$crowd[1]}</option>
-	  
+
 EOT;
 $i++;
 }
@@ -440,24 +440,24 @@ $i++;
 
 	 </td></tr>
 
-</div> 
+</div>
 <br>
 <input name="checkadd" type="checkbox" Id="checkadd" onclick="addgroup(this.form.checkadd)" value="0">Add a new group
 <br>
 <div id="add" style="display:none;">
-  <table wIdth="300" border="0" align="center" cellpadding="2" cellspacing="1" >
-    <tr class="title"> 
+  <table width="300" border="0" align="center" cellpadding="2" cellspacing="1" >
+    <tr class="title">
       <td height="22" colspan="2"> <div align="center"><strong>Add a group</strong></div></td>
     </tr>
-    <tr> 
-      <td wIdth="100" align="right" class="tdbg"><strong>Group Name:</strong></td>
+    <tr>
+      <td width="100" align="right" class="tdbg"><strong>Group Name:</strong></td>
       <td class="tdbg"><input type="input" name="name"> </td>
     </tr>
-	
-    <tr> 
-      <td wIdth="100" align="right" class="tdbg"><strong>In a crowd</strong></td>
+
+    <tr>
+      <td width="100" align="right" class="tdbg"><strong>In a crowd</strong></td>
       <td class="tdbg">
-	  	   <select name="crowdid" style="width:135px" >  
+	  	   <select name="crowdid" style="width:135px" >
 
 <?php
 $i=0 ;
@@ -471,19 +471,19 @@ if($i==0) {
 else {
 ?>
 	<option value="<?php print($crs[0]) ?>" ><?php print($crs[1]) ?></option>
-<?php } 
+<?php }
 } ?>
 
 </select>
 </td>
     </tr>
-    <tr> 
-      <td wIdth="100" align="right" class="tdbg"><strong>Remarks:</strong></td>
+    <tr>
+      <td width="100" align="right" class="tdbg"><strong>Remarks:</strong></td>
       <td class="tdbg"><input type="input" name="info"> </td>
     </tr>
   </table>
 
-</div> 
+</div>
 <tr><td>
 <br>
 Please upload a file to import<INPUT TYPE="HIdDEN"  name="action" value="mingsenupload">

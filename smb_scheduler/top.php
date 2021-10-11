@@ -54,23 +54,23 @@ function switchBar(obj)
 </head>
 
 <body background="images/admin_top_bg.gif" leftmargin="0" topmargin="0" >
-<table height="100%" wIdth="100%" border=0 cellpadding=0 cellspacing=0>
+<table height="100%" width="100%" border=0 cellpadding=0 cellspacing=0>
 <tr valign=mIddle>
-	<td wIdth=50>
+	<td width=50>
 	<img onClick="switchBar(this)" src="images/admin_top_close.gif" title="关闭左边管理功能表" style="cursor:hand">
 	</td>
 
-	<td wIdth=40>
+	<td width=40>
 		<img src="images/admin_top_icon_1.gif">
 	</td>
 
-	<td wIdth=200>
+	<td width=200>
 		<?php echo $date ?>
 	</td>
 
-	<td wIdth=40>&nbsp;
+	<td width=40>&nbsp;
 	</td>
-	<td wIdth=100>&nbsp;</td>	
+	<td width=100>&nbsp;</td>
 	<td align="right"><a href="" onClick="parent.location.href='en/index.php'; ">English</a>&nbsp;&nbsp;&nbsp; <?php echo $version." ".$bdate ?></td>
 </tr>
 </table>

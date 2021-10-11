@@ -9,3 +9,7 @@ Sim Server para equipos tipo GOIP
  php -r "unlink('composer-setup.php');"
 
  sudo mv composer.phar /usr/local/bin/composer
+
+ * Instalar node.js para habilitar algunos plugins de subl
+
+ 

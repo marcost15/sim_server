@@ -14,7 +14,7 @@ if($action=="del"){
 	if(empty($Id)){
 		$num=$_POST['boxs'];
 		for($i=0;$i<$num;$i++)
-		{	
+		{
 			if(!empty($_POST["Id$i"])){
 				if($Id=="")
 					$Id=$_POST["Id$i"];
@@ -36,14 +36,14 @@ if($action=="del"){
 	}
 }
 else if($action=="delall"){
-	//if(empty($_REQUEST[goipid]))                  
+	//if(empty($_REQUEST[goipid]))
 		//$ErrMsg ='<br><li>Please choose one</li>';
-	if($ErrMsg!="")                                                                                           
-		WriteErrMsg($ErrMsg);                                                                             
-	else{ 
+	if($ErrMsg!="")
+		WriteErrMsg($ErrMsg);
+	else{
 		if($_REQUEST[line_name])  $where="where line_name='$_REQUEST[line_name]'";
 		else if($_REQUEST[sim_name])  $where="where sim_name='$_REQUEST[sim_name]'";
-		$db->query("DELETE FROM call_record $where"); 
+		$db->query("DELETE FROM call_record $where");
 
 		WriteSuccessMsg("<br><li>Delete call records success</li>","call_record.php?line_name=$_REQUEST[line_name]&sim_name=$_REQUEST[sim_name]");
 
@@ -81,7 +81,7 @@ if(!empty($_REQUEST['column'])&& !empty($_REQUEST['type']) && !empty($_REQUEST['
 		$where.=" >= '$s_key'";
 	}
 }
-else {  
+else {
 	$t_selected['contain']="selected";
 	$c_selected['number']="selected";
 }
@@ -98,7 +98,7 @@ $line_name=$_REQUEST['line_name'];
 if(!$name) {
         $sim_ch="selected";
         $sim_name_ch="All";
-	
+
 }
 
 $select2="Sim:<select name=\"sim_name\"  style=\"width:90px\" >\n\t<option value=\"0\" $ch>All</option>\n";
@@ -259,7 +259,7 @@ function unselectall()
 	{
 	    if(document.myform.chkAll.checked){
 		document.myform.chkAll.checked = document.myform.chkAll.checked&0;
-	    } 	
+	    }
 	}
 
 function CheckAll(form)
@@ -271,7 +271,7 @@ function CheckAll(form)
 		    e = form.elements[i];
 		    if (e.type == 'checkbox' && e.id != "chkAll" && e.disabled==false){
 				e.checked = form.chkAll.checked;
-		 		do {e=e.parentNode} while (e.tagName!="TR") 
+		 		do {e=e.parentNode} while (e.tagName!="TR")
 		 		if(form.chkAll.checked)
 		 			e.className = 'even marked';
 		 		else
@@ -284,7 +284,7 @@ function CheckAll(form)
 function mouseover(obj) {
                 obj.className += ' hover';
 				//alert(obj.className);
-            	
+
 			}
 
 function mouseout(obj) {
@@ -295,7 +295,7 @@ function mouseout(obj) {
 function trclick(obj) {
 		//alert("ddddd");
         var checkbox = obj.getElementsByTagName( 'input' )[0];
-        //if ( checkbox && checkbox.type == 'checkbox' ) 
+        //if ( checkbox && checkbox.type == 'checkbox' )
         checkbox.checked ^= 1;
 		if(checkbox.checked)
 			obj.className = 'even marked';
@@ -303,30 +303,30 @@ function trclick(obj) {
 //		var ckpage=document.modifyform.elements['chkAll'+num];
 	    if(document.myform.chkAll.checked){
 		document.myform.chkAll.checked = document.myform.chkAll.checked&0;
-	    } 	
-		
+	    }
+
 
 		}
 
 </script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>(<?php echo $t_info ?>)通话记录</strong></td>
   </tr>
-  <tr class="tdbg"> 
-<td wIdth="70" height="30"><strong>导航:</strong></td>
+  <tr class="tdbg">
+<td width="70" height="30"><strong>导航:</strong></td>
     <td height="30"><a href="<?php echo "?line_name=$line_name&sim_name=$sim_name&start_time=$start_time&end_time=$end_time&column=$column&type=$type&s_key=$_REQUEST[s_key]" ?>" target=main>刷新</a>&nbsp;|&nbsp;<a href="call_record.php" target=main>所有通话记录</a></td>
   </tr>
 </table>
 <table width="100%" height="25"  border="0" cellpadding="0" cellspacing="0">
 <form action="?action=search" method="post">
-<tr><td> 
+<tr><td>
 <?php echo $select2 ?>
 起始时间:
 <input type="text" name="start_time"  readOnly onClick="SelectDate(this,'yyyy-MM-dd hh:mm')" value="<?php echo $start_time ?>">
-结束时间:            
+结束时间:
 <input type="text" name="end_time"  readOnly onClick="SelectDate(this,'yyyy-MM-dd hh:mm')" value="<?php echo $end_time ?>">
 </td></tr>
 <tr><td>
@@ -335,9 +335,9 @@ function trclick(obj) {
 </form>
 </table>
 <form action="call_record.php?action=del&<?php echo "line_name=$_REQUEST[line_name]&sim_name=$_REQUEST[sim_name]" ?>" method=post name=myform onSubmit="return confirm('确认删除')">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 	<tr class=title>
-		<td wIdth="35" align=center height="25"><b>选择</b></td>
+		<td width="35" align=center height="25"><b>选择</b></td>
 		<td align="center"><b>时间</b></td>
 		<td align="center"><b>SIM Slot ID</b></td>
 		<td align="center"><b>GoIP线路 ID</b></td>
@@ -348,16 +348,16 @@ function trclick(obj) {
 		<td align="center"><b>类型</b></td>
 		<td align="center"><b>通话号码</b></td>
                 <td align="center"><b>Disconnect Cause</b></td>
-		<td wIdth="80" align=center><b>操作</b></td>
+		<td width="80" align=center><b>操作</b></td>
 	</tr>
 <!--
-<?php 
+<?php
 $j=0;
 foreach($rsdb as $rs) {
 print <<<EOT
 -->
 	<tr class="even" onMouseOver="mouseover(this)" onMouseOut="mouseout(this)" onMouseDown="trclick(this)">
-		<td align=center wIdth="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['id']}"></td>
+		<td align=center width="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['id']}"></td>
 		<td align="center">{$rs['time']}</td>
 		<td align="center">{$rs['sim_name']}</td>
 		<td align="center">{$rs['line_name']}</td>
@@ -368,8 +368,8 @@ print <<<EOT
 		<td align="center">{$rs['dir1']}</td>
 		<td align="center">{$rs['number']}</td>
 		<td align="center">{$rs['disconnect_cause']}</td>
-				
-		<td align=center wIdth="80"><a href="call_record.php?id={$rs['id']}&action=del&line_name={$_REQUEST[line_name]}&sim_name={$_REQUEST[sim_name]}" onClick="return confirm('确认删除?')">删除</a></td>
+
+		<td align=center width="80"><a href="call_record.php?id={$rs['id']}&action=del&line_name={$_REQUEST[line_name]}&sim_name={$_REQUEST[sim_name]}" onClick="return confirm('确认删除?')">删除</a></td>
     </tr>
 
 <!--
@@ -380,11 +380,11 @@ print <<<EOT
 -->
 </table>
 <input type="hIdden" name="boxs" value="{$j}">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 
 
 					<tr>
-						<td height="30" ><input name="chkAll" type="checkbox" Id="chkAll" onclick=CheckAll(this.form) value="checkbox"> 
+						<td height="30" ><input name="chkAll" type="checkbox" Id="chkAll" onclick=CheckAll(this.form) value="checkbox">
 					  选择当前页<input name="submit" type='submit' value='删除所选'>
 <input name="button" type='button' value='删除全部' onClick="if(confirm('确认删除所有日志?')) window.location='?action=delall&line_name=$_REQUEST[line_name]&sim_name=$_REQUEST[sim_name]'"></td>
 					</tr>
@@ -398,9 +398,9 @@ EOT;
 -->
 </form>
 
-					  </td> 
+					  </td>
 					</tr>
 </table>
-				
+
 </body>
 </html>

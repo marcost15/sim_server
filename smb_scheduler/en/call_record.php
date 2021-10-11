@@ -310,13 +310,13 @@ function trclick(obj) {
 </script>
 <script src="time.js"></script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
   <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>(<?php echo $t_info ?>)Call Records</strong></td>
   </tr>
   <tr class="tdbg">
-<td wIdth="70" height="30"><strong>Navigation:</strong></td>
+<td width="70" height="30"><strong>Navigation:</strong></td>
     <td height="30"><a href="<?php echo "?line_name=$line_name&sim_name=$sim_name&start_time=$start_time&end_time=$end_time&column=$column&type=$type&s_key=$_REQUEST[s_key]" ?>" target=main>Refresh</a>&nbsp;|&nbsp;<a href="call_record.php" target=main>All Record</a></td>
   </tr>
 </table>
@@ -335,9 +335,9 @@ End:
 </form>
 </table>
 <form action="call_record.php?action=del&<?php echo "line_name=$_REQUEST[line_name]&sim_name=$_REQUEST[sim_name]" ?>" method=post name=myform onSubmit="return confirm('Sure to Delete?')">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 	<tr class=title>
-		<td wIdth="35" align=center height="25"><b>choose</b></td>
+		<td width="35" align=center height="25"><b>choose</b></td>
 		<td align="center"><b>DateTime</b></td>
 		<td align="center"><b>Slot ID</b></td>
 		<td align="center"><b>Line ID</b></td>
@@ -348,7 +348,7 @@ End:
 		<td align="center"><b>Direction</b></td>
 		<td align="center"><b>Call Number</b></td>
 		<td align="center"><b>Disconnect Cause</b></td>
-		<td wIdth="80" align=center><b>Operations</b></td>
+		<td width="80" align=center><b>Operations</b></td>
 	</tr>
 <!--
 <?php
@@ -357,7 +357,7 @@ foreach($rsdb as $rs) {
 print <<<EOT
 -->
 	<tr class="even" onMouseOver="mouseover(this)" onMouseOut="mouseout(this)" onMouseDown="trclick(this)">
-		<td align=center wIdth="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['id']}"></td>
+		<td align=center width="35"><input name="Id{$j}" type='checkbox' onClick="return false" value="{$rs['id']}"></td>
 		<td align="center">{$rs['time']}</td>
 		<td align="center">{$rs['sim_name']}</td>
 		<td align="center">{$rs['line_name']}</td>
@@ -369,7 +369,7 @@ print <<<EOT
 		<td align="center">{$rs['number']}</td>
 		<td align="center">{$rs['disconnect_cause']}</td>
 
-		<td align=center wIdth="80"><a href="call_record.php?id={$rs['id']}&action=del&line_name={$_REQUEST['line_name']}&sim_name={$_REQUEST['sim_name']}" onClick="return confirm('Sure to delete?')">Delete</a></td>
+		<td align=center width="80"><a href="call_record.php?id={$rs['id']}&action=del&line_name={$_REQUEST['line_name']}&sim_name={$_REQUEST['sim_name']}" onClick="return confirm('Sure to delete?')">Delete</a></td>
     </tr>
 
 <!--
@@ -380,7 +380,7 @@ print <<<EOT
 -->
 </table>
 <input type="hIdden" name="boxs" value="{$j}">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 
 
 					<tr>

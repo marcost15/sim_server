@@ -13,7 +13,7 @@ function unselectall()
 	{
 	    if(document.myform.chkAll.checked){
 		document.myform.chkAll.checked = document.myform.chkAll.checked&0;
-	    } 	
+	    }
 	}
 
 function CheckAll(form)
@@ -25,7 +25,7 @@ function CheckAll(form)
 		    e = form.elements[i];
 		    if (e.type == 'checkbox' && e.id != "chkAll" && e.disabled==false){
 				e.checked = form.chkAll.checked;
-		 		do {e=e.parentNode} while (e.tagName!="TR") 
+		 		do {e=e.parentNode} while (e.tagName!="TR")
 		 		if(form.chkAll.checked)
 		 			e.className = 'even marked';
 		 		else
@@ -38,7 +38,7 @@ function CheckAll(form)
 function mouseover(obj) {
                 obj.className += ' hover';
 				//alert(obj.className);
-            	
+
 			}
 
 function mouseout(obj) {
@@ -49,7 +49,7 @@ function mouseout(obj) {
 function trclick(obj) {
 		//alert("ddddd");
         var checkbox = obj.getElementsByTagName( 'input' )[0];
-        //if ( checkbox && checkbox.type == 'checkbox' ) 
+        //if ( checkbox && checkbox.type == 'checkbox' )
         checkbox.checked ^= 1;
 		if(checkbox.checked)
 			obj.className = 'even marked';
@@ -57,8 +57,8 @@ function trclick(obj) {
 //		var ckpage=document.modifyform.elements['chkAll'+num];
 	    if(document.myform.chkAll.checked){
 		document.myform.chkAll.checked = document.myform.chkAll.checked&0;
-	    } 	
-		
+	    }
+
 
 		}
 
@@ -69,13 +69,13 @@ function showbind(value){
 
 </script>
 </head>
-<body leftmargin="2" topmargin="0" marginwIdth="0" marginheight="0">
-<table wIdth="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
-  <tr class="topbg"> 
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="border">
+  <tr class="topbg">
     <td height="22" colspan="2" align="center"><strong>SIM Bank管理</strong></td>
   </tr>
-  <tr class="tdbg"> 
-    <td wIdth="100" height="30"><strong>管理导航:</strong></td>
+  <tr class="tdbg">
+    <td width="100" height="30"><strong>管理导航:</strong></td>
     <td height="30"><a href="sim_bank.php" target=main>列表</a>&nbsp;|&nbsp;<a href="sim_bank.php?action=add" target=main>添加</a></td>
   </tr>
 </table>
@@ -91,7 +91,7 @@ print <<<EOT
   </tr>
 </table>
 <form action="sim_bank.php?action=del" method=post name=myform onSubmit="return confirm('确认删除?')">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 	<tr class=title>
 		<td align="center"><b>SIM Bank ID</b></td>
 		<td align="center"><b>SIM Bank 名字</b></td>
@@ -110,7 +110,7 @@ print <<<EOT
 		<td align="center">{$rs['tag']}</td>
 		<td align="center">{$rs['type']}</td>
 		<td align="center">{$rs['password']}</td>
-				
+
 		<td align=center><a href="sim_bank.php?action=modify&name={$rs['name']}">修改</a> | <a href="all_sim.php?bank_name={$rs['name']}">Slot列表</a> | <a href="sim_bank.php?action=reboot&name={$rs['name']}"  onClick="return confirm('确认重启SIM Bank?')">重启</a> | <a href="sim_bank.php?name={$rs['name']}&action=del" onClick="return confirm('删除SIM Bank会删除掉给SIM Bank的所有线路，确认删除？')">删除</a></td>
     </tr>
 
@@ -122,7 +122,7 @@ print <<<EOT
 -->
 </table>
 <input type="hIdden" name="boxs" value="{$j}">
-<table wIdth="100%"  border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
 
 
 	<tr>
@@ -144,37 +144,37 @@ print <<<EOT
 </table>
 <form method="post" action="sim_bank.php?action=saveadd" name="form1">
   <br>
-  <table wIdth="700" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
-    <tr class="title"> 
+  <table width="700" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+    <tr class="title">
       <td height="22" colspan="2"> <div align="center"><strong>添加SIM Bank</strong></div></td>
     </tr>
-    <tr> 
-      <td wIdth="200" align="right" class="tdbg"><strong>SIM Bank ID(数字):</strong></td>
+    <tr>
+      <td width="200" align="right" class="tdbg"><strong>SIM Bank ID(数字):</strong></td>
       <td class="tdbg"><input type="input" name="name" onblur="onfocus_check_integer(this, 1, 42949672)">*</td>
     </tr>
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>SIM Bank 名字:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>SIM Bank 名字:</strong></td>
       <td class="tdbg"><input type="input" name="simbank_tag"></td>
     </tr>
-    <tr> 
-      <td wIdth="200" align="right" class="tdbg"><strong>密码:</strong></td>
+    <tr>
+      <td width="200" align="right" class="tdbg"><strong>密码:</strong></td>
       <td class="tdbg"><input type="input" name="Password">*</td>
     </tr>
     <tr>
-      <td wIdth="150" align="right" class="tdbg"><strong>类型:</strong></td>
+      <td width="150" align="right" class="tdbg"><strong>类型:</strong></td>
       <td class="tdbg"><select name="banktype" style="width:135">
         <option value="SMB32" selected>SMB32</option>
         <option value="SMB128">SMB128</option>
       </select>*</td>
     </tr>
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>所在组:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>所在组:</strong></td>
       <td class="tdbg"><select name="team_id" style="width:135">
         <option value="0">无(手动固定绑定)</option>
 <!--
 EOT;
 
-foreach($prsdb as $prs){                                                                                          
+foreach($prsdb as $prs){
 
 print <<<EOT
 -->
@@ -188,7 +188,7 @@ print <<<EOT
       </select></td>
     </tr>
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>IMEI模式:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>IMEI模式:</strong></td>
 	<td class="tdbg"><select name="imei_mode" style="width:135">
 		<option value="0">GoIP内置IMEI</option>
 		<option value="1">随机IMEI</option>
@@ -198,43 +198,43 @@ print <<<EOT
 	</select></td>
     </tr>
     <tr>
-      <td wIdth="200" align="right" class="tdbg" title="Only for 'Set with Slot'"><strong>IMEI前缀(自动为每一路生成IMEI)</strong></td>
+      <td width="200" align="right" class="tdbg" title="Only for 'Set with Slot'"><strong>IMEI前缀(自动为每一路生成IMEI)</strong></td>
       <td class="tdbg"><input type="input" name="imei_prefix" onblur="onfocus_check_integer(this, "", 999999999999)"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>每月呼叫限制时间(分钟):</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>每月呼叫限制时间(分钟):</strong></td>
       <td class="tdbg"><input type="input" name="month_limit_time" onblur="onfocus_check_integer(this, -1, 42949672)">(每月重置日期<input type="input" name="month_reset_day" style="width:30" onblur="onfocus_check_integer(this, 1, 31)">)</td>
     </tr>
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>总呼出时间限制（分）:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>总呼出时间限制（分）:</strong></td>
       <td class="tdbg"><input type="input" name="remain_time" onblur="onfocus_check_integer(this, -1, 42949672)"></td>
     </tr>
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>通话时间计算单位(秒):</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>通话时间计算单位(秒):</strong></td>
       <td class="tdbg"><input type="input" name="time_unit" value="60" onblur="onfocus_check_integer(this, 1, 42949672)"></td>
     </tr>
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>总呼出次数限制:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>总呼出次数限制:</strong></td>
       <td class="tdbg"><input type="input" name="count_limit" onblur="onfocus_check_integer(this, -1, 42949672)"></td>
     </tr>
     <tr>
-      <td wIdth="200" align="right" class="tdbg"><strong>未接通呼出次数限制:</strong></td>
+      <td width="200" align="right" class="tdbg"><strong>未接通呼出次数限制:</strong></td>
       <td class="tdbg"><input type="input" name="no_connected_limit" onblur="onfocus_check_integer(this, -1, 42949672)"></td>
     </tr>
     <tr>
-      <td wIdth="150" align="right" class="tdbg"><strong>连续呼叫无响铃警告线(次数):</strong></td>
+      <td width="150" align="right" class="tdbg"><strong>连续呼叫无响铃警告线(次数):</strong></td>
       <td class="tdbg"><input type="input" name="no_ring_limit" value="$rs[no_ring_limit]" onblur="onfocus_check_integer(this, -1, 42949672)">超出后禁用<input name="no_ring_disable" type='checkbox' value="1"></td>
     </tr>
     <tr>
-      <td wIdth="150" align="right" class="tdbg"><strong>连续呼叫无响应警告线(次数):</strong></td>
+      <td width="150" align="right" class="tdbg"><strong>连续呼叫无响应警告线(次数):</strong></td>
       <td class="tdbg"><input type="input" name="no_answer_limit" value="$rs[no_answer_limit]" onblur="onfocus_check_integer(this, -1, 42949672)">超出后禁用<input name="no_answer_disable" type='checkbox' value="1"></td>
     </tr>
     <tr>
-      <td wIdth="300" align="right" class="tdbg"><strong>连续呼叫短通话警告线(次数):</strong></td>
+      <td width="300" align="right" class="tdbg"><strong>连续呼叫短通话警告线(次数):</strong></td>
       <td class="tdbg"><input type="input" name="short_call_limit" value="$rs[short_call_limit]" onblur="onfocus_check_integer(this, -1, 42949672)">超出后禁用<input name="short_call_disable" type='checkbox' value="1"></td>
     </tr>
     <tr>
-      <td wIdth="150" align="right" class="tdbg"><strong>短通话时间定义(秒):</strong></td>
+      <td width="150" align="right" class="tdbg"><strong>短通话时间定义(秒):</strong></td>
       <td class="tdbg"><input type="input" name="short_time" value="$rs[short_time]" onblur="onfocus_check_integer(this, 1, 42949672)"></td>
     </tr>
 
@@ -242,9 +242,9 @@ print <<<EOT
     <tr> <td height="20" colspan="2" align="center"  class="tdbg">
 		<li>*项必填 </li>
                 <li>限制=-1或者空表示没有限制 </li> </td></tr>
-    <tr> 
-      <td height="40" colspan="2" align="center" class="tdbg"><input name="Action" type="hIdden" Id="Action" value="Modify"> 
-        <input  type="submit" name="Submit" value="添加" style="cursor:hand;"> 
+    <tr>
+      <td height="40" colspan="2" align="center" class="tdbg"><input name="Action" type="hIdden" Id="Action" value="Modify">
+        <input  type="submit" name="Submit" value="添加" style="cursor:hand;">
         &nbsp; <input name="Cancel" type="button" Id="Cancel" value="取消" onClick="window.location.href='sim_bank.php'" style="cursor:hand;"></td>
     </tr>
   </table>
@@ -264,27 +264,27 @@ print <<<EOT
 </table>
 <form method="post" action="sim_bank.php?action=savemodify&name=$rs[name]" name="form1">
   <br>
-  <table wIdth="350" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
-    <tr class="title"> 
+  <table width="350" border="0" align="center" cellpadding="2" cellspacing="1" class="border" >
+    <tr class="title">
       <td height="22" colspan="2"> <div align="center"><strong>修改SIM Bank</strong></div></td>
     </tr>
-    <tr> 
-      <td wIdth="150" align="right" class="tdbg"><strong>SIM Bank ID:</strong></td>
+    <tr>
+      <td width="150" align="right" class="tdbg"><strong>SIM Bank ID:</strong></td>
       <td class="tdbg">$rs[name]</td>
     </tr>
     <tr>
-      <td wIdth="150" align="right" class="tdbg"><strong>SIM Bank名称:</strong></td>
+      <td width="150" align="right" class="tdbg"><strong>SIM Bank名称:</strong></td>
       <td class="tdbg"><input type="input" name="simbank_tag" id="simbank_tag" value="$rs[tag]"></td>
     </tr>
-    <tr> 
-      <td wIdth="150" align="right" class="tdbg"><strong>密码:</strong></td>
+    <tr>
+      <td width="150" align="right" class="tdbg"><strong>密码:</strong></td>
       <td class="tdbg"><input type="input" name="Password"  value="$rs[password]"> </td>
     </tr>
 	<tr> <td height="20" colspan="2" align="center"  class="tdbg">
-               </td></tr>	
-    <tr> 
+               </td></tr>
+    <tr>
       <td height="40" colspan="2" align="center" class="tdbg">
-        <input  type="submit" name="Submit" value="确定" style="cursor:hand;"> 
+        <input  type="submit" name="Submit" value="确定" style="cursor:hand;">
         &nbsp; <input name="Cancel" type="button" Id="Cancel" value="取消" onClick="window.location.href='sim_bank.php'" style="cursor:hand;"></td>
     </tr>
   </table>
@@ -305,22 +305,22 @@ function check_pw()
           document.form1.Password.focus();
       return false;
     }
-    
+
   if((document.form1.Password.value)!=(document.form1.PwdConfirm.value))
     {
       alert("Password and Confirm Password are different!");
           document.form1.PwdConfirm.select();
-          document.form1.PwdConfirm.focus();      
+          document.form1.PwdConfirm.focus();
       return false;
     }
 }
 </script>
 </form>
 
-					  </td> 
+					  </td>
 					</tr>
 </table>
-				
+
 </body>
 </html>
 <!--

@@ -53,7 +53,7 @@ function sendto_xchanged($send)
         }
         //if($flag)
                 //echo "已更新";
-        //else 
+        //else
                 //echo "已更新,但xchanged或schedule进程未响应，请检查进程";
 }
 
@@ -99,7 +99,7 @@ function showpage($sfilename,$CurrentPage,$totalnumber,$maxperpage,$ShowTotal,$S
     	$n= $totalnumber / $maxperpage;
   	else
     	$n= (int)($totalnumber / $maxperpage)+1;
-  	
+
   	$strTemp= "<table align='center'><tr><td>";
 	if($ShowTotal==true)
 		$strTemp=$strTemp . "共 <b>" . $totalnumber . "</b> " . $strUnit . " &nbsp;&nbsp;";
@@ -116,10 +116,10 @@ function showpage($sfilename,$CurrentPage,$totalnumber,$maxperpage,$ShowTotal,$S
     		$strTemp=$strTemp . "<a href='" . $sfilename . "page=" . ($CurrentPage+1) . "'>下一页</a>&nbsp;";
     		$strTemp=$strTemp . "<a href='" . $sfilename . "page=" . $n . "'>尾页</a>";
   	}
-	
+
    	$strTemp=$strTemp . " &nbsp;页次：<strong><font color=red>" . $CurrentPage . "</font>/" . $n . "</strong>页 ";
     $strTemp=$strTemp . " &nbsp;<b>" . $maxperpage . "</b>" . $strUnit . "/页";
-	
+
 	if( $ShowAllPages=true){
 		$strTemp=$strTemp . " &nbsp;转到：<select name='page' size='1' onchange=javascript:window.location='" . $sfilename . "page=" . "'+this.options[this.selectedIndex].value;>" ;
 		$c_page=500;
@@ -143,7 +143,7 @@ function showpage2($sfilename,$CurrentPage,$totalnumber,$maxperpage,$ShowTotal,$
     	$n= $totalnumber / $maxperpage;
   	else
     	$n= (int)($totalnumber / $maxperpage)+1;
-  	
+
   	$strTemp= "<table align='center'><tr><td>";
 	if($ShowTotal==true)
 		$strTemp=$strTemp . "共 <b>" . $totalnumber . "</b> " . $strUnit . " &nbsp;&nbsp;";
@@ -160,10 +160,10 @@ function showpage2($sfilename,$CurrentPage,$totalnumber,$maxperpage,$ShowTotal,$
     		$strTemp=$strTemp . "<span class='spanpage' onclick='return changepage(\"".$sfilename."page=".($CurrentPage+1)."\", ".$form.")'>下一页</span>&nbsp;";
     		$strTemp=$strTemp . "<span class='spanpage' onclick='return changepage(\"".$sfilename."page=".$n."\", ".$form.")'>尾页</span>&nbsp;";
   	}
-	
+
    	$strTemp=$strTemp . " &nbsp;页次：<strong><font color=red>" . $CurrentPage . "</font>/" . $n . "</strong>页 ";
     $strTemp=$strTemp . " &nbsp;<b>" . $maxperpage . "</b>" . $strUnit . "/页";
-	
+
 	if( $ShowAllPages=true){
 		$strTemp=$strTemp . " &nbsp;转到：<select name='page' size='1' onchange='return selectchangepage(\"".$sfilename."\",this.options[this.selectedIndex].value, ".$form.")'>" ;
     	for($i=1;$i<=$n;$i++){
@@ -188,7 +188,7 @@ function WriteErrMsg($ErrMsg1)
 {
 	$strErr="<html><head><title>Error Information</title><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" ;
 	$strErr=$strErr."<link href='style.css' rel='stylesheet' type='text/css'></head><body>" ;
-	$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 wIdth=400 class='border' align=center>"; 
+	$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 width=400 class='border' align=center>";
 	$strErr=$strErr."  <tr align='center'><td height='22' class='title'><strong>错误信息</strong></td></tr>" ;
 	$strErr=$strErr."  <tr><td height='100' class='tdbg' valign='top'><b>原因:</b><br> $ErrMsg1</td></tr>" ;
 	$strErr=$strErr."  <tr align='center'><td class='tdbg'><a href=javascript:history.back();>&lt;&lt; 返回</a></td></tr>" ;
@@ -207,7 +207,7 @@ function WriteSuccessMsg($SuccessMsg,$URL)
 {
 	$strErr="<html><head><title>Success Information</title><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" ;
 	$strErr=$strErr."<link href='style.css' rel='stylesheet' type='text/css'></head><body>" ;
-	$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 wIdth=400 class='border' align=center>"; 
+	$strErr=$strErr."<table cellpadding=2 cellspacing=1 border=0 width=400 class='border' align=center>";
 	$strErr=$strErr."  <tr align='center'><td height='22' class='title'><strong>恭喜你</strong></td></tr>" ;
 	$strErr=$strErr."  <tr><td height='100' class='tdbg' valign='top'>$SuccessMsg</td></tr>" ;
 	$strErr=$strErr."  <tr align='center'><td class='tdbg'><a href=$URL>确定</a></td></tr>" ;
