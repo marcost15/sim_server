@@ -13,3 +13,6 @@ Sim Server para equipos tipo GOIP
  * Instalar node.js para habilitar algunos plugins de subl
 
  
+## Uso de gettext para crear código que sea facilmente traducible a otros idiomas
+
+En los archivos .tpl que se encuentran en la carpeta templates/, cuando se necesite un texto, se colocará así: {gt texto en inglés} para que cuando se compile, en la carpeta templates_c aparezca el código <?=_('texto en inglés')?> y así sea fácilmente reconocido por programas como poedit, etc.
