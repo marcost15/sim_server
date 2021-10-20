@@ -105,7 +105,7 @@ $j=0;
 foreach($rsdb as $rs) {
 print <<<EOT
 -->
-	<tr class="even" onclick="window.location='all_sim.php?bank_name={$rs[name]}'">
+	<tr class="even" onclick="window.location='all_sim.php?bank_name={$rs['name']}'">
 		<td align="center">{$rs['name']}</td>
 		<td align="center">{$rs['tag']}</td>
 		<td align="center">{$rs['type']}</td>

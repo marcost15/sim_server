@@ -4,8 +4,8 @@
 		<img id="logo" class="logo" src="img/logo.svg" alt="{$name}">
 		<h1 class="h3 mb-3 font-weight-normal">{gt Login}</h1>
 
-		<label for="zona" class="sr-only">{gt Time Zone}</label>
-		<select name="zona" id="zona"
+		<label for="zone" class="sr-only">{gt Time Zone}</label>
+		<select name="zone" id="zone"
 		class="form-control"
 		>
 			{html_options values=$zonas output=$zonas selected=$zona}
@@ -16,8 +16,8 @@
 					class="form-control" placeholder="{gt User}"
 					type="text"
 					required autofocus>
-		<label for="clave" class="sr-only">Password</label>
-		<input id="clave" name="clave"
+		<label for="password" class="sr-only">Password</label>
+		<input id="password" name="password"
 					class="form-control"
 					type="password"
 					title="8 caracteres mínimo"

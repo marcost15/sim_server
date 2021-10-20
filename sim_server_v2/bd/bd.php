@@ -13,6 +13,184 @@ if ($m->connect_errno) {
 
 $m->set_charset('utf8');
 
+
+/*********************
+ users(
+    id         (varchar(50)),
+    name       (varchar(128)),
+    permission (enum('ADMIN','NORMAL')),
+    password   (varchar(255)),
+    info       (varchar(255))
+    )
+ ************************/
+
+/**
+ * Verifica si el usuario logueado tiene acceso al módulo.
+ *
+ * @param      string  $modulo  Módulo al que se quiere acceder
+ *
+ * @return     bool    (true si tiene acceso, false en cualquier otro caso)
+ */
+function bd_privileges($modulo){
+	if ( !isset($_SESSION['usuario']) ){
+		return false;
+	}
+
+	if ( !isset($_SERVER['HTTP_REFERER']) ){
+		return false;
+	}
+
+	$sql = "
+		SELECT COUNT(*)
+		FROM privileges
+		WHERE module LIKE '{$modulo}'
+		AND permission = '{$_SESSION['usuario']['permission']}';
+	";
+
+	if (sql2value($sql) == 1) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Devuelve la lista de privilegios disponibles para el sistema
+ *
+ * @return [array] Array con los permisos que tiene el sistema
+ *
+ */
+function bd_users_privilegios(){
+    $sql="SHOW COLUMNS FROM users";
+    $d=sql2array($sql);
+    $campos = '';
+    foreach ($d as $dd) {
+        if ($dd['Field'] =='permission') {
+            $campos = $dd['Type'];
+            break;
+        }
+    }
+    $campos = explode("','", substr($campos,6,-2));
+    sort($campos);
+    return $campos;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Devuelve un array con los datos del usuario
+ * @param  [string] $login [Login.]
+ * @return [array]        [Datos del usuario]
+ */
+function bd_users_datos($login) {
+    $sql="
+        SELECT id, name, permission, info email
+        FROM users
+        WHERE id LIKE '{$login}'
+        #    or email LIKE '{$login}'"
+        ;
+    $salida = sql2row($sql);
+    return $salida;
+}
+
+function bd_usuario_datos( $texto = null ) {
+  $where = '';
+  if ($texto != null) {
+    $where = "AND (
+        nombre LIKE '%{$texto}%'
+        OR id LIKE '%{$texto}%'
+        )
+    ";
+  }
+
+  $sql = "
+    SELECT
+      id, nombre, nivel, email, activo
+    FROM
+      users
+    WHERE 1
+    {$where}
+  ";
+  return sql2array($sql);
+}
+
+
+function bd_usuario_datos_por_id($id) {
+  $sql = "
+    SELECT
+      id, nombre, nivel, email, activo
+    FROM
+      users
+    WHERE id = '{$id}'
+  ";
+  return sql2row($sql);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ##################################### Funciones generales
 
 define("R2_REGEX","1");
@@ -150,7 +328,7 @@ function sql2ids($sql) {
 
 
 function bd_obt_lista_privilegios(){
-    $sql="SHOW COLUMNS FROM usuarios";
+    $sql="SHOW COLUMNS FROM users";
     $d=sql2array($sql);
     $campos = '';
     foreach ($d as $dd) {
@@ -172,64 +350,6 @@ function bd_obt_lista_privilegios(){
 
 
 ########################################### Funciones de la base de datos
-
-/**
- * [bd_usuarios_hash description]
- * @param  [type] $id [description]
- * @return [type]     [description]
- *  LRDTAB 2020
- */
-function bd_usuarios_hash($id){
-    $sql="SELECT clave FROM usuarios WHERE id = '{$id}' LIMIT 1; ";
-    return sql2value($sql);
-}
-
-/**
- * Devuelve un array con los datos del usuario
- * @param  [string] $login [Login.]
- * @return [array]        [Datos del usuario]
- */
-function bd_usuarios_datos($login) {
-    $sql="
-        SELECT id, nombre, nivel, email
-        FROM usuarios
-        WHERE id LIKE '{$login}'or email LIKE '{$login}'";
-    $salida = sql2row($sql);
-    return $salida;
-}
-
-function bd_usuario_datos( $texto = null ) {
-  $where = '';
-  if ($texto != null) {
-    $where = "AND (
-        nombre LIKE '%{$texto}%'
-        OR id LIKE '%{$texto}%'
-        )
-    ";
-  }
-
-  $sql = "
-    SELECT
-      id, nombre, nivel, email, activo
-    FROM
-      usuarios
-    WHERE 1
-    {$where}
-  ";
-  return sql2array($sql);
-}
-
-
-function bd_usuario_datos_por_id($id) {
-  $sql = "
-    SELECT
-      id, nombre, nivel, email, activo
-    FROM
-      usuarios
-    WHERE id = '{$id}'
-  ";
-  return sql2row($sql);
-}
 
 
 
@@ -408,7 +528,7 @@ function bd_usuario_modificar($d){
 
     $sql = "
         UPDATE
-            usuarios
+            users
         SET
             nombre = '{$d['nombre']}',
             email = '{$d['correo']}',
@@ -423,7 +543,7 @@ function bd_usuario_modificar($d){
         $d['clave'] = password_hash($d['clave'],PASSWORD_DEFAULT);
         $sql = "
             UPDATE
-                usuarios
+                users
             SET
                 clave = '{$d['clave']}'
             WHERE
@@ -541,8 +661,8 @@ function bd_productos_fact_venta(){
 
 
 
-function bd_usuarios_contar(){
-    return sql2value("SELECT COUNT(*) FROM usuarios");
+function bd_users_contar(){
+    return sql2value("SELECT COUNT(*) FROM users");
 }
 
 
@@ -562,16 +682,16 @@ function paginar($totalpaginas,$rango,$pagina_actual=1)
         return $paginas;
     }
 
-function bd_usuarios_datos2($inicio, $cantidad, $orden='id', $nivel)
+function bd_users_datos2($inicio, $cantidad, $orden='id', $nivel)
 {
 return sql2array("SELECT id, correo
-    FROM usuarios
+    FROM users
     ORDER BY $orden ASC#
     LIMIT $inicio,$cantidad
     ");
 }
 
-function bd_usuarios_datos3($campos, $palabras,$cantidad){
+function bd_users_datos3($campos, $palabras,$cantidad){
 $miscampos = explode(',', $campos);
 foreach ($miscampos as $key => $value)
 {
@@ -579,17 +699,17 @@ foreach ($miscampos as $key => $value)
 }
 
 $condicion = implode(' OR ', $miscampos);
-return sql2array("SELECT id, correo FROM usuarios
+return sql2array("SELECT id, correo FROM users
     WHERE ($condicion )
         LIMIT $cantidad
     ");
 }
 
 
-function bd_usuarios_eliminar($id)
+function bd_users_eliminar($id)
 {
     $sql = "
-        DELETE FROM usuarios
+        DELETE FROM users
         WHERE id = '{$id}'
         ";
     sql($sql);
@@ -597,10 +717,10 @@ function bd_usuarios_eliminar($id)
 }
 
 
-function bd_usuarios_modificar($usuario)
+function bd_users_modificar($usuario)
 {
     $sql = "
-        UPDATE usuarios SET
+        UPDATE users SET
             id = '{$usuario['id_new']}',
             correo = '{$usuario['correo']}'
         WHERE id = '{$usuario['id']}'
@@ -610,12 +730,12 @@ function bd_usuarios_modificar($usuario)
 }
 
 
-function bd_usuarios_modificar_clave($d)
+function bd_users_modificar_clave($d)
 {
     $id = $d[0];
     $hash = $d[1];
     $sql = "
-        UPDATE usuarios SET
+        UPDATE users SET
             clave = '{$hash}'
         WHERE
             id = '{$id}'
@@ -625,7 +745,7 @@ function bd_usuarios_modificar_clave($d)
 }
 
 function bd_usuario_existe($id){
-       if (sql2value("SELECT COUNT(*) FROM usuarios WHERE id LIKE '{$id}';;") > 0) {
+       if (sql2value("SELECT COUNT(*) FROM users WHERE id LIKE '{$id}';;") > 0) {
         return true;
     }
     return false;
@@ -663,7 +783,7 @@ function bd_usuario_agregar($d){
     if ($d['email']=='' or $d['server']=='' ) { $d['correo'] = ''; }
 
     $sql = "
-        INSERT INTO usuarios(id, clave, nombre, nivel, email,activo)
+        INSERT INTO users(id, clave, nombre, nivel, email,activo)
         VALUES (
             '{$d['id']}',
             '{$d['clave']}',

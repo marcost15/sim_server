@@ -77,6 +77,3 @@ if($FoundErr==true){
 	$strErr=$strErr."</body></html>" ;
 	echo $strErr;
 }
-
-
-?>

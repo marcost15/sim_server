@@ -27,15 +27,15 @@ if($action=="del")
 }
 elseif($action=="saveadd")
 {
-	$ErrMsg="";                     
-	if(empty($name))        
+	$ErrMsg="";
+	if(empty($name))
 		$ErrMsg ='<br><li>please input name</li>';
 	$no_t=$db->fetch_array($db->query("select id from scheduler_tem where name='$name'"));
-	if($no_t[0])            
+	if($no_t[0])
 		$ErrMsg .='<br><li>This name already exist: '.$name.'</li>';
-	if($ErrMsg!="")         
+	if($ErrMsg!="")
 		WriteErrMsg($ErrMsg);
-	else{     
+	else{
 		$type=$_REQUEST['type'];
 		$sql="insert into scheduler_tem set name='$name',";
 		if($type == 'period_chaos' || $type == 'period_fixed'){
@@ -52,7 +52,7 @@ elseif($action=="saveadd")
 		else {
 			$sql.="type='cycle', r_interval='$_REQUEST[r_interval]',s_interval='$_REQUEST[s_interval]'";
 		}
-		$db->query($sql);                              
+		$db->query($sql);
 
 		WriteSuccessMsg("<br><li>Add success</li>","template.php");
 	}
@@ -86,7 +86,7 @@ else if($action=='savemodify'){
 	else {
 		$sql.="type='cycle', r_interval='$_REQUEST[r_interval]',s_interval='$_REQUEST[s_interval]' where id='$id'";
 	}
-	$db->query($sql);                              
+	$db->query($sql);
 
 	WriteSuccessMsg("<br><li>Add success</li>","template.php");
 
@@ -101,7 +101,7 @@ else if($action=='modify' || $action=="truncate" || $action=="add"){
 		$row=$db->fetch_array($db->query("select * from scheduler_tem where name='$_REQUEST[follow]'"));
 	elseif($action=="truncate" || $action=="add")
 		$row=$db->fetch_array($db->query("select * from scheduler_tem where 0"));
-	else 
+	else
 		$row=$db->fetch_array($db->query("select * from scheduler_tem where name='$_REQUEST[name]'"));
 
 	if(!$name) $action="add";
@@ -109,7 +109,7 @@ else if($action=='modify' || $action=="truncate" || $action=="add"){
 	//echo "111111111111".$action;
 	//print_r($row);
 	if($row[type]=='cycle'){
-		
+
 	}
 	elseif($row['period']){
 		$a=explode(";", $row['period']);
@@ -164,7 +164,7 @@ else if($action=='modify' || $action=="truncate" || $action=="add"){
         }
         $fenye=showpage("?",$page,$count,$perpage,true,true,"rows");
         $query=$db->query("SELECT * FROM scheduler_tem ORDER BY name LIMIT $start_limit,$perpage");
-            
+
 	while($row=$db->fetch_array($query)){
 		$rsdb[]=$row;
 		//$template_db[$row[id]]=$row['name'];

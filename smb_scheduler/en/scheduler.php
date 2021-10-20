@@ -47,16 +47,16 @@ elseif($action=="saveadd")
 {
 	$group_id=myaddslashes($_REQUEST['group_id']);
 	$ErrMsg="";
-	if(empty($name))        
+	if(empty($name))
 		$ErrMsg ='<br><li>please input name</li>';
 	if(!$group_id)
 		$ErrMsg .='<br><li>please choose group</li>';
 	$no_t=$db->fetch_array($db->query("select id from scheduler where name='$name' and group_id='$group_id'"));
-	if($no_t[0])            
+	if($no_t[0])
 		$ErrMsg .='<br><li>This name already exist: '.$name.' in group id: '.$group_id.'</li>';
-	if($ErrMsg!="")         
+	if($ErrMsg!="")
 		WriteErrMsg($ErrMsg);
-	else{     
+	else{
 		$type=$_REQUEST['type'];
 		$sql="insert into scheduler set name='$name', group_id='$group_id', ";
 		if($type == 'period_chaos' || $type == 'period_fixed'){
@@ -83,7 +83,7 @@ elseif($action=="saveadd")
 		else {
 			$sql.="type='cycle', r_interval='$_REQUEST[r_interval]',s_interval='$_REQUEST[s_interval]'";
 		}
-		$db->query($sql);                              
+		$db->query($sql);
 
 		WriteSuccessMsg("<br><li>Add Success</li>","?");
 	}
@@ -133,7 +133,7 @@ else if($action=='savemodify'){
 	}
 	//echo $sql;
 	//die;
-	$db->query($sql);                              
+	$db->query($sql);
 	$row=$db->fetch_array($db->query("select sim_team_id,r_interval,s_interval,type,period_chaos,period_fixed,period_daily from scheduler,sim_team where sim_team.scheduler_id=scheduler.id and scheduler.name='$name' and scheduler.id='$id' order by sim_team_id"));
 	$send[]=my_pack($row, SCH_UPDATE);
 	sendto_xchanged($send);
@@ -149,7 +149,7 @@ else if($action=='modify' || $action=="truncate" || $action=="add"){
 		$row=$db->fetch_array($db->query("select * from scheduler_tem where id='$_REQUEST[follow]'"));
 	elseif($action=="truncate" || $action=="add")
 		$row=$db->fetch_array($db->query("select * from scheduler where 0"));
-	else 
+	else
 		$row=$db->fetch_array($db->query("select * from scheduler where id='$_REQUEST[id]'"));
 
 	if(!$id) $action="add";
@@ -157,7 +157,7 @@ else if($action=='modify' || $action=="truncate" || $action=="add"){
 	//echo "111111111111".$action;
 	//print_r($row);
 	if($row['type']=='cycle'){
-		
+
 	}
 	//elseif($row['type']=='period_chaos' || $row['type']=='period_fixed'){
 	if($row['period_chaos'] || $row['period']){
@@ -246,14 +246,14 @@ else if($action=='modify' || $action=="truncate" || $action=="add"){
         }
         $fenye=showpage("?",$page,$count,$perpage,true,true,"rows");
         $query=$db->query("SELECT * FROM scheduler left join sim_team on scheduler.group_id=sim_team.sim_team_id $where ORDER BY sim_team.sim_team_name,name LIMIT $start_limit,$perpage");
-            
+
 	while($row=$db->fetch_array($query)){
-		$row['period']=$row[$row[type]];
+		$row['period']=$row[$row['type']];
 		if($row['scheduler_id']==$row['id']) $row['selected']='selected';
 		if($row['type']=='period_chaos') $row['type']="weekly";
 		else if($row['type']=='daily') $row['period']=$row['period_daily'];
 		//if($row['type']=='period_chaso') $row['period']==$row['period_chaso'];
-		//else if($row['type']=='period_fixed') 
+		//else if($row['type']=='period_fixed')
 		$rsdb[]=$row;
 		//$template_db[$row[id]]=$row['name'];
 	}

@@ -314,7 +314,7 @@ function show_msg($msgs)
 	$strErr=$strErr."  <tr align='center'><td height='22' class='title'><strong>Info</strong></td></tr>" ;
 	$strErr=$strErr."  <tr><td height='100' class='tdbg' valign='top'><b>Notice:</b><br><ul>";
 	//while (list($k,$v)=each($msgs))
-		foreach ($msgs as $k => $) {
+		foreach ($msgs as $k => $v) {
 			$strErr=$strErr."<li>".$v."</li>";
 		}
 	$strErr=$strErr."</ul></td></tr>" ;

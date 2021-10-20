@@ -66,5 +66,3 @@ if($FoundErr==true){
 	echo $strErr;
 }
 
-
-?>

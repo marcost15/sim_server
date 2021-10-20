@@ -2,8 +2,14 @@
 
 name = Sim Server
 sesion_name = uldlmdcnnqa
-bd       = scheduler
+bd       = simserver
+bd_login = simserver
+bd_pass  = simserver
 bd_host  = localhost
-bd_login = scheduler
-bd_pass  = scheduler
 
+modulo[] = INIT
+modulo[] = ADMIN
+modulo[] = CONFIG
+modulo[] = MONITOR
+modulo[] = DATA
+modulo[] = USER

@@ -1,4 +1,10 @@
 <?php
+
+function modulo($modulo){
+    $referer = $_SESSION['referer'];
+    if(!bd_privileges($modulo)){saltar($referer);}
+}
+
 /**
  * Genera listado de las zonas horarias
  * @return {array} Array con zonas horarias y sus nombres para la función de timezone
@@ -41,3 +47,15 @@ function generate_timezone_list(){
     ksort($timezone_list);
     return $timezone_list;
 }
+
+/**
+ * Carga la página dada
+ * @param  [type] $url Destiny url
+ * @return [none]
+ */
+function saltar($pagina){
+    $_SESSION['referer'] = $_SERVER['SCRIPT_NAME'];
+    header("Location: $pagina");
+    exit();
+}
+

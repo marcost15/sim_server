@@ -75,7 +75,7 @@ else {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="../style.css" rel="stylesheet" type="text/css">
 <title>System settings</title>
-<script src="check.js"></script>
+<script src="../check.js"></script>
 <script language="JavaScript" type="text/JavaScript">
 function show_tr(value,id){
         if(!value) document.getElementById(id).style.display='none';

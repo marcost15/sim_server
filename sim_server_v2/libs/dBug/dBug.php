@@ -528,7 +528,7 @@ SCRIPTS;
 }
 
 function v($ss = null ){
-	if ($ss == null) {
+	if ($ss === null) {
 		$ss = [
 			'$_SESSION'=>$_SESSION,
 			'$_GET'=>$_GET,
@@ -542,7 +542,7 @@ function v($ss = null ){
 }
 
 function vq($a = NULL){
-	if ($a == null) {
+	if ($a === null) {
 		$a = [
 			'$_SESSION'=>$_SESSION,
 			'$_GET'=>$_GET,

@@ -14,7 +14,6 @@
 		<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
 		<meta name="msapplication-TileColor" content="#da532c">
 		<meta name="theme-color" content="#563d7c">
-		<link rel="stylesheet" href="./libs/font-awesome/css/all.min.css">
-		<link rel="stylesheet" type="text/css" href="">
-		<title>{$name}</title>
+		<meta name="theme-color" content="#ffffff">
+		<title>{gt $name}</title>
 <!-- /cabeceraindex.tpl -->
