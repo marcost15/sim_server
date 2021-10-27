@@ -79,6 +79,22 @@ function bd_users_privilegios(){
 
 
 
+function bd_privileges_todos(){
+    $sql = "SELECT id, module, permission FROM privileges;";
+    return sql2array($sql);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -822,10 +838,6 @@ function bd_clientes_datos( $texto = null ) {
   return sql2array($sql);
 }
 
-function bd_privilegios_todos(){
-    $sql = "SELECT id, modulo, nivel FROM privilegios;";
-    return sql2array($sql);
-}
 
 function bd_privilegios_actualizar($d){
 

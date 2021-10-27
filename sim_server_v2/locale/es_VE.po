@@ -1,8 +1,14 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-10-14 22:20-0400\n"
-"PO-Revision-Date: 2021-10-14 23:51-0400\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-24 21:36-0400\n"
+"PO-Revision-Date: 2021-10-24 21:42-0400\n"
 "Last-Translator: Arnoldo Bric <arnoldobr@gmail.com>\n"
 "Language-Team: \n"
 "Language: es_VE\n"
@@ -10,14 +16,102 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
-"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
-#: templates_c/29e305ef43800c2c43ffa4a0ea2fa460665d1aec_0.file.index.tpl.php:31
-msgid "Ingresar"
-msgstr ""
+#: 29e305ef43800c2c43ffa4a0ea2fa460665d1aec_0.file.index.tpl.php:32
+#: 29e305ef43800c2c43ffa4a0ea2fa460665d1aec_0.file.index.tpl.php:59
+msgid "Login"
+msgstr "Ingresar"
 
-#: templates_c/29e305ef43800c2c43ffa4a0ea2fa460665d1aec_0.file.index.tpl.php:35
-msgid "Usuario"
-msgstr ""
+#: 29e305ef43800c2c43ffa4a0ea2fa460665d1aec_0.file.index.tpl.php:34
+msgid "Time Zone"
+msgstr "Zona horaria"
+
+#: 29e305ef43800c2c43ffa4a0ea2fa460665d1aec_0.file.index.tpl.php:42
+#: 29e305ef43800c2c43ffa4a0ea2fa460665d1aec_0.file.index.tpl.php:44
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:86
+msgid "User"
+msgstr "Usuario"
+
+#: 29e305ef43800c2c43ffa4a0ea2fa460665d1aec_0.file.index.tpl.php:53
+msgid "Password"
+msgstr "Clave"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:37
+msgid "Home"
+msgstr "Inicio"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:43
+msgid "Configuration"
+msgstr "Configuración"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:46
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:49
+msgid "Group"
+msgstr "Grupo"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:47
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:62
+msgid "SIM"
+msgstr "SIM"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:48
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:63
+msgid "GoIP"
+msgstr "GoIP"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:50
+msgid "Human"
+msgstr "Humano"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:51
+msgid "IMEI"
+msgstr "IMEI"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:59
+msgid "Monitor"
+msgstr "Monitor"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:64
+msgid "Logs"
+msgstr "Regs"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:65
+msgid "Call"
+msgstr "Llamada"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:66
+msgid "CDR"
+msgstr "CDR"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:73
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:77
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:78
+msgid "Data"
+msgstr "Datos"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:76
+msgid "System"
+msgstr "Sistema"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:89
+msgid "Change"
+msgstr "Cambio"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:90
+msgid "Manage"
+msgstr "Gestionar"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:91
+msgid "Users"
+msgstr "Usuarios"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:92
+msgid "Privileges"
+msgstr "Privilegios"
+
+#: d470e22242f0f7124ca95fbcb33239644f5ffa8b_0.file.menu_nav.tpl.php:97
+msgid "Exit"
+msgstr "Salir"

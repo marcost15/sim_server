@@ -13,7 +13,6 @@
  *
  * @sample: {gt proof} produce <?=_('proof')?>
  */
-function smarty_compiler_gt($params)
-{
+function smarty_compiler_gt($params){
     return '<?=_(' . $params[ 0 ] . ')?>';
 }

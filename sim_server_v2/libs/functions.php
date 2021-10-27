@@ -1,7 +1,7 @@
 <?php
 
 function modulo($modulo){
-    $referer = $_SESSION['referer'];
+    $referer = $_SESSION['referer']??'index.php';
     if(!bd_privileges($modulo)){saltar($referer);}
 }
 
@@ -26,6 +26,7 @@ function generate_timezone_list(){
     foreach( $regions as $region ){
         $timezones = array_merge( $timezones, DateTimeZone::listIdentifiers( $region ) );
     }
+
 
     foreach( $timezones as $timezone ){
         $tz = new DateTimeZone($timezone);
