@@ -20,7 +20,7 @@
 	<tr>
 		<td>{$modulo}</td>
 			{foreach $p as $nivel}
-			<td label="{$nivel}"><input type="checkbox" name="{$modulo}@{$nivel}" id="{$modulo}@{$nivel}"></td>
+			<td label="{$nivel}"><input type="checkbox" name="{$modulo}@{$nivel}" id="{$modulo}@{$nivel}" {$t_p.$modulo.$nivel|default:""}></td>
 			{/foreach}
 	</tr>
 		{/foreach}

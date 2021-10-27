@@ -78,8 +78,11 @@ function bd_users_privilegios(){
 
 
 
-
-function bd_privileges_todos(){
+/**
+ * Devuelve todos los permisos asignados
+ * @return array con los permisos activos
+ */
+function bd_privileges_all(){
     $sql = "SELECT id, module, permission FROM privileges;";
     return sql2array($sql);
 }
