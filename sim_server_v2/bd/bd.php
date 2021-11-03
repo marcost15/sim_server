@@ -59,7 +59,7 @@ function bd_privileges($modulo){
  * @return [array] Array con los permisos que tiene el sistema
  *
  */
-function bd_users_privilegios(){
+function bd_users_privileges(){
     $sql="SHOW COLUMNS FROM users";
     $d=sql2array($sql);
     $campos = '';
@@ -87,7 +87,23 @@ function bd_privileges_all(){
     return sql2array($sql);
 }
 
-
+/**
+ * Actualiza la tabla de privilegios
+ * @param  [array] $d Trae los pares modulo@nivel
+ * @return [none]    None
+ */
+function bd_privileges_update($d){
+    $salida = [];
+    foreach ($d as $np => $value) {
+        $dd=explode('@',$np);
+        $salida[]="(NULL, '{$dd[0]}', '{$dd[1]}')";
+    }
+    $sql = 'INSERT INTO privileges(id, module, permission) VALUES '
+        . join(', ', $salida)
+        . ';';
+    sql('TRUNCATE privileges;');
+    sql($sql);
+}
 
 
 
@@ -842,16 +858,3 @@ function bd_clientes_datos( $texto = null ) {
 }
 
 
-function bd_privilegios_actualizar($d){
-
-    $salida = [];
-    foreach ($d as $np => $value) {
-        $dd=explode('@',$np);
-        $salida[]="(NULL, '{$dd[1]}', '{$dd[0]}')";
-    }
-    $sql = 'INSERT INTO privilegios(id, modulo,nivel) VALUES '
-        . join(', ', $salida)
-        . ';';
-    sql('TRUNCATE privilegios;');
-    sql($sql);
-}

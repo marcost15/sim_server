@@ -1,11 +1,13 @@
 ;<?php die()?>
 
-name = Sim Server
+timezone    = 'America/Caracas'
+locale      = 'es_ES'
+name        = Sim Server
 sesion_name = uldlmdcnnqa
-bd       = simserver
-bd_login = simserver
-bd_pass  = simserver
-bd_host  = localhost
+bd          = simserver
+bd_login    = simserver
+bd_pass     = simserver
+bd_host     = localhost
 
 modulo[] = INIT
 modulo[] = ADMIN

@@ -6,6 +6,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
+				<form action="privileges_proc.php" method="POST">
 <table class="content-table">
 	<thead>
 	<tr>
@@ -15,6 +16,13 @@
 		{/foreach}
 	</tr>
 </thead>
+<tfoot>
+	<tr>
+		<td>
+			<button type="submit" class="btn btn-primary">Guardar</button>
+		</td>
+	</tr>
+</tfoot>
 <tbody>
 		{foreach $m as $modulo}
 	<tr>
@@ -26,6 +34,7 @@
 		{/foreach}
 </tbody>
 </table>
+				</form>
 
 			</div>
 		</div>

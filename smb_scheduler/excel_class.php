@@ -69,7 +69,7 @@ var  $_filename;
 var  $_fp;
 var  $_logger_name;
 
- function DebugOut($name, $logger_name, $level ){
+ function __construct($name, $logger_name, $level ){
      $this->_filename = $name;
      $this->_currentPriority = $level;
      $this->_logger_name = $logger_name;
@@ -326,7 +326,7 @@ return ord($str[0]) + 256*(ord($str[1]) +
 }}//------------------------------------------------------------------------
 class DataProvider
 {
-function DataProvider( $data, $dataType )
+function __construct( $data, $dataType )
 {
 switch( $dataType )
 {
@@ -422,7 +422,7 @@ var $xf;
 var $fonts;
     var $dbglog;
 
-    function ExcelFileParser($logfile="",$level=ABC_NO_LOG) {
+    function __construct($logfile="",$level=ABC_NO_LOG) {
 $this->dbglog = &DebugOut::getWriterSingleton($logfile,"",$level);
         $this->dbglog->info("Logger started");
     }function populateFormat() {

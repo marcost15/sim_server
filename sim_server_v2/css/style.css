@@ -30,7 +30,7 @@ footer {
 }
 
 .content-table thead tr {
-  background-color: #FF004A;
+  background-color: #446E9B;
   color: #fff;
   text-align: left;
   font-weight: bold;
@@ -51,7 +51,7 @@ footer {
 }
 
 .content-table tbody tr:last-of-type {
-  border-bottom: solid 2px #ff004a;
+  border-bottom: solid 2px #446E9B;
 }
 
 .t-r {

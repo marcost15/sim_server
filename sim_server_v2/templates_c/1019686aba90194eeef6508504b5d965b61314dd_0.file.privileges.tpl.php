@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-26 23:13:37
+/* Smarty version 3.1.39, created on 2021-11-03 07:54:42
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/privileges.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6178c3e1000454_42203010',
+  'unifunc' => 'content_618278827f2cd0_38772655',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1019686aba90194eeef6508504b5d965b61314dd' => 
     array (
       0 => '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/privileges.tpl',
-      1 => 1635304402,
+      1 => 1635939995,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:pie.tpl' => 1,
   ),
 ),false)) {
-function content_6178c3e1000454_42203010 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618278827f2cd0_38772655 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:cabecera.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <header id="header" class="">
@@ -34,6 +34,7 @@ $_smarty_tpl->_subTemplateRender("file:cabecera.tpl", $_smarty_tpl->cache_id, $_
 	<div class="container">
 		<div class="row">
 			<div class="col">
+				<form action="privileges_proc.php" method="POST">
 <table class="content-table">
 	<thead>
 	<tr>
@@ -51,6 +52,13 @@ $_smarty_tpl->tpl_vars['nivel']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 	</tr>
 </thead>
+<tfoot>
+	<tr>
+		<td>
+			<button type="submit" class="btn btn-primary">Guardar</button>
+		</td>
+	</tr>
+</tfoot>
 <tbody>
 		<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['m']->value, 'modulo');
@@ -83,6 +91,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </tbody>
 </table>
+				</form>
 
 			</div>
 		</div>

@@ -160,6 +160,72 @@
                 "source": "https://github.com/twbs/icons/tree/v1.6.1"
             },
             "install-path": "../twbs/bootstrap-icons"
+        },
+        {
+            "name": "wenzhixin/bootstrap-table",
+            "version": "1.18.3",
+            "version_normalized": "1.18.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wenzhixin/bootstrap-table.git",
+                "reference": "645ded53716d99ca77017630668213f12742ebd5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wenzhixin/bootstrap-table/zipball/645ded53716d99ca77017630668213f12742ebd5",
+                "reference": "645ded53716d99ca77017630668213f12742ebd5",
+                "shasum": ""
+            },
+            "require": {
+                "twitter/bootstrap": ">=2.3.0"
+            },
+            "time": "2021-03-28T16:40:17+00:00",
+            "type": "component",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "wenzhixin2010",
+                    "email": "wenzhixin2010@gmail.com"
+                }
+            ],
+            "description": "An extended table to integration with some of the most widely used CSS frameworks. (Supports Bootstrap, Semantic UI, Bulma, Material Design, Foundation)",
+            "homepage": "https://github.com/wenzhixin/bootstrap-table",
+            "keywords": [
+                "CSS-Framework",
+                "bootstrap",
+                "bulma",
+                "checkbox",
+                "css",
+                "datatables",
+                "foundation",
+                "material",
+                "material-design",
+                "materialize",
+                "pagination",
+                "radio",
+                "semantic",
+                "semantic-ui",
+                "table"
+            ],
+            "support": {
+                "issues": "https://github.com/wenzhixin/bootstrap-table/issues",
+                "source": "https://github.com/wenzhixin/bootstrap-table/tree/1.18.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/wenzhixin",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/bootstrap-table",
+                    "type": "open_collective"
+                }
+            ],
+            "install-path": "../wenzhixin/bootstrap-table"
         }
     ],
     "dev": true,
