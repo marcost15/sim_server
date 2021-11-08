@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'f2cb9aff90a27948ff704c9cc2bdba9810e2dae4',
+        'reference' => '2f6a3ba38f36d480e356017db8dca3ccc7f04c4f',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,16 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'f2cb9aff90a27948ff704c9cc2bdba9810e2dae4',
+            'reference' => '2f6a3ba38f36d480e356017db8dca3ccc7f04c4f',
+            'dev_requirement' => false,
+        ),
+        'datatables/datatables' => array(
+            'pretty_version' => '1.10.21',
+            'version' => '1.10.21.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../datatables/datatables',
+            'aliases' => array(),
+            'reference' => '83e59694a105225ff889ddfa0d723a3ab24fda78',
             'dev_requirement' => false,
         ),
         'smarty/smarty' => array(
@@ -51,15 +60,6 @@
             'replaced' => array(
                 0 => 'v5.1.3',
             ),
-        ),
-        'wenzhixin/bootstrap-table' => array(
-            'pretty_version' => '1.18.3',
-            'version' => '1.18.3.0',
-            'type' => 'component',
-            'install_path' => __DIR__ . '/../wenzhixin/bootstrap-table',
-            'aliases' => array(),
-            'reference' => '645ded53716d99ca77017630668213f12742ebd5',
-            'dev_requirement' => false,
         ),
     ),
 );

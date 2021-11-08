@@ -3,12 +3,12 @@
 	<form class="form-signin" action="index_proc.php" method="post">
 		<img id="logo" class="logo" src="img/empresa/logo.svg" alt="{$name}">
 		<h1 class="h3 mb-3 font-weight-normal">{gt Login}</h1>
-
+{*
 		<label for="zone" class="sr-only">{_("Time Zone")}</label>
 		<select name="zone" id="zone"
 		class="form-control">
 			{html_options values=$zonas output=$zonas selected=$zona}
-		</select>
+		</select> *}
 		<label for="login" class="sr-only">{gt User}</label>
 		<input 	id="login" name="login"
 					class="form-control" placeholder="{gt User}"
