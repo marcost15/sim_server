@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-03 08:39:30
+/* Smarty version 3.1.39, created on 2021-11-09 10:12:55
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/menu_nav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618283029ce273_47311115',
+  'unifunc' => 'content_618a81e726e6b0_13934842',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618283029ce273_47311115 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618a81e726e6b0_13934842 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/arnoldobr/public_html/git/sim_server/sim_server_v2/vendor/smarty/smarty/libs/plugins/modifier.ico.php','function'=>'smarty_modifier_ico',),));
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">

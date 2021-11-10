@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-26 14:52:59
+/* Smarty version 3.1.39, created on 2021-11-09 10:08:47
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/cabeceraindex.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61784e8be8b090_53758224',
+  'unifunc' => 'content_618a80ef8446f6_64342133',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61784e8be8b090_53758224 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618a80ef8446f6_64342133 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 
 <html lang="es">
