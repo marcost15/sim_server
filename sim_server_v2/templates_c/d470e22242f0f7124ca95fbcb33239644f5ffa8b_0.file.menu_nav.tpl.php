@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-09 10:12:55
+/* Smarty version 3.1.39, created on 2021-11-16 11:28:32
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/menu_nav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618a81e726e6b0_13934842',
+  'unifunc' => 'content_6193ce20ebf805_88588184',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd470e22242f0f7124ca95fbcb33239644f5ffa8b' => 
     array (
       0 => '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/menu_nav.tpl',
-      1 => 1635943162,
+      1 => 1637075035,
       2 => 'file',
     ),
   ),
@@ -20,16 +20,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618a81e726e6b0_13934842 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6193ce20ebf805_88588184 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/arnoldobr/public_html/git/sim_server/sim_server_v2/vendor/smarty/smarty/libs/plugins/modifier.ico.php','function'=>'smarty_modifier_ico',),));
 ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:0">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="inicio.php">
-		<img src="./img/empresa/logo.svg" alt="" height="30" loading="lazy"></a>
+      <img src="./img/empresa/logo.svg" alt="" height="30" loading="lazy"></a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -37,7 +38,8 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/arnoldobr/public_html/
 &nbsp;<?=_('Home')?></a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowna" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowna" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             <?php echo smarty_modifier_ico("gear");?>
 &nbsp;<?=_('Configuration')?>
           </a>
@@ -51,7 +53,8 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/arnoldobr/public_html/
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownb" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownb" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             <?php echo smarty_modifier_ico("speedometer2");?>
 &nbsp;<?=_('Monitor')?>
           </a>
@@ -64,7 +67,8 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/arnoldobr/public_html/
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownc" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             <?php echo smarty_modifier_ico("server");?>
 &nbsp;<?=_('Data')?>
           </a>
@@ -75,7 +79,8 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/arnoldobr/public_html/
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownd" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownd" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             <?php echo smarty_modifier_ico("person");?>
 &nbsp;<?=_('User')?>
           </a>
@@ -91,9 +96,8 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/arnoldobr/public_html/
         </li>
       </ul>
     </div>
-	<p class="h4"><span class="badge badge-primary"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+    <p class="h4"><span class="badge badge-primary"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </span></p>
   </div>
-</nav>
-<?php }
+</nav><?php }
 }

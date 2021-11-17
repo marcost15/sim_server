@@ -15,6 +15,7 @@
 
 
 
+<div class="mitabla">
 
 <table class="content-table" id="tablacdr">
 	<thead>
@@ -127,6 +128,7 @@
 	</tr>
 </tbody>
 </table>
+</div>
 
 	</div>
 </div>

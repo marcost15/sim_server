@@ -1,17 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:0">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="inicio.php">
-		<img src="./img/empresa/logo.svg" alt="" height="30" loading="lazy"></a>
+      <img src="./img/empresa/logo.svg" alt="" height="30" loading="lazy"></a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="inicio.php">{"house"|ico}&nbsp;{gt Home}</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowna" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowna" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             {"gear"|ico}&nbsp;{gt Configuration}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdowna">
@@ -24,7 +26,8 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownb" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownb" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             {"speedometer2"|ico}&nbsp;{gt Monitor}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownb">
@@ -36,7 +39,8 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownc" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             {"server"|ico}&nbsp;{gt Data Manage}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownc">
@@ -46,7 +50,8 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownd" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownd" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             {"person"|ico}&nbsp;{gt User Manage}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownd">
@@ -60,6 +65,6 @@
         </li>
       </ul>
     </div>
-	<p class="h4"><span class="badge badge-primary">{$titulo}</span></p>
+    <p class="h4"><span class="badge badge-primary">{$titulo}</span></p>
   </div>
 </nav>
