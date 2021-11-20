@@ -15,5 +15,5 @@ session_start();
 require_once 'bd/bd.php';
 require_once 'libs/functions.php';
 require_once 'vendor/smarty/smarty/libs/Smarty.class.php';
-
+require_once 'vendor/fh/src/class.FormHandler.php';
 $s = new smarty;

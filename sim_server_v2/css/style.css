@@ -58,6 +58,17 @@ footer {
   text-align: right;
 }
 
+#frm01 {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#frm01 select,
+#frm01 input {
+  padding: 2px;
+}
+
 /*
  DataTables
  */
@@ -159,8 +170,12 @@ table.dataTable tbody td.dt-body-nowrap {
 /*
  * Table styles
  */
+div.mitabla {
+  max-width: 95vw;
+  margin: 10px auto;
+}
+
 table.dataTable {
-  max-width: 95%;
   margin: 0 auto;
   clear: both;
   border-collapse: separate;
@@ -168,15 +183,12 @@ table.dataTable {
 }
 
 /*
-     * Body styles
-     */
-
-/*
-         * Header and footer styles
-         */
+ * Header and footer styles
+*/
 table.dataTable thead th,
 table.dataTable tfoot th {
   font-weight: bold;
+  text-align: center;
 }
 
 table.dataTable thead th,
