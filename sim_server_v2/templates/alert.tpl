@@ -1,5 +1,5 @@
 {* Smarty *}
-{include file="cabecera.tpl"}
+{include file="cabeceraalert.tpl"}
 <header id="header" class="">
 	{include file="menu_nav.tpl" titulo="Alerta"}
 </header><!-- /header -->
@@ -8,8 +8,8 @@
 {* Comienzo ----------------------------------------- *}
 <div class="jumbotron">
     <p class="display-4">Alerta</p>
-    <div class="alert alert-danger">{$texto}</div>
-    <a href="{$destino}" class="btn btn-link">Aceptar</a>
+    <div class="alert alert-danger">{$text}</div>
+    <a href="{$target}" class="btn btn-link">Aceptar</a>
 </div>
 
 {* Final -------------------------------------------- *}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-23 17:11:54
-  from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/cabeceraindex.tpl' */
+/* Smarty version 3.1.39, created on 2021-11-23 17:27:52
+  from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/cabeceraalert.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619d591a7829a8_01678141',
+  'unifunc' => 'content_619d5cd870bb48_35654813',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '6c17540606ef74d50eed8fbbef44f96f5e208cee' => 
+    'ab504b7dbf7bb8fb367fe1c5afeb3eee04e5bbb8' => 
     array (
-      0 => '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/cabeceraindex.tpl',
-      1 => 1635274367,
+      0 => '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/cabeceraalert.tpl',
+      1 => 1637702858,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_619d591a7829a8_01678141 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619d5cd870bb48_35654813 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 
 <html lang="es">
@@ -30,6 +30,9 @@ function content_619d591a7829a8_01678141 (Smarty_Internal_Template $_smarty_tpl)
 		<meta name="description" content="<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
 ">
 		<meta name="author" content="">
+		<!-- meta http-equiv="refresh" content="5; url=<?php echo $_smarty_tpl->tpl_vars['target']->value;?>
+" -->
+
 		<!-- Favicons -->
 		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -41,6 +44,14 @@ function content_619d591a7829a8_01678141 (Smarty_Internal_Template $_smarty_tpl)
 		<meta name="theme-color" content="#563d7c">
 		<meta name="theme-color" content="#ffffff">
 		<title><?=_($_smarty_tpl->tpl_vars['name']->value)?></title>
-<!-- /cabeceraindex.tpl -->
+		<!-- link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" -->
+		<link rel="stylesheet" type="text/css" href="./css/personalizacion/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./vendor/twbs/bootstrap-icons/font/bootstrap-icons.css">
+		<link rel="stylesheet" type="text/css" href="./libs/DataTables/datatables.min.css">
+	   <link rel="stylesheet" href="css/style.css">
+      <?php echo (($tmp = @$_smarty_tpl->tpl_vars['cab']->value)===null||$tmp==='' ? '' : $tmp);?>
+
+	   </head>
+	<body>
 <?php }
 }

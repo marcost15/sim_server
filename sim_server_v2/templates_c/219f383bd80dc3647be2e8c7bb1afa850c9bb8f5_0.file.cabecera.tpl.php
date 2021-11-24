@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-09 10:08:47
+/* Smarty version 3.1.39, created on 2021-11-23 17:14:43
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/cabecera.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618a80ef7df7b9_50680180',
+  'unifunc' => 'content_619d59c34590f5_50387280',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:cabeceraindex.tpl' => 1,
   ),
 ),false)) {
-function content_618a80ef7df7b9_50680180 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619d59c34590f5_50387280 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:cabeceraindex.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 		<!-- link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" -->

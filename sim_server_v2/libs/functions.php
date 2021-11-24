@@ -1,5 +1,32 @@
 <?php
 
+/**
+ * return redirect script
+ *
+ * @param      string   $target  The page target
+ * @param      integer  $secs    The seconds
+ *
+ * @return     string    The script for redirect the page.
+ */
+function script_redirect($target, $secs){
+    return <<<LRDTAB
+<script>
+function redirect(){
+   window.location="{$target}";
+}
+document.write('---');
+setTimeout('redirect()',{$secs}*1000);
+</script>
+LRDTAB;
+}
+
+
+
+/**
+ * verify for privileges from user on Session
+ *
+ * @param      <type>  $modulo  The modulo
+ */
 function modulo($modulo){
     $referer = $_SESSION['referer']??'index.php';
     if(!bd_privileges($modulo)){saltar($referer);}

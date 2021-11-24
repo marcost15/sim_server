@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-09 14:38:09
+/* Smarty version 3.1.39, created on 2021-11-23 18:37:13
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/privileges.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618ac01117ebb2_54368360',
+  'unifunc' => 'content_619d6d1904f310_21033488',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1019686aba90194eeef6508504b5d965b61314dd' => 
     array (
       0 => '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/privileges.tpl',
-      1 => 1635939995,
+      1 => 1637707029,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:pie.tpl' => 1,
   ),
 ),false)) {
-function content_618ac01117ebb2_54368360 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619d6d1904f310_21033488 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:cabecera.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <header id="header" class="">
@@ -92,7 +92,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </tbody>
 </table>
 				</form>
-
 			</div>
 		</div>
 	</div>

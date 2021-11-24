@@ -35,7 +35,6 @@
 </tbody>
 </table>
 				</form>
-
 			</div>
 		</div>
 	</div>

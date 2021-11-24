@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-09 10:12:55
+/* Smarty version 3.1.39, created on 2021-11-23 17:11:54
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/pie.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618a81e76ebd09_58767908',
+  'unifunc' => 'content_619d591a8a0ba8_56828627',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618a81e76ebd09_58767908 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619d591a8a0ba8_56828627 (Smarty_Internal_Template $_smarty_tpl) {
 ?>		<footer class="footer text-center bg-dark">
 		  <div class="container">
 		    <span class="text-muted">:::...&copy; LRDTAB 2020...:::</span>

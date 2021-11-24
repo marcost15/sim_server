@@ -93,16 +93,48 @@ function bd_privileges_all(){
  * @return [none]    None
  */
 function bd_privileges_update($d){
-    $salida = [];
-    foreach ($d as $np => $value) {
-        $dd=explode('@',$np);
-        $salida[]="(NULL, '{$dd[0]}', '{$dd[1]}')";
+    $perm_act = sql2array("SELECT CONCAT(module,'@',permission) a FROM privileges");
+    $activos = [];
+    foreach ($perm_act as $value) {
+        $activos[$value['a']]='on';
     }
-    $sql = 'INSERT INTO privileges(id, module, permission) VALUES '
-        . join(', ', $salida)
-        . ';';
-    sql('TRUNCATE privileges;');
-    sql($sql);
+
+    $agregar = array_diff_assoc($d,$activos);
+    $eliminar = [];
+    foreach ($activos as $key=>$value) {
+        if (!array_key_exists($key, $d)) {
+            $eliminar[$key] = 'on';
+        }
+    }
+
+    if (count($agregar) > 0){
+        $salida = [];
+        foreach ($agregar as $np => $value) {
+            $dd=explode('@',$np);
+            $salida[]="(NULL, '{$dd[0]}', '{$dd[1]}')";
+        }
+        $sql_agregar =
+            'INSERT INTO privileges(id, module, permission) VALUES '
+            . join(', ', $salida)
+            . ';';
+    } else {
+        $sql_agregar = '';
+    }
+
+    $salida = [];
+    if (count($eliminar)>0) {
+        foreach ($eliminar as $np => $value) {
+            $dd=explode('@',$np);
+            $salida[]="DELETE FROM privileges WHERE module = '{$dd[0]}' AND permission = '{$dd[1]}'";
+        }
+    }
+
+    if ($sql_agregar!='') {
+        sql($sql_agregar);
+    }
+    foreach ($salida as $sql0) {
+        sql($sql0);
+    }
 }
 
 
