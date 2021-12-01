@@ -1,6 +1,25 @@
 <?php
 
 /**
+ * Devuelve los segundos convertidos en cadena
+ *
+ * @param int $t tiempo en segundos
+ * @return string Cadena de texto hms 
+ *  
+ *  Devuelve el tiempo en formato hms: 3h 5m 6s
+ */
+function second_to_time($t){
+    $h = $t / 3600;
+    $m = $t / 60 % 60;
+    $s = $t % 60;
+    $n = '';
+    $n .= $h ? "{$h}h " : '';
+    $n .= $m ? "{$m}m " : '';
+    $n .= "{$s}s ";
+    return $n;
+ }
+ 
+ /**
  * return redirect script
  *
  * @param      string   $target  The page target

@@ -14,6 +14,18 @@ if ($m->connect_errno) {
 $m->set_charset('utf8');
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /*********************
  users(
     id         (varchar(50)),
@@ -890,3 +902,33 @@ function bd_clientes_datos( $texto = null ) {
 }
 
 
+
+function bd_simcdr($type){
+    $ops['line'] = ['line', 'device_line', 'line_name'];
+    $ops['sim']  = ['sim',  'sim',         'sim_name'];
+
+    $sql = "select id, {$ops[$type][0]}_name as name from {$ops[$type][1]} order by {$ops[$type][2]}";
+    $opciones = sql2options($sql);
+    $opciones[0] = _('All');
+    ksort($opciones);
+    return $opciones;
+}
+
+
+function bd_call_record_datos ($type, $start_time, $end_time, $wh){
+    $sql="SELECT "
+            .$type."_name AS name,
+            SUM(duration) AS calltime,
+            COUNT(*) AS totalcallcount,
+            SUM(duration > 0) AS callcount,
+            AVG(IF(duration >0,duration,NULL)) acd
+        FROM
+            call_record
+        WHERE
+            dir=0
+            AND duration >= 0
+            AND time BETWEEN '$start_time' AND '$end_time'
+            $wh
+            GROUP BY ".$type."_name";
+            return sql2array($sql);
+}

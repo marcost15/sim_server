@@ -93,7 +93,14 @@ while($row=$db->fetch_array($query)) {
 $select.="</select>";
 
 
-$sql="SELECT ".$type."_name as name,sum(duration) as calltime,count(id) as callcount from call_record where dir=0 and duration>0 and time>'$start_time' and time<'$end_time' $wh group by ".$type."_name";
+$sql="SELECT "
+		.$type."_name as name,
+		sum(duration) as calltime,
+		count(id) as callcount
+	FROM call_record
+	WHERE
+		dir=0 AND duration>0 AND time>'$start_time' AND time<'$end_time' $wh group by ".$type."_name";
+
 $query=$db->query($sql);
 while($row=$db->fetch_array($query)){
 	$calltime+=$row[1];
