@@ -27,6 +27,45 @@ $m->set_charset('utf8');
     )
  ************************/
 
+
+/**
+ * Devuelve un array con los datos del usuario
+ * 
+ * @param  [string] $login [Login.]
+ * @return [array]        [Datos del usuario]
+ */
+function bd_users_datos($login = null) {
+    $and = $login?"AND a.id = '{$login}'":'';
+    vq($and);
+    $sql="
+        SELECT 
+            id, name, permission, info
+        FROM 
+            users
+        WHERE 
+            id LIKE '{$login}'
+        ";
+    $salida = sql2row($sql);
+    return $salida;
+}
+
+
+SELECT 
+a.id, a.name, a.permission, a.info, GROUP_CONCAT(DISTINCT b.module) 
+FROM users a, privileges b
+WHERE
+a.permission = b.permission
+GROUP BY a.id;
+
+SELECT 
+a.id, a.name, a.permission, a.info, GROUP_CONCAT(DISTINCT b.module) 
+FROM users a, privileges b
+WHERE
+a.permission = b.permission
+AND a.id = 'admin'
+GROUP BY a.id;
+
+
 /**
  * Actualiza el hash del usuario
  *
@@ -176,21 +215,6 @@ function bd_privileges_update($d){
 
 
 
-/**
- * Devuelve un array con los datos del usuario
- * @param  [string] $login [Login.]
- * @return [array]        [Datos del usuario]
- */
-function bd_users_datos($login) {
-    $sql="
-        SELECT id, name, permission, info email
-        FROM users
-        WHERE id LIKE '{$login}'
-        #    or email LIKE '{$login}'"
-        ;
-    $salida = sql2row($sql);
-    return $salida;
-}
 
 function bd_usuario_datos( $texto = null ) {
   $where = '';

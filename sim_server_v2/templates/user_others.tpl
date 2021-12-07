@@ -3,8 +3,6 @@
     {include file="menu_nav.tpl"}
 </header><!-- /header -->
 <main>
-
-
     <div class="row">
         <div class="col">
             <div class="mitabla">
