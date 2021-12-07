@@ -17,15 +17,6 @@ $m->set_charset('utf8');
 
 
 
-
-
-
-
-
-
-
-
-
 /*********************
  users(
     id         (varchar(50)),
@@ -37,10 +28,31 @@ $m->set_charset('utf8');
  ************************/
 
 /**
+ * Actualiza el hash del usuario
+ *
+ * @param array $d Array con hash, remark y user
+ * @return bool true si actualiza correctamente. false en otro caso.
+ */
+function bd_users_update_password($d){
+    $sql = "
+        UPDATE 
+            users
+        SET 
+            password = '{$d['hash']}',
+            info = '{$d['remark']}'
+        WHERE
+            id = '{$d['user']}' 
+    ";
+
+    return sql($sql);
+}
+
+
+
+/**
  * Verifica si el usuario logueado tiene acceso al módulo.
  *
  * @param      string  $modulo  Módulo al que se quiere acceder
- *
  * @return     bool    (true si tiene acceso, false en cualquier otro caso)
  */
 function bd_privileges($modulo){
@@ -809,19 +821,6 @@ function bd_users_modificar($usuario)
 }
 
 
-function bd_users_modificar_clave($d)
-{
-    $id = $d[0];
-    $hash = $d[1];
-    $sql = "
-        UPDATE users SET
-            clave = '{$hash}'
-        WHERE
-            id = '{$id}'
-    ";
-    sql($sql);
-    return $id;
-}
 
 function bd_usuario_existe($id){
        if (sql2value("SELECT COUNT(*) FROM users WHERE id LIKE '{$id}';;") > 0) {

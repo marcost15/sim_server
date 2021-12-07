@@ -3,6 +3,9 @@ define("OK", true);
 require_once('../inc/conn.inc.php');
 session_start();
 
+
+print_r($_REQUEST);exit;
+
 $FoundErr=false;
 $username=str_replace("'","",trim($_POST['username']));
 $password=str_replace("'","",trim($_POST['password']));

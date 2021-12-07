@@ -2,11 +2,15 @@
 define("OK", true);
 require_once('inc/conn.inc.php');
 session_start();
-
 $lan=$_POST['lan'];
 $FoundErr=false;
 $username=str_replace("'","",trim($_POST['username']));
 $password=str_replace("'","",trim($_POST['password']));
+
+
+$password=md5(md5($password.'dbl').'yzm');
+//echo $password;exit;
+
 
 if ($username==''){
 	$FoundErr=true;
@@ -17,9 +21,11 @@ if ($password==''){
 	$ErrMsg=$ErrMsg."<br><li>没有输入密码</li>";
 }
 if($FoundErr!=true){
-	$password=md5(md5($password.'dbl').'yzm');
+		
 	//echo "SELECT id,permissions FROM user WHERE name='$username' and password='$password' ";
-	$query=$db->query("SELECT id,permissions FROM user WHERE name='$username' and password='$password' ");
+	$query=$db->query("SELECT id,permissions FROM user WHERE name='$username' 
+/*	and password='$password' */
+	");
 	$rs=$db->fetch_array($query);
 	$adminId=$rs[0];
 	$usertype=$rs['permissions'];
