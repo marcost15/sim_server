@@ -556,3 +556,7 @@ function vq($a = NULL){
    new dBug($a);
    die(' -----------LRDTAB.');
 }
+
+function pp(){
+	v(debug_backtrace());
+}

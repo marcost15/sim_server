@@ -1,9 +1,10 @@
 ;<?php die()?>
+debug       = true
 
 timezone    = 'America/Caracas'
-locale      = 'es_ES'
-name        = Sim Server
-sesion_name = uldlmdcnnqa
+locale      = 'es_VE'
+name        = SimServer
+sesion_name = euldlmdcnnqa
 bd          = simserver
 bd_login    = simserver
 bd_pass     = simserver

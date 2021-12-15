@@ -19,6 +19,43 @@ footer {
     height: var(--h-footer);
 }
 
+
+label {
+    font-weight: bolder;
+}
+
+label::after {
+    content: " ";
+}
+
+.lrtooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.lrtooltip .lrtooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 120%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.lrtooltip:hover .lrtooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
 .navbar {
     margin-bottom: 5px;
 }
@@ -98,13 +135,6 @@ form {
     margin-bottom: 0;
 }
 
-label {
-    font-weight: bolder;
-}
-
-label::after {
-    content: " ";
-}
 
 /*
  DataTables
@@ -237,7 +267,7 @@ table.dataTable tfoot th:last-of-type {
 table.dataTable thead th,
 table.dataTable thead td {
     padding: 5px;
-    border-bot tom: 2px solid #446e9b;
+    border-bottom: 2px solid #446e9b;
 }
 
 table.dataTable thead th:active,

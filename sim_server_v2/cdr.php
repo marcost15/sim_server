@@ -76,7 +76,7 @@ $frm->DateTimeLocalField(
 	'end_date'
 );
 
-$frm->submitButton('View', 'submit');
+$frm->submitButton(_('View'), 'submit','btn btn-primary');
 
 $today = date('Y-m-d');
 $pie =
