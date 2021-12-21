@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-12-14 20:26:16
+/* Smarty version 3.1.39, created on 2021-12-21 11:19:00
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/user_others.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61b9362883f993_15273369',
+  'unifunc' => 'content_61c1f0649795a8_49918346',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1726173109d31a15cda05050bde13a2dd2828fd1' => 
     array (
       0 => '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/user_others.tpl',
-      1 => 1639527973,
+      1 => 1640099929,
       2 => 'file',
     ),
   ),
@@ -23,13 +23,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:pie.tpl' => 1,
   ),
 ),false)) {
-function content_61b9362883f993_15273369 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61c1f0649795a8_49918346 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/arnoldobr/public_html/git/sim_server/sim_server_v2/vendor/smarty/smarty/libs/plugins/modifier.ico.php','function'=>'smarty_modifier_ico',),));
 $_smarty_tpl->_subTemplateRender("file:cabecera.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <header id="header" class="">
     <?php $_smarty_tpl->_subTemplateRender("file:menu_nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" href="user_others.php"><?=_('Refresh')?></a></li>
+        <li class="nav-item"><a class="nav-link" href="privileges.php"><?=_('Privileges')?></a></li>
+    </ul>
 </header><!-- /header -->
 <main>
     <div class="row">
@@ -81,9 +85,14 @@ $__foreach_u_0_saved = $_smarty_tpl->tpl_vars['u'];
                             </td>
                             <td><?php echo $_smarty_tpl->tpl_vars['u']->value['info'];?>
 </td>
-                            <td><a class="btn btn-outline-warning btn-sm" href=""><?php echo smarty_modifier_ico('pencil-square');?>
+                            <td><a class="btn btn-outline-warning btn-sm" href="user_password.php?u=<?php echo $_smarty_tpl->tpl_vars['u']->value['id'];?>
+"><?php echo smarty_modifier_ico('key');?>
+&nbsp;<?=_("Password")?></a>
+                                <a class="btn btn-outline-warning btn-sm" href="user_modify.php?u=<?php echo $_smarty_tpl->tpl_vars['u']->value['id'];?>
+"><?php echo smarty_modifier_ico('pencil-square');?>
 &nbsp;<?=_("Modify")?></a>
-                                <a class="btn  btn-outline-warning btn-sm" href=""><?php echo smarty_modifier_ico('x-square');?>
+                                <a class="btn  btn-outline-warning btn-sm" href="user_delete.php?u=<?php echo $_smarty_tpl->tpl_vars['u']->value['id'];?>
+"><?php echo smarty_modifier_ico('x-square');?>
 &nbsp;<?=_("Delete")?></a>
                             </td>
                         </tr>

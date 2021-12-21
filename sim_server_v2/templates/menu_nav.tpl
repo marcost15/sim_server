@@ -45,15 +45,8 @@
                         <li><a class="dropdown-item" href="datarestore.php">{gt "Data Import"}</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownd" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {"person"|ico}&nbsp;{gt 'User Manage'}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownd">
-                        <li><a class="dropdown-item" href="user_password.php">{gt 'Change Password'}</a></li>
-                        <li><a class="dropdown-item" href="user_others.php">{gt 'Manage Other'}</a></li>
-                        <li><a class="dropdown-item" href="privileges.php">{gt 'Privileges'}</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="user_others.php">{"person"|ico}&nbsp;{gt 'Users'}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">{"door-open"|ico}&nbsp;{gt Exit}</a>

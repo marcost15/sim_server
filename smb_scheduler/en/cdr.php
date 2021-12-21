@@ -114,7 +114,11 @@ $calltime_s=second_to_time($calltime);
 if($callcount)$acd=round($calltime/$callcount);
 $acd_s=second_to_time($acd);
 
-$sql="SELECT ".$type."_name as name,count(id) from call_record where dir=0 and duration>=0 and time>'$start_time' and time<'$end_time' $wh group by ".$type."_name";
+$sql="SELECT "
+		.$type."_name as name,
+		count(id)
+	FROM call_record
+	WHERE dir=0 and duration>=0 and time>'$start_time' and time<'$end_time' $wh group by ".$type."_name";
 
 $query=$db->query($sql);
 while($row=$db->fetch_array($query)){

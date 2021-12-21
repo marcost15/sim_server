@@ -44,7 +44,7 @@ LRDTAB;
 /**
  * verify for privileges from user on Session
  *
- * @param      <type>  $modulo  The modulo
+ * @param string  $modulo  The modulo
  */
 function modulo($modulo){
     $referer = $_SESSION['referer']??'index.php';
@@ -97,8 +97,8 @@ function generate_timezone_list(){
 
 /**
  * Carga la página dada
- * @param  [type] $url Destiny url
- * @return [none]
+ * @param  string $url url de destino
+ * @return none
  */
 function saltar($pagina){
     $_SESSION['referer'] = $_SERVER['SCRIPT_NAME'];

@@ -54,25 +54,7 @@ function bd_users_datos($login = null) {
     return $salida;
 }
 
-/**
- * Actualiza el hash del usuario
- *
- * @param array $d Array con hash, remark y user
- * @return bool true si actualiza correctamente. false en otro caso.
- */
-function bd_users_update_password($d){
-    $sql = "
-        UPDATE 
-            users
-        SET 
-            password = '{$d['hash']}',
-            info = '{$d['remark']}'
-        WHERE
-            id = '{$d['user']}' 
-    ";
 
-    return sql($sql);
-}
 
 
 
@@ -107,7 +89,7 @@ function bd_privileges($modulo){
 /**
  * Devuelve la lista de privilegios disponibles para el sistema
  *
- * @return [array] Array con los permisos que tiene el sistema
+ * @return array Array con los permisos que tiene el sistema
  *
  */
 function bd_users_privileges(){
@@ -403,18 +385,6 @@ function sql2value($sql) {
     }
 }
 
-function sql2options($sql) {
-    global $m;
-    if ( !$res=$m->query($sql) ) {
-      echo sqlerror( $sql,$m->error );
-      exit;
-    }
-    $r=array();
-    while( $l=$res->fetch_array(MYSQLI_NUM) ) {
-       $r[$l[0]]=$l[1];;
-    }
-    return $r;
-}
 
 function sql2ids($sql) {
     global $m;
@@ -914,32 +884,5 @@ function bd_clientes_datos( $texto = null ) {
 
 
 
-function bd_simcdr($type){
-    $ops['line'] = ['line', 'device_line', 'line_name'];
-    $ops['sim']  = ['sim',  'sim',         'sim_name'];
-
-    $sql = "select id, {$ops[$type][0]}_name as name from {$ops[$type][1]} order by {$ops[$type][2]}";
-    $opciones = sql2options($sql);
-    $opciones[0] = _('All');
-    ksort($opciones);
-    return $opciones;
-}
 
 
-function bd_call_record_datos ($type, $start_time, $end_time, $wh){
-    $sql="SELECT "
-            .$type."_name AS name,
-            SUM(duration) AS calltime,
-            COUNT(*) AS totalcallcount,
-            SUM(duration > 0) AS callcount,
-            AVG(IF(duration >0,duration,NULL)) acd
-        FROM
-            call_record
-        WHERE
-            dir=0
-            AND duration >= 0
-            AND time BETWEEN '$start_time' AND '$end_time'
-            $wh
-            GROUP BY ".$type."_name";
-            return sql2array($sql);
-}

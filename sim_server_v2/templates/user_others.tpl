@@ -1,6 +1,10 @@
 {include file="cabecera.tpl"}
 <header id="header" class="">
     {include file="menu_nav.tpl"}
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" href="user_others.php">{gt 'Refresh'}</a></li>
+        <li class="nav-item"><a class="nav-link" href="privileges.php">{gt 'Privileges'}</a></li>
+    </ul>
 </header><!-- /header -->
 <main>
     <div class="row">
@@ -14,7 +18,7 @@
                             <th>{gt 'Name'}</th>
                             <th>{gt 'Level'}</th>
                             <th>{gt 'Remark'}</th>
-                            <th><a href="user_add.php" class="btn btn-warning text-break">{'plus-square'|ico}&nbsp;{gt 'Add'}</a></th>
+                            <th>{if $}<a href="user_add.php" class="btn btn-warning text-break">{'plus-square'|ico}&nbsp;{gt 'Add'}</a></th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -37,8 +41,9 @@
                                 <div class="lrtooltip">{$u.permission} <span class="lrtooltiptext">{$u.module}</span></div>
                             </td>
                             <td>{$u.info}</td>
-                            <td><a class="btn btn-outline-warning btn-sm" href="">{'pencil-square'|ico}&nbsp;{gt "Modify"}</a>
-                                <a class="btn  btn-outline-warning btn-sm" href="">{'x-square'|ico}&nbsp;{gt "Delete"}</a>
+                            <td><a class="btn btn-outline-warning btn-sm" href="user_password.php?u={$u.id}">{'key'|ico}&nbsp;{gt "Password"}</a>
+                                <a class="btn btn-outline-warning btn-sm" href="user_modify.php?u={$u.id}">{'pencil-square'|ico}&nbsp;{gt "Modify"}</a>
+                                <a class="btn  btn-outline-warning btn-sm" href="user_delete.php?u={$u.id}">{'x-square'|ico}&nbsp;{gt "Delete"}</a>
                             </td>
                         </tr>
                         {/foreach}

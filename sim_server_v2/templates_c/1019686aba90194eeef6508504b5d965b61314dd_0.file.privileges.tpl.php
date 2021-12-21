@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-12-01 11:19:23
+/* Smarty version 3.1.39, created on 2021-12-21 11:19:02
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/privileges.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61a7927b933243_27805420',
+  'unifunc' => 'content_61c1f0668c6e80_96796740',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1019686aba90194eeef6508504b5d965b61314dd' => 
     array (
       0 => '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/privileges.tpl',
-      1 => 1638371961,
+      1 => 1640099938,
       2 => 'file',
     ),
   ),
@@ -23,12 +23,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:pie.tpl' => 1,
   ),
 ),false)) {
-function content_61a7927b933243_27805420 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61c1f0668c6e80_96796740 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:cabecera.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <header id="header" class="">
     <?php $_smarty_tpl->_subTemplateRender("file:menu_nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link" href="user_others.php"><?=_('Refresh')?></a></li>
+        <li class="nav-item"><a class="nav-link active" href="privileges.php"><?=_('Privileges')?></a></li>
+    </ul>
 </header><!-- /header -->
 <main>
     <div class="container">

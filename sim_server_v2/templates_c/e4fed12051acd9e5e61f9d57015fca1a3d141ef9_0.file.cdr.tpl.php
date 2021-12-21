@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-12-01 02:53:07
+/* Smarty version 3.1.39, created on 2021-12-21 11:12:08
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/cdr.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61a71bd30e9cf6_81654485',
+  'unifunc' => 'content_61c1eec81d01e6_30218646',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:pie.tpl' => 1,
   ),
 ),false)) {
-function content_61a71bd30e9cf6_81654485 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61c1eec81d01e6_30218646 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:cabecera.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <header id="header" class="">

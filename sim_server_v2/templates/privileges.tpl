@@ -1,6 +1,10 @@
 {include file="cabecera.tpl"}
 <header id="header" class="">
     {include file="menu_nav.tpl"}
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link" href="user_others.php">{gt 'Refresh'}</a></li>
+        <li class="nav-item"><a class="nav-link active" href="privileges.php">{gt 'Privileges'}</a></li>
+    </ul>
 </header><!-- /header -->
 <main>
     <div class="container">

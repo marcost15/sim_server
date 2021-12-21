@@ -1,5 +1,6 @@
 <?php
-$locale = $_GET['locale']??"en_US";
+//$locale = $_GET['locale']??"en_US";
+$locale = $CFG['locale'];
 putenv("LC_ALL=" . $locale);
 setlocale(LC_ALL, $locale);
 $domain = "messages";

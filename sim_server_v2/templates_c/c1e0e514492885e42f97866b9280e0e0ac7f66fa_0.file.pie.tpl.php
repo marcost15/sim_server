@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-12-10 22:23:28
+/* Smarty version 3.1.39, created on 2021-12-21 09:39:24
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/pie.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61b40ba0a26438_72000456',
+  'unifunc' => 'content_61c1d90c468337_96500241',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61b40ba0a26438_72000456 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61c1d90c468337_96500241 (Smarty_Internal_Template $_smarty_tpl) {
 ?><footer class="footer text-center bg-dark">
     <div class="container">
         <span class="text-muted">:::... <?php echo (($tmp = @$_smarty_tpl->tpl_vars['pag']->value)===null||$tmp==='' ? "&copy; LRDTAB 2020" : $tmp);?>
