@@ -3,7 +3,7 @@
     {include file="menu_nav.tpl"}
     <ul class="nav nav-tabs">
         <li class="nav-item"><a class="nav-link active" href="user_others.php">{gt 'Refresh'}</a></li>
-        <li class="nav-item"><a class="nav-link" href="privileges.php">{gt 'Privileges'}</a></li>
+        {if $smarty.session.usuario.permission=="ADMIN"}<li class="nav-item"><a class="nav-link" href="privileges.php">{gt 'Privileges'}</a></li>{/if}
     </ul>
 </header><!-- /header -->
 <main>
@@ -18,7 +18,7 @@
                             <th>{gt 'Name'}</th>
                             <th>{gt 'Level'}</th>
                             <th>{gt 'Remark'}</th>
-                            <th>{if $}<a href="user_add.php" class="btn btn-warning text-break">{'plus-square'|ico}&nbsp;{gt 'Add'}</a></th>
+                            <th>{if $smarty.session.usuario.permission=="ADMIN"}<a href="user_add.php" class="btn btn-warning text-break">{'plus-square'|ico}&nbsp;{gt 'Add'}</a>{/if}</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -43,7 +43,7 @@
                             <td>{$u.info}</td>
                             <td><a class="btn btn-outline-warning btn-sm" href="user_password.php?u={$u.id}">{'key'|ico}&nbsp;{gt "Password"}</a>
                                 <a class="btn btn-outline-warning btn-sm" href="user_modify.php?u={$u.id}">{'pencil-square'|ico}&nbsp;{gt "Modify"}</a>
-                                <a class="btn  btn-outline-warning btn-sm" href="user_delete.php?u={$u.id}">{'x-square'|ico}&nbsp;{gt "Delete"}</a>
+                                {if $smarty.session.usuario.permission=="ADMIN"}<a class="btn  btn-outline-warning btn-sm" href="user_delete.php?u={$u.id}" onclick="return confirm_delete()">{'x-square'|ico}&nbsp;{gt "Delete"}</a>{/if}
                             </td>
                         </tr>
                         {/foreach}

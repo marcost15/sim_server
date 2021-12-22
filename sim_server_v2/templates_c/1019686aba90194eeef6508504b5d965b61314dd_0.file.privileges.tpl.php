@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-12-21 11:19:02
+/* Smarty version 4.0.0, created on 2021-12-21 13:55:55
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/privileges.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.39',
-  'unifunc' => 'content_61c1f0668c6e80_96796740',
+  'version' => '4.0.0',
+  'unifunc' => 'content_61c2152b8332f3_03920867',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:pie.tpl' => 1,
   ),
 ),false)) {
-function content_61c1f0668c6e80_96796740 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61c2152b8332f3_03920867 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:cabecera.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <header id="header" class="">
@@ -89,7 +89,7 @@ $_smarty_tpl->tpl_vars['nivel']->do_else = false;
 @<?php echo $_smarty_tpl->tpl_vars['nivel']->value;?>
 " id="<?php echo $_smarty_tpl->tpl_vars['modulo']->value;?>
 @<?php echo $_smarty_tpl->tpl_vars['nivel']->value;?>
-" <?php echo (($tmp = @$_smarty_tpl->tpl_vars['t_p']->value[$_smarty_tpl->tpl_vars['modulo']->value][$_smarty_tpl->tpl_vars['nivel']->value])===null||$tmp==='' ? '' : $tmp);?>
+" <?php echo (($tmp = $_smarty_tpl->tpl_vars['t_p']->value[$_smarty_tpl->tpl_vars['modulo']->value][$_smarty_tpl->tpl_vars['nivel']->value] ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
 ></td>
                                 <?php
 }

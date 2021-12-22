@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-12-21 10:22:21
+/* Smarty version 4.0.0, created on 2021-12-21 16:14:15
   from '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/user_password.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.39',
-  'unifunc' => 'content_61c1e31d649960_41745188',
+  'version' => '4.0.0',
+  'unifunc' => 'content_61c2359751a928_41870863',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0be0d93c1f1a800e5a72825381fa491c1bd49be5' => 
     array (
       0 => '/home/arnoldobr/public_html/git/sim_server/sim_server_v2/templates/user_password.tpl',
-      1 => 1639530154,
+      1 => 1640117652,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:pie.tpl' => 1,
   ),
 ),false)) {
-function content_61c1e31d649960_41745188 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61c2359751a928_41870863 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:cabecera.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <header id="header" class="">
@@ -31,8 +31,9 @@ $_smarty_tpl->_subTemplateRender("file:cabecera.tpl", $_smarty_tpl->cache_id, $_
 ?>
     <ul class="nav nav-tabs">
         <li class="nav-item"><a class="nav-link active" href="user_password.php?"><?=_('Modify myself')?></a></li>
-        <li class="nav-item"><a class="nav-link" href="user_add.php"><?=_('Add administrator')?></a></li>
-        <li class="nav-item"><a class="nav-link" href="user_others.php?"><?=_('Modify others')?></a></li>
+        <?php if ($_SESSION['usuario']['permission'] == "ADMIN") {?>
+            <li class="nav-item"><a class="nav-link" href="user_others.php?"><?=_('Modify others')?></a></li>
+        <?php }?>
     </ul>
 
 </header><!-- /header -->

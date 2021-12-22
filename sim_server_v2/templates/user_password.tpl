@@ -3,8 +3,9 @@
     {include file="menu_nav.tpl"}
     <ul class="nav nav-tabs">
         <li class="nav-item"><a class="nav-link active" href="user_password.php?">{gt 'Modify myself'}</a></li>
-        <li class="nav-item"><a class="nav-link" href="user_add.php">{gt 'Add administrator'}</a></li>
-        <li class="nav-item"><a class="nav-link" href="user_others.php?">{gt 'Modify others'}</a></li>
+        {if $smarty.session.usuario.permission=="ADMIN"}
+            <li class="nav-item"><a class="nav-link" href="user_others.php?">{gt 'Modify others'}</a></li>
+        {/if}
     </ul>
 
 </header><!-- /header -->

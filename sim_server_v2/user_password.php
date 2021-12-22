@@ -5,16 +5,14 @@ modulo("USER");
 // si el nivel es admin puede cambiar cualquier contraseña
 // de lo contrario solo puede cambiar la suya.
 
-function update_password($d, &$frm)
-{
-    $d['user'] = $_SESSION['usuario']['id'];
-    $d['hash'] = password_hash($d['new_passwd'], PASSWORD_DEFAULT);
-    unset($d['new_passwd']);
-    unset($d['confirm_passwd']);
-    bd_users_update_password($d);
-    saltar('alert.php?texto=OK&destino=user_password.php');
+function update_password($d, &$frm) {
+	$d['user'] = $_REQUEST['u'];
+	$d['hash'] = password_hash($d['new_passwd'], PASSWORD_DEFAULT);
+	unset($d['new_passwd']);
+	unset($d['confirm_passwd']);
+	bd_users_update_password($d);
+	saltar('alert.php?texto=OK&destino=user_others.php');
 }
-
 
 $frm = new FormHandler('frm02');
 
@@ -24,7 +22,7 @@ $frm->passField(_('Confirm Password'), 'confirm_passwd', '', '', '', 'class="for
 $frm->checkPassword('new_passwd', 'confirm_passwd', 'Error');
 $frm->textField(_('Remark'), 'remark', '', '', '', 'class="form-control"');
 $frm->submitButton(_('Save'), 'save', 'class="btn btn-primary"');
-$frm->setValue('name', $_SESSION['usuario']['name']);
+$frm->setValue('name', $_REQUEST['u']);
 $frm->onCorrect('update_password');
 
 $s->assign('frm', $frm->flush(true));

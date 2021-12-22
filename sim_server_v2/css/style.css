@@ -24,6 +24,7 @@ label {
     font-weight: bolder;
 }
 
+
 label::after {
     content: " ";
 }
@@ -131,7 +132,7 @@ form {
 }
 
 #frm01 label {
-    padding: 0 5px 0 15px;
+    padding: 5px 5px 0 15px;
     margin-bottom: 0;
 }
 

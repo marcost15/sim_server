@@ -4,31 +4,32 @@ modulo("MONITOR");
 $s->assign('titulo', _('CDR'));
 $s->assign('name', _('CDR'));
 
-
 ///////// cdr viejo ////////
-function my_cmp($a, $b)
-{
+function my_cmp($a, $b) {
 	global $order_type;
 	global $order_key;
 
-	if ($a[$order_key] == $b[$order_key]) return 0;
-	if ($order_type == 'desc') return ($a[$order_key] < $b[$order_key]) ? 1 : -1;
+	if ($a[$order_key] == $b[$order_key]) {
+		return 0;
+	}
+
+	if ($order_type == 'desc') {
+		return ($a[$order_key] < $b[$order_key]) ? 1 : -1;
+	}
+
 	return ($a[$order_key] > $b[$order_key]) ? 1 : -1;
 }
-
 
 $_REQUEST['order'] = $_REQUEST['order'] ?? 'asc';
 $order_type2 = ($_REQUEST['order'] == 'desc') ? 'asc' : 'desc';
 $_REQUEST['order_key'] = $_REQUEST['order_key'] ?? 'name';
 
 $order_type = $_REQUEST['order'];
-$order_key  = $_REQUEST['order'];
-
+$order_key = $_REQUEST['order'];
 
 $_REQUEST['start_time'] = $_REQUEST['start_time'] ?? date("Y-m-d 00:00");
 $_REQUEST['end_time'] = $_REQUEST['end_time'] ?? date("Y-m-d H:i");
 $_REQUEST['submit_value'] = $_REQUEST['submit_value'] ?? _('View');
-
 
 if ($_REQUEST['submit_value'] == _('1 Hour')) {
 	$start_time = date("Y-m-d H:i", time() - 3600);
@@ -54,8 +55,6 @@ $wh = $name ? $wh = "and " . $type . "_name=$name" : '';
 
 $opciones = bd_simcdr($type);
 
-
-
 $frm = new FormHandler('frm01');
 $frm->SelectField(
 	_('sim'),
@@ -63,8 +62,9 @@ $frm->SelectField(
 	$opciones,
 	FH_NOT_EMPTY,
 	true,
+	false,
 	null,
-	''
+	'style="height:34px;"'
 );
 
 $frm->DateTimeLocalField(
@@ -76,7 +76,7 @@ $frm->DateTimeLocalField(
 	'end_date'
 );
 
-$frm->submitButton(_('View'), 'submit','btn btn-primary');
+$frm->submitButton(_('View'), 'submit', 'btn btn-primary');
 
 $today = date('Y-m-d');
 $pie =

@@ -1,2 +1,7 @@
 #Archivos en carpeta templates_c
-*.tpl.php
+./sim_server_v2/templates_c/*.tpl.php
+./sim_server_v2/vendor/*
+./sim_server_v2/.phpintel/*
+./sim_server_v2/.settings/*
+./sim_server_v2/.vscode/*
+
