@@ -15,7 +15,13 @@ $frm = new FormHandler('frm02');
 $frm->textField(_('Login Name'), 'login0', '', '', '', 'readonly class="form-control"');
 $frm->textField(_('Name'), 'name', '', '', '', 'class="form-control"');
 $frm->textField(_('Remark'), 'remark', '', '', '', 'class="form-control"');
-$frm->selectField('Level', 'level', bd_users_privileges(), '', false);
+
+if ($_SESSION['usuario']['permission'] === 'ADMIN') {
+	$frm->selectField(_('Level'), 'level', bd_users_privileges(), '', false, false, '1', 'class="form-control"');
+} else {
+	$frm->textField(_('Level'), 'level', '', '', '', 'readonly class="form-control"');
+}
+
 $frm->submitButton(_('Save'), 'save', 'class="btn btn-primary"');
 $frm->setValue('login0', $d['id']);
 $frm->setValue('name', $d['name']);

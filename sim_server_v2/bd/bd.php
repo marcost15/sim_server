@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Conexión
  */
@@ -267,7 +266,6 @@ function bd_users_update_password($d) {
         WHERE
             id = '{$d['user']}'
     ";
-	vq($sql);
 	return sql($sql);
 }
 
